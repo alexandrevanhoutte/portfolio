@@ -1,4 +1,5 @@
-import Image from "next/image";
+
+import { WaveClipPath } from "@/svg/waveClipPath";
 import styles from "./header.module.css";
 import { Titillium_Web } from 'next/font/google'
 
@@ -9,7 +10,9 @@ const titilliumWeb = Titillium_Web({
 
 export default function Header() {
   return (
-    <header className={`${titilliumWeb.className} ${styles.header}`}>
+
+    <div className={`${titilliumWeb.className} ${styles.header}`}>
+      <WaveClipPath />
       <div className={styles.heading}>
         Portfolio
       </div>
@@ -17,6 +20,6 @@ export default function Header() {
         <div className={styles.headingSub1}>Alexandre Vanhoutte</div>
         <div className={styles.headingSub2}>BackEnd Developer</div>
       </div>
-    </header>
+    </div>
   );
 }
