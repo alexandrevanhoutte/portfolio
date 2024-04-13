@@ -5,16 +5,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-transform: uppercase;
+    transition: font-size 0.2s;
+
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: #eee;
+      fill: currentColor;
+    }
+
+    &:hover {
+      font-size: 1.1rem;
+    }
   }
 
   .icon {
     margin-right: 0.8rem;
-  }
-
-  .link:link,
-  .link:visited {
-    text-decoration: none;
-    color: #eee;
-    fill: currentColor;
   }
 }
