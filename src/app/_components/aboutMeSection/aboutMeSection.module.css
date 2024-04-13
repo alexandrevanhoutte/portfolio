@@ -1,18 +1,16 @@
 .aboutMe {
-  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: 3rem 3rem auto;
 
-  
   .title {
     font-weight: 600;
     font-size: 5rem;
-    color: #2E4959;
+    color: #2e4959;
   }
-  
+
   .content {
     font-size: 3rem;
     display: flex;

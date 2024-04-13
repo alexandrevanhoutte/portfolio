@@ -1,28 +1,27 @@
 .header {
-  background-image: linear-gradient(to right bottom, #6393A6cc, #F2F2F2cc), url('/header-background.jpg');
+  background-image: linear-gradient(to right bottom, #6393a6cc, #f2f2f2cc),
+    url("/header-background.jpg");
   background-size: cover;
   height: 95vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  clip-path: url('#wave');
+  clip-path: url("#wave");
 
-  
   .heading {
     font-weight: 700;
     font-size: 10rem;
-    color: #2E4959;
-
+    color: #2e4959;
   }
-  
+
   .headingSub {
     font-size: 3rem;
     display: flex;
     justify-content: space-around;
     text-align: center;
     font-weight: 600;
-    color: #51768C;
+    color: #51768c;
   }
 
   .headingSub1 {

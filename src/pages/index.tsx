@@ -1,12 +1,14 @@
-import Header from "@/components/header/Header";
+import AboutMeSection from "@/app/_components/aboutMeSection/AboutMeSection";
+import FooterSection from "@/app/_components/footerSection/FooterSection";
+import HeaderSection from "@/app/_components/headerSection/HeaderSection";
 import "../app/globals.css";
-import AboutMe from "@/components/aboutMe/AboutMe";
 
 export default function Home() {
   return (
     <main>
-      <Header />
-      <AboutMe />
+      <HeaderSection />
+      <AboutMeSection />
+      <FooterSection />
     </main>
   );
 }
