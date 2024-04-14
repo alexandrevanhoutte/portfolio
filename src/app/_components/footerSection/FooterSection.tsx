@@ -1,6 +1,6 @@
 import FooterElement from "@/app/_components/footerElement/FooterElement";
-import { LogoGithub } from "@/svg/LogoGithub";
-import { LogoLinkedin } from "@/svg/logoLinkedin";
+import { LogoGithub } from "@/app/_svg/LogoGithub";
+import { LogoLinkedin } from "@/app/_svg/LogoLinkedin";
 import styles from "./footerSection.module.css";
 
 interface FooterElement {

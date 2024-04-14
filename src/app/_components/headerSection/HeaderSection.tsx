@@ -1,4 +1,4 @@
-import { WaveClipPath } from "@/svg/waveClipPath";
+import { WaveClipPath } from "@/app/_svg/waveClipPath";
 import styles from "./headerSection.module.css";
 
 export default function HeaderSection() {
