@@ -1,15 +1,9 @@
-import { Titillium_Web } from "next/font/google";
 import Image from "next/image";
 import styles from "./aboutMeSection.module.css";
 
-const titilliumWeb = Titillium_Web({
-  weight: ["200", "300", "400", "600", "700", "900"],
-  subsets: ["latin"],
-});
-
 export default function AboutMeSection() {
   return (
-    <div className={`${titilliumWeb.className} ${styles.aboutMe}`}>
+    <div className={styles.aboutMe}>
       <div className={styles.title}>About Me</div>
       <div className={styles.content}>
         <Image

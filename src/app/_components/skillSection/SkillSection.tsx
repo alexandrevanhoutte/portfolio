@@ -1,21 +1,38 @@
-import FlipCard from "@/app/_components/flipCard/FlipCard";
-import { Titillium_Web } from "next/font/google";
+import SkillCategory from "@/app/_components/skillCategory/SkillCategory";
+import { Skill } from "@/app/_interfaces/skill.interface";
 import styles from "./skillSection.module.css";
 
-const titilliumWeb = Titillium_Web({
-  weight: ["200", "300", "400", "600", "700", "900"],
-  subsets: ["latin"],
-});
+interface Tutu {
+  name: string;
+  skills: Skill[];
+}
 
 export default function SkillSection() {
+  const skillCategories: Tutu[] = [
+    {
+      name: "test",
+      skills: [
+        {
+          name: "Typescript",
+          image: "/typescript-logo.webp",
+          backgroundColor: "#8AC4E8",
+        },
+        {
+          name: "Typescript",
+          image: "/typescript-logo.webp",
+          backgroundColor: "#ececec",
+        },
+      ],
+    },
+  ];
+
   return (
-    <div className={`${titilliumWeb.className} ${styles.skillSection}`}>
+    <div className={styles.skillSection}>
       <div className={styles.title}>Skills</div>
-      <div className={styles.skillCategory}>
-        <div className={styles.skillCategory__title}>BackEnd</div>
-        <div className={styles.skillCategory__skills}>
-          <FlipCard />
-        </div>
+      <div>
+        {skillCategories.map((e, index) => (
+          <SkillCategory key={index} {...e} />
+        ))}
       </div>
     </div>
   );

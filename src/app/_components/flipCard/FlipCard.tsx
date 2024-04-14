@@ -1,17 +1,31 @@
-import { Titillium_Web } from "next/font/google";
 import styles from "./flipCard.module.css";
 
-const titilliumWeb = Titillium_Web({
-  weight: ["200", "300", "400", "600", "700", "900"],
-  subsets: ["latin"],
-});
+type FlipCardSide = {
+  content: JSX.Element;
+  backgroundColor: string;
+};
 
-export default function FlipCard() {
+type FlipCardProps = {
+  front: FlipCardSide;
+  back: FlipCardSide;
+};
+
+export default function SectionFlipCard(props: FlipCardProps) {
   return (
-    <div className={`${titilliumWeb.className} ${styles.flipCard}`}>
+    <div className={styles.flipCard}>
       <div className={styles.content}>
-        <div className={styles.front}>Front</div>
-        <div className={styles.back}>Back</div>
+        <div
+          className={styles.front}
+          style={{ backgroundColor: props.front.backgroundColor }}
+        >
+          {props.front.content}
+        </div>
+        <div
+          className={styles.back}
+          style={{ backgroundColor: props.back.backgroundColor }}
+        >
+          {props.back.content}
+        </div>
       </div>
     </div>
   );
