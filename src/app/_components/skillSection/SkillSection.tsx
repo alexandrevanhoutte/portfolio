@@ -10,16 +10,82 @@ interface Tutu {
 export default function SkillSection() {
   const skillCategories: Tutu[] = [
     {
-      name: "test",
+      name: "Language",
       skills: [
         {
           name: "Typescript",
           image: "/typescript-logo.webp",
-          backgroundColor: "#8AC4E8",
+          backgroundColor: "#ececec",
         },
         {
-          name: "Typescript",
-          image: "/typescript-logo.webp",
+          name: "Python",
+          image: "/python-logo.webp",
+          backgroundColor: "#ececec",
+        },
+        {
+          name: "Java",
+          image: "/java-logo.webp",
+          backgroundColor: "#ececec",
+        },
+      ],
+    },
+    {
+      name: "Cloud Services",
+      skills: [
+        {
+          name: "AWS",
+          image: "/aws-logo.webp",
+          backgroundColor: "#ececec",
+        },
+        {
+          name: "Azure",
+          image: "/azure-logo.webp",
+          backgroundColor: "#ececec",
+        },
+      ],
+    },
+    {
+      name: "Version Control",
+      skills: [
+        {
+          name: "Git",
+          image: "/git-logo.webp",
+          backgroundColor: "#ececec",
+        },
+      ],
+    },
+    {
+      name: "Development Tools",
+      skills: [
+        {
+          name: "Visual Studio Code",
+          image: "/visual-studio-code-logo.webp",
+          backgroundColor: "#ececec",
+        },
+        {
+          name: "Jet Brains",
+          image: "/jet-brain-logo.webp",
+          backgroundColor: "#ececec",
+        },
+      ],
+    },
+
+    {
+      name: "OS",
+      skills: [
+        {
+          name: "MacOs",
+          image: "/mac-os-logo.webp",
+          backgroundColor: "#ececec",
+        },
+        {
+          name: "Linux",
+          image: "/linux-logo.webp",
+          backgroundColor: "#ececec",
+        },
+        {
+          name: "Windows",
+          image: "/windows-logo.webp",
           backgroundColor: "#ececec",
         },
       ],
@@ -29,7 +95,7 @@ export default function SkillSection() {
   return (
     <div className={styles.skillSection}>
       <div className={styles.title}>Skills</div>
-      <div>
+      <div className={styles.categories}>
         {skillCategories.map((e, index) => (
           <SkillCategory key={index} {...e} />
         ))}

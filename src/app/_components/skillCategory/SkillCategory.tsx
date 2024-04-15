@@ -10,7 +10,7 @@ type SkillCategory = {
 export default function SkillCategory(props: SkillCategory) {
   return (
     <div className={styles.skillCategory}>
-      <div className={styles.title}>BackEnd</div>
+      <div className={styles.title}>{props.name}</div>
       <div className={styles.skills}>
         {props.skills.map((e, index) => (
           <SkillFlipCard key={index} {...e} />

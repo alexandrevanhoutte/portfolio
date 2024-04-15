@@ -13,10 +13,11 @@ export default function SkillFlipCard(props: SkillProps) {
       front={{
         content: (
           <Image
-            width={50}
-            height={50}
+            width={80}
+            height={0}
             src={props.image}
             alt={"Logo of ".concat(props.name)}
+            style={{ height: "auto" }}
           />
         ),
         backgroundColor: props.backgroundColor,

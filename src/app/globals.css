@@ -1,9 +1,15 @@
+:root {
+  --title-color: #212121;
+}
+
 body {
   margin: 0;
   padding: 0;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
 }
 

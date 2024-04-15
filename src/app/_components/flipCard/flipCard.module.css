@@ -1,4 +1,6 @@
 .flipCard {
+  margin-right: 0.8rem;
+
   .content {
     height: 100px;
     width: 100px;
@@ -21,6 +23,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      border-radius: 0.6rem;
     }
 
     .back {

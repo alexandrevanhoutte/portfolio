@@ -1,5 +1,14 @@
+.skillCategory {
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+
 .skills {
   display: flex;
   align-items: center;
-  justify-content: center;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
 }
