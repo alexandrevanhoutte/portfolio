@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import styles from "./reveal.module.css";
+import styles from "./fadeIn.module.css";
 
 type RevealProps = {
   children: JSX.Element;
@@ -9,7 +9,7 @@ type RevealProps = {
   y?: number;
 };
 
-export const Reveal = ({
+export const FadeIn = ({
   children,
   threshold,
   duration,
@@ -44,9 +44,7 @@ export const Reveal = ({
     <div
       style={{
         transitionDuration: duration,
-        transform: !intersecting
-          ? `translate(${x}px, ${y}px)`
-          : "translate(0px, 0px)",
+        transform: !intersecting ? `translate(${x}px, ${y}px)` : "",
       }}
       className={`transition ${intersecting ? styles.fadeIn : ""}`}
       ref={ref}

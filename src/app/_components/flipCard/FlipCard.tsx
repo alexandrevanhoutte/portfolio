@@ -1,4 +1,4 @@
-import { Reveal } from "@/app/_components/reveal/Reveal";
+import { FadeIn } from "@/app/_components/fadeIn/FadeIn";
 import styles from "./flipCard.module.css";
 
 type FlipCardSide = {
@@ -13,7 +13,7 @@ type FlipCardProps = {
 
 export default function SectionFlipCard(props: FlipCardProps) {
   return (
-    <Reveal duration="300ms" threshold={0} y={20}>
+    <FadeIn duration="300ms" threshold={0} y={20}>
       <div className={styles.flipCard}>
         <div className={styles.content}>
           <div
@@ -30,6 +30,6 @@ export default function SectionFlipCard(props: FlipCardProps) {
           </div>
         </div>
       </div>
-    </Reveal>
+    </FadeIn>
   );
 }

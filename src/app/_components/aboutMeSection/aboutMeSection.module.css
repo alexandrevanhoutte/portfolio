@@ -29,7 +29,7 @@
   }
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 900px) {
   .aboutMe {
     .content {
       flex-direction: column;
