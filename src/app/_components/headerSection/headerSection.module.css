@@ -18,19 +18,19 @@
   .headingSub {
     font-size: 3rem;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     text-align: center;
     font-weight: 600;
     color: #546e7a;
-  }
-
-  .headingSub1 {
-    margin-right: 3rem;
+    column-gap: 3rem;
   }
 }
 
-@media only screen and (max-width: 768px) {
-  .heading {
-    font-size: 7px;
+@media screen and (max-width: 768px) {
+  .header {
+    .heading {
+      font-size: 5rem;
+    }
   }
 }

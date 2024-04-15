@@ -1,5 +1,8 @@
+import AboutMeSection from "@/app/_components/aboutMeSection/AboutMeSection";
+import FooterSection from "@/app/_components/footerSection/FooterSection";
 import HeaderSection from "@/app/_components/headerSection/HeaderSection";
 import Seo from "@/app/_components/seo/seo";
+import SkillSection from "@/app/_components/skillSection/SkillSection";
 import { Titillium_Web } from "next/font/google";
 import "../app/globals.css";
 
@@ -16,9 +19,9 @@ export default function Home() {
         pageDescription="Portfolio Description"
       />
       <HeaderSection />
-      {/* <AboutMeSection />
+      <AboutMeSection />
       <SkillSection />
-      <FooterSection /> */}
+      <FooterSection />
     </main>
   );
 }
