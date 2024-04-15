@@ -2,13 +2,13 @@ import SkillCategory from "@/app/_components/skillCategory/SkillCategory";
 import { Skill } from "@/app/_interfaces/skill.interface";
 import styles from "./skillSection.module.css";
 
-interface Tutu {
+interface SkillCategory {
   name: string;
   skills: Skill[];
 }
 
 export default function SkillSection() {
-  const skillCategories: Tutu[] = [
+  const skillCategories: SkillCategory[] = [
     {
       name: "Language",
       skills: [

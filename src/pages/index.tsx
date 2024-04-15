@@ -1,4 +1,5 @@
 import AboutMeSection from "@/app/_components/aboutMeSection/AboutMeSection";
+import ExperienceSection from "@/app/_components/experienceSection/ExperienceSection";
 import FooterSection from "@/app/_components/footerSection/FooterSection";
 import HeaderSection from "@/app/_components/headerSection/HeaderSection";
 import Seo from "@/app/_components/seo/seo";
@@ -21,6 +22,7 @@ export default function Home() {
       <HeaderSection />
       <AboutMeSection />
       <SkillSection />
+      <ExperienceSection />
       <FooterSection />
     </main>
   );
