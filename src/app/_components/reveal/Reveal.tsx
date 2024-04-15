@@ -23,23 +23,22 @@ export const Reveal = ({
 
   useEffect(() => {
     if (ref.current) {
+      let observerRefValue: Element | null = null;
+
       const intersectionObserver = new IntersectionObserver(
         ([entry]) => setIntersecting(entry.isIntersecting),
-        {
-          root: null,
-          rootMargin: "0px",
-          threshold,
-        }
+        { root: null, rootMargin: "0px", threshold }
       );
       intersectionObserver.observe(ref.current);
+      observerRefValue = ref.current;
 
       return () => {
-        if (ref.current) {
-          intersectionObserver.unobserve(ref.current);
+        if (observerRefValue) {
+          intersectionObserver.unobserve(observerRefValue);
         }
       };
     }
-  }, []);
+  }, [threshold]);
 
   return (
     <div
