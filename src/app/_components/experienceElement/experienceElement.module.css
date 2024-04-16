@@ -11,11 +11,21 @@
 
   .content {
     padding: 5px 0;
-    max-width: 30rem;
+    max-width: 40rem;
 
     .header {
+      display: flex;
+      justify-content: space-between;
+
       font-size: 1.2rem;
-      font-weight: 600;
+
+      .job {
+        font-weight: 600;
+      }
+
+      .jobDetail {
+        font-size: italic;
+      }
     }
   }
 
@@ -37,6 +47,24 @@
       left: -5px;
       background-color: #bbb;
       border-radius: 50%;
+    }
+  }
+
+  &:first-child {
+    .bar {
+      .leftBar {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+    }
+  }
+
+  &:last-child {
+    .bar {
+      .leftBar {
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
     }
   }
 }

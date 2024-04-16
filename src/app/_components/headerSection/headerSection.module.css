@@ -1,18 +1,22 @@
 .header {
-  background-image: linear-gradient(to right bottom, #303f9fcc, #eeeeeecc),
-    url("/header-background.jpg");
+  /* background-image: linear-gradient(to right bottom, #303f9fcc, #eeeeeecc),
+    url("/header-background.jpg"); */
+  background-color: #0f172a;
+  /* radial-gradient(closest-corner at 0px 0px, #10131a #2eb2d3); */
   background-size: cover;
-  height: 95vh;
+  /* height: 95vh; */
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  clip-path: url("#wave");
+  /* clip-path: url("#wave"); */
 
   .heading {
     font-weight: 700;
     font-size: 10rem;
-    color: var(--title-color);
+    /* color: var(--title-color); */
+    color: #2eb2d3;
   }
 
   .headingSub {
@@ -22,7 +26,7 @@
     justify-content: space-around;
     text-align: center;
     font-weight: 600;
-    color: #546e7a;
+    color: #eff0f2;
     column-gap: 3rem;
   }
 }

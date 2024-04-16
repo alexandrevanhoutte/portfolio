@@ -8,6 +8,7 @@ import { Titillium_Web } from "next/font/google";
 import "../app/globals.css";
 
 const titilliumWeb = Titillium_Web({
+  style: ["normal", "italic"],
   weight: ["200", "300", "400", "600", "700", "900"],
   subsets: ["latin"],
 });
