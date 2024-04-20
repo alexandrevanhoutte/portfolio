@@ -4,12 +4,5 @@
   align-items: center;
   justify-content: center;
   padding: 5rem 0rem;
-
-  .title {
-    font-weight: 600;
-    font-size: 5rem;
-    color: var(--title-color);
-  }
-
   color: #ffffff;
 }

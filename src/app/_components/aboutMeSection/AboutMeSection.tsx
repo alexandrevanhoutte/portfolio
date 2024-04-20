@@ -1,10 +1,11 @@
+import SectionTitle from "@/app/_components/sectionTitle/SectionTitle";
 import Image from "next/image";
 import styles from "./aboutMeSection.module.css";
 
 export default function AboutMeSection() {
   return (
     <div className={styles.aboutMe}>
-      <div className={styles.title}>About Me</div>
+      <SectionTitle title="About me" />
       <div className={styles.content}>
         <Image
           className={styles.image}

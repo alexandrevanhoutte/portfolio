@@ -1,4 +1,5 @@
 import ExperienceElement from "@/app/_components/experienceElement/ExperienceElement";
+import SectionTitle from "@/app/_components/sectionTitle/SectionTitle";
 import styles from "./experienceSection.module.css";
 
 interface Experience {
@@ -40,7 +41,7 @@ export default function ExperienceSection() {
 
   return (
     <div className={styles.experienceSection}>
-      <div className={styles.title}>Experience</div>
+      <SectionTitle title="Experiences" />
       <div className={styles.experiences}>
         {experiences.map((e, index) => (
           <ExperienceElement key={index} {...e} />

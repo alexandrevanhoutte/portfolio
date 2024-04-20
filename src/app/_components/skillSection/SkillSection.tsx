@@ -1,3 +1,4 @@
+import SectionTitle from "@/app/_components/sectionTitle/SectionTitle";
 import SkillCategory from "@/app/_components/skillCategory/SkillCategory";
 import { Skill } from "@/app/_interfaces/skill.interface";
 import styles from "./skillSection.module.css";
@@ -94,7 +95,7 @@ export default function SkillSection() {
 
   return (
     <div className={styles.skillSection}>
-      <div className={styles.title}>Skills</div>
+      <SectionTitle title="Skills" />
       <div className={styles.categories}>
         {skillCategories.map((e, index) => (
           <SkillCategory key={index} {...e} />

@@ -5,12 +5,6 @@
   justify-content: center;
   padding: 5rem 0rem;
 
-  .title {
-    font-weight: 600;
-    font-size: 5rem;
-    color: var(--title-color);
-  }
-
   .categories {
     display: grid;
     grid-template-columns: auto auto auto;
