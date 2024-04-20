@@ -34,7 +34,7 @@
 
     .leftBar {
       position: absolute;
-      background-color: red;
+      background-color: var(--title-color);
       height: 100%;
       width: 10px;
     }
@@ -45,8 +45,11 @@
       width: 20px;
       top: 10px;
       left: -5px;
-      background-color: #bbb;
       border-radius: 50%;
+      background-color: var(--background-color);
+      border-style: solid;
+      border-color: var(--title-color);
+      border-width: medium;
     }
   }
 

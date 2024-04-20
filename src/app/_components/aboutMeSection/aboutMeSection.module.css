@@ -5,8 +5,6 @@
   align-items: center;
   justify-content: center;
   padding: 5rem 0rem;
-  /* background: radial-gradient(farthest-corner at 0px 100%, #2eb2d3, #10131a); */
-  background-color: #0f172a;
 
   .title {
     font-weight: 600;

@@ -1,11 +1,15 @@
 :root {
+  --background-color: #0f172a;
   --title-color: #2eb2d3;
+
   /* #212121; */
 }
 
 body {
   margin: 0;
   padding: 0;
+
+  background-color: var(--background-color);
 }
 
 *,
