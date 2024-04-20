@@ -70,7 +70,7 @@ export default function ContactSection() {
           <label htmlFor="form-message"> Message: </label>
           <textarea
             id="form-message"
-            className={styles.input}
+            className={`${styles.input} ${styles.inputArea}`}
             name="message"
             value={formData.message}
             onChange={handleInputChange}
@@ -79,8 +79,10 @@ export default function ContactSection() {
         </div>
         <div className={styles.submit}>
           <button className={styles.button} type="submit">
-            <SendEmailIcon />
-            Send
+            <div className={styles.icon}>
+              <SendEmailIcon />
+            </div>
+            <div className={styles.name}>Send</div>
           </button>
         </div>
       </form>
