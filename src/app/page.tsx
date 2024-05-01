@@ -3,6 +3,7 @@ import ContactSection from "@/app/_components/contactSection/ContactSection";
 import ExperienceSection from "@/app/_components/experienceSection/ExperienceSection";
 import FooterSection from "@/app/_components/footerSection/FooterSection";
 import HeaderSection from "@/app/_components/headerSection/HeaderSection";
+import Navbar from "@/app/_components/navbar/Navbar";
 import Seo from "@/app/_components/seo/seo";
 import SkillSection from "@/app/_components/skillSection/SkillSection";
 import { Titillium_Web } from "next/font/google";
@@ -21,12 +22,15 @@ export default function Home() {
         pageTitle="Alexandre Vanhoutte's Portfolio"
         pageDescription="Portfolio Description"
       />
-      <HeaderSection />
-      <AboutMeSection />
-      <SkillSection />
-      <ExperienceSection />
-      <ContactSection />
-      <FooterSection />
+      <Navbar />
+      <div>
+        <HeaderSection />
+        <AboutMeSection />
+        <SkillSection />
+        <ExperienceSection />
+        <ContactSection />
+        <FooterSection />
+      </div>
     </main>
   );
 }
