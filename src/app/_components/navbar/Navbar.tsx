@@ -15,10 +15,10 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   const elements: NavbarElement[] = [
-    { name: "About me", path: "#aboutMe" },
-    { name: "Skills", path: "#aboutMe" },
-    { name: "Experience", path: "#aboutMe" },
-    { name: "Contact", path: "#aboutMe" },
+    { name: "About me", path: "#about-me" },
+    { name: "Skills", path: "#skills" },
+    { name: "Experiences", path: "#experiences" },
+    { name: "Contact", path: "#contact" },
   ];
 
   const handleClick = (link: string) => {
