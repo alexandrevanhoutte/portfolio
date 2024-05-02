@@ -23,7 +23,6 @@ export default function Navbar() {
 
   const handleClick = (link: string) => {
     setActiveLink(link);
-    const element = document.getElementById(link);
   };
 
   const handleIsVisible = (e: any) => {
@@ -34,6 +33,7 @@ export default function Navbar() {
   return (
     <div className={styles.navbar}>
       <div
+        onClick={handleIsVisible}
         className={styles.filter}
         style={{ display: isMenuOpen ? "block" : "none" }}
       />
@@ -51,9 +51,16 @@ export default function Navbar() {
         style={{ display: isMenuOpen ? "block" : "none" }}
       >
         {elements.map((element, index) => (
-          <li key={index} className={styles.element}>
-            <a onClick={() => handleClick(element.path)}>{element.name}</a>
-          </li>
+          <a key={index} href={element.path}>
+            <li
+              className={`${styles.element} ${
+                activeLink === element.path ? styles.activeElement : ""
+              }`}
+              onClick={() => handleClick(element.path)}
+            >
+              {element.name}
+            </li>
+          </a>
         ))}
       </ul>
     </div>

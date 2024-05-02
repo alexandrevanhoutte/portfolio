@@ -13,9 +13,9 @@ interface FormInputData {
 
 export default function ContactSection() {
   const [formData, setFormData] = useState<FormInputData>({
-    name: "tata",
-    email: "ta",
-    message: "at",
+    name: "",
+    email: "",
+    message: "",
   });
 
   const handleInputChange = (
@@ -45,7 +45,7 @@ export default function ContactSection() {
   };
 
   return (
-    <div className={styles.contactSection}>
+    <div className={styles.contactSection} id="contact">
       <SectionTitle title="Contact" />
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.formInput}>

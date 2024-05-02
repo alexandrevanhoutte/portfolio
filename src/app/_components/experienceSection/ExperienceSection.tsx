@@ -40,7 +40,7 @@ export default function ExperienceSection() {
   ];
 
   return (
-    <div className={styles.experienceSection}>
+    <div className={styles.experienceSection} id="experiences">
       <SectionTitle title="Experiences" />
       <div className={styles.experiences}>
         {experiences.map((e, index) => (

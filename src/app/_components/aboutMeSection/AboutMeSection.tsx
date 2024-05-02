@@ -4,7 +4,7 @@ import styles from "./aboutMeSection.module.css";
 
 export default function AboutMeSection() {
   return (
-    <div className={styles.aboutMe}>
+    <div className={styles.aboutMe} id="about-me">
       <SectionTitle title="About me" />
       <div className={styles.content}>
         <Image

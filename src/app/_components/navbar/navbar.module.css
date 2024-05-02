@@ -25,6 +25,7 @@
     z-index: 2;
     padding-left: 0;
     background-color: #fff;
+    cursor: pointer;
 
     .element {
       list-style-type: none;
@@ -33,6 +34,10 @@
       &:hover {
         background-color: red;
       }
+    }
+
+    .activeElement {
+      background-color: red;
     }
   }
 }
