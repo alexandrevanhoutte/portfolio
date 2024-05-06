@@ -45,7 +45,7 @@ export default function ContactSection() {
   };
 
   return (
-    <div className={styles.contactSection} id="contact">
+    <div data-section className={styles.contactSection} id="contact">
       <SectionTitle title="Contact" />
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.formInput}>

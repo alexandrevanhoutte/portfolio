@@ -1,5 +1,5 @@
 .skillCategory {
-  color: #fff;
+  color: var(--text-color);
   margin-right: 2rem;
   margin-bottom: 2rem;
 }

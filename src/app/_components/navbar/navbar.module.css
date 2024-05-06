@@ -24,20 +24,28 @@
     top: 0;
     z-index: 2;
     padding-left: 0;
-    background-color: #fff;
+    background-color: var(--text-color);
     cursor: pointer;
+    text-decoration: none;
 
-    .element {
-      list-style-type: none;
-      padding: 1rem 1.5rem;
+    .link {
+      text-decoration: none;
 
-      &:hover {
-        background-color: red;
+      .element {
+        list-style-type: none;
+        padding: 1rem 1.5rem;
+        color: var(--background-color);
+
+        &:hover {
+          background-color: var(--title-color);
+          color: var(--text-color);
+        }
       }
     }
 
     .activeElement {
-      background-color: red;
+      background-color: var(--title-color);
+      color: var(--text-color);
     }
   }
 }

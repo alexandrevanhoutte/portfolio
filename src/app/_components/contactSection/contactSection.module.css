@@ -15,7 +15,7 @@
     .formInput {
       display: flex;
       flex-direction: column;
-      color: #fff;
+      color: var(--text-color);
 
       .input {
         border: none;
@@ -61,11 +61,11 @@
     background-color: var(--title-color);
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
-    fill: #fff;
+    fill: var(--text-color);
   }
 
   .name {
-    background-color: #fff;
+    background-color: var(--text-color);
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     width: 40rem;
