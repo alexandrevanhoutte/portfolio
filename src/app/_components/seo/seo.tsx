@@ -11,6 +11,7 @@ export default function Seo({ pageTitle, pageDescription }: SeoProps) {
       <title>{pageTitle}</title>
       <meta name="viewport" content="width=device-width,initial-scale=1" />
       <meta name="description" content={pageDescription} />
+      <link rel="icon" href="/favicon.ico" sizes="any" />
     </Head>
   );
 }
