@@ -5,4 +5,33 @@
   align-items: center;
   justify-content: center;
   padding: 5rem 0rem;
+
+  .content {
+    display: flex;
+    /* flex-direction: column; */
+
+    .picture {
+      height: 20rem;
+      width: 20rem;
+      margin: 1rem;
+    }
+
+    .projectsView {
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      margin: 1rem;
+      width: 15rem;
+
+      .project {
+        border-top: solid;
+        padding: 0.5rem;
+        /* border-bottom: solid; */
+      }
+
+      .project:last-child {
+        border-bottom: solid;
+      }
+    }
+  }
 }
