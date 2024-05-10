@@ -31,6 +31,41 @@ export default function SkillSection() {
       ],
     },
     {
+      name: "BackEnd Library And Framework",
+      skills: [
+        {
+          name: "NestJs",
+          image: "/typescript-logo.webp",
+          backgroundColor: "#ececec",
+        },
+        {
+          name: "Flask",
+          image: "/python-logo.webp",
+          backgroundColor: "#ececec",
+        },
+        {
+          name: "FastAPI",
+          image: "/java-logo.webp",
+          backgroundColor: "#ececec",
+        },
+      ],
+    },
+    {
+      name: "FrontEnd Library And Framework",
+      skills: [
+        {
+          name: "React",
+          image: "/aws-logo.webp",
+          backgroundColor: "#ececec",
+        },
+        {
+          name: "NextJS",
+          image: "/azure-logo.webp",
+          backgroundColor: "#ececec",
+        },
+      ],
+    },
+    {
       name: "Cloud Services",
       skills: [
         {
