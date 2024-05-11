@@ -1,6 +1,6 @@
 "use client";
 
-import Loader from "@/app/_components/loader/Loader";
+import ContactButton from "@/app/_components/contactButton/ContactButton";
 import SectionTitle from "@/app/_components/sectionTitle/SectionTitle";
 import { useState } from "react";
 import styles from "./contactSection.module.css";
@@ -81,12 +81,7 @@ export default function ContactSection() {
           />
         </div>
         <div className={styles.submit}>
-          <button className={styles.button} type="submit">
-            <div className={styles.icon}>
-              {!isLoading ? <Loader /> : <Loader />}
-            </div>
-            <div className={styles.name}>Send</div>
-          </button>
+          <ContactButton isLoading={isLoading} />
         </div>
       </form>
     </div>
