@@ -9,7 +9,7 @@ export default function AboutMeSection() {
       <div className={styles.content}>
         <Image
           className={styles.image}
-          src="/header-background.jpg"
+          src="/about-me/about-me-picture.jpeg"
           width={200}
           height={200}
           alt="Profile picture"

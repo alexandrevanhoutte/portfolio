@@ -20,24 +20,25 @@ export default function ProjectSection() {
       name: "SaveEat",
       url: "https://www.saveeatapp.com/",
       description: "todo",
-      pictureUrl: "/header-background.jpg",
+      pictureUrl: "/project-picture/saveeat.png",
     },
     {
       name: "Markurz",
       url: "https://chromewebstore.google.com/detail/markurz/lnbfijiimlnnpjmfgmfdmdmlobadcloo?pli=1",
       description: "todo",
-      pictureUrl: "/header-background.jpg",
+      pictureUrl: "/project-picture/markurz.png",
     },
     {
       name: "Deepform",
+      url: "https://deepform.net",
       description: "todo",
-      pictureUrl: "/header-background.jpg",
+      pictureUrl: "/project-picture/deepform.png",
     },
     {
       name: "BuilderFul",
       url: "https://www.builderful.co.kr",
       description: "todo",
-      pictureUrl: "/header-background.jpg",
+      pictureUrl: "/project-picture/builderful.png",
     },
   ];
 
@@ -58,7 +59,8 @@ export default function ProjectSection() {
               height={0}
               sizes="100vw"
               style={{ width: "100%", height: "auto" }}
-              alt="Profile picture"
+              objectFit="contain"
+              alt="Project logo"
             />
           ) : (
             <></>

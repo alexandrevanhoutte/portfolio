@@ -23,7 +23,7 @@ export default function SkillFlipCard(props: SkillProps) {
             />
           </div>
         ),
-        backgroundColor: props.backgroundColor,
+        backgroundColor: "#ececec",
       }}
       back={{
         content: <div>{props.name}</div>,

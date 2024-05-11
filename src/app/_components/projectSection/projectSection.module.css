@@ -12,8 +12,10 @@
 
     .picture {
       height: 20rem;
-      width: 20rem;
+      width: 40rem;
       margin: 1rem;
+      overflow: hidden;
+      position: relative;
     }
 
     .projectsView {

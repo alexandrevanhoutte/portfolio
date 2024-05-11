@@ -15,18 +15,15 @@ export default function SkillSection() {
       skills: [
         {
           name: "Typescript",
-          image: "/typescript-logo.webp",
-          backgroundColor: "#ececec",
+          image: "/skill-logo/typescript-logo.webp",
         },
         {
           name: "Python",
-          image: "/python-logo.webp",
-          backgroundColor: "#ececec",
+          image: "/skill-logo/python-logo.webp",
         },
         {
           name: "Java",
-          image: "/java-logo.webp",
-          backgroundColor: "#ececec",
+          image: "/skill-logo/java-logo.webp",
         },
       ],
     },
@@ -35,18 +32,15 @@ export default function SkillSection() {
       skills: [
         {
           name: "NestJs",
-          image: "/typescript-logo.webp",
-          backgroundColor: "#ececec",
+          image: "/skill-logo/typescript-logo.webp",
         },
         {
           name: "Flask",
-          image: "/python-logo.webp",
-          backgroundColor: "#ececec",
+          image: "/skill-logo/python-logo.webp",
         },
         {
           name: "FastAPI",
-          image: "/java-logo.webp",
-          backgroundColor: "#ececec",
+          image: "/skill-logo/java-logo.webp",
         },
       ],
     },
@@ -55,13 +49,11 @@ export default function SkillSection() {
       skills: [
         {
           name: "React",
-          image: "/react-logo.webp",
-          backgroundColor: "#ececec",
+          image: "/skill-logo/react-logo.webp",
         },
         {
           name: "NextJS",
-          image: "/nextjs-logo.webp",
-          backgroundColor: "#ececec",
+          image: "/skill-logo/nextjs-logo.webp",
         },
       ],
     },
@@ -70,13 +62,11 @@ export default function SkillSection() {
       skills: [
         {
           name: "AWS",
-          image: "/aws-logo.webp",
-          backgroundColor: "#ececec",
+          image: "/skill-logo/aws-logo.webp",
         },
         {
           name: "Azure",
-          image: "/azure-logo.webp",
-          backgroundColor: "#ececec",
+          image: "/skill-logo/azure-logo.webp",
         },
       ],
     },
@@ -85,8 +75,7 @@ export default function SkillSection() {
       skills: [
         {
           name: "Git",
-          image: "/git-logo.webp",
-          backgroundColor: "#ececec",
+          image: "/skill-logo/git-logo.webp",
         },
       ],
     },
@@ -95,13 +84,11 @@ export default function SkillSection() {
       skills: [
         {
           name: "Visual Studio Code",
-          image: "/visual-studio-code-logo.webp",
-          backgroundColor: "#ececec",
+          image: "/skill-logo/visual-studio-code-logo.webp",
         },
         {
           name: "Jet Brains",
-          image: "/jet-brain-logo.webp",
-          backgroundColor: "#ececec",
+          image: "/skill-logo/jet-brain-logo.webp",
         },
       ],
     },
@@ -111,18 +98,15 @@ export default function SkillSection() {
       skills: [
         {
           name: "MacOs",
-          image: "/mac-os-logo.webp",
-          backgroundColor: "#ececec",
+          image: "/skill-logo/mac-os-logo.webp",
         },
         {
           name: "Linux",
-          image: "/linux-logo.webp",
-          backgroundColor: "#ececec",
+          image: "/skill-logo/linux-logo.webp",
         },
         {
           name: "Windows",
-          image: "/windows-logo.webp",
-          backgroundColor: "#ececec",
+          image: "/skill-logo/windows-logo.webp",
         },
       ],
     },

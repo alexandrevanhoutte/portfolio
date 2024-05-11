@@ -5,7 +5,6 @@ import FooterSection from "@/app/_components/footerSection/FooterSection";
 import HeaderSection from "@/app/_components/headerSection/HeaderSection";
 import Navbar from "@/app/_components/navbar/Navbar";
 import ProjectSection from "@/app/_components/projectSection/ProjectSection";
-import Seo from "@/app/_components/seo/seo";
 import SkillSection from "@/app/_components/skillSection/SkillSection";
 import { Titillium_Web } from "next/font/google";
 import "../app/globals.css";
@@ -19,10 +18,10 @@ const titilliumWeb = Titillium_Web({
 export default function Home() {
   return (
     <main className={titilliumWeb.className}>
-      <Seo
+      {/* <Seo
         pageTitle="Alexandre Vanhoutte's Portfolio"
         pageDescription="Portfolio Description"
-      />
+      /> */}
       <Navbar />
       <div>
         <HeaderSection />
