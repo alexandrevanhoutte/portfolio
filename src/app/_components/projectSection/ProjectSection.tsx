@@ -1,11 +1,12 @@
 "use client";
 
+import ProjectListElement from "@/app/_components/projectListElement/ProjectListElement";
 import SectionTitle from "@/app/_components/sectionTitle/SectionTitle";
 import Image from "next/image";
 import { useState } from "react";
 import styles from "./projectSection.module.css";
 
-interface Project {
+export interface Project {
   name: string;
   url?: string;
   description: string;
@@ -40,6 +41,17 @@ export default function ProjectSection() {
       description: "todo",
       pictureUrl: "/project-picture/builderful.png",
     },
+    {
+      name: "MOS NLP (Python Library)",
+      description: "todo",
+      pictureUrl: "/project-picture/mos-nlp.webp",
+    },
+    {
+      name: "Spirit Hunter",
+      url: "https://eip.epitech.eu/2018/spirithunter/",
+      description: "todo",
+      pictureUrl: "/project-picture/spirit-hunter.png",
+    },
   ];
 
   const handleHouseEnter = (link: string) => {
@@ -68,13 +80,11 @@ export default function ProjectSection() {
         </div>
         <div className={styles.projectsView}>
           {projects.map((project, index) => (
-            <div
+            <ProjectListElement
               key={index}
-              className={styles.project}
-              onMouseEnter={() => handleHouseEnter(project.pictureUrl)}
-            >
-              {project.name}
-            </div>
+              project={project}
+              handleHouseEnter={handleHouseEnter}
+            />
           ))}
         </div>
       </div>

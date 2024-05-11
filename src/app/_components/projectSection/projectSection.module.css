@@ -24,16 +24,6 @@
       flex-direction: column;
       margin: 1rem;
       width: 15rem;
-
-      .project {
-        border-top: solid;
-        padding: 0.5rem;
-        /* border-bottom: solid; */
-      }
-
-      .project:last-child {
-        border-bottom: solid;
-      }
     }
   }
 }
