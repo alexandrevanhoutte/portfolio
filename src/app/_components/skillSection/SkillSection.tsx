@@ -55,12 +55,12 @@ export default function SkillSection() {
       skills: [
         {
           name: "React",
-          image: "/aws-logo.webp",
+          image: "/react-logo.webp",
           backgroundColor: "#ececec",
         },
         {
           name: "NextJS",
-          image: "/azure-logo.webp",
+          image: "/nextjs-logo.webp",
           backgroundColor: "#ececec",
         },
       ],

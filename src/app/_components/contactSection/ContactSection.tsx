@@ -1,7 +1,7 @@
 "use client";
 
+import Loader from "@/app/_components/loader/Loader";
 import SectionTitle from "@/app/_components/sectionTitle/SectionTitle";
-import { SendEmailIcon } from "@/app/_svg/SendEmailIcon";
 import { useState } from "react";
 import styles from "./contactSection.module.css";
 
@@ -12,6 +12,7 @@ interface FormInputData {
 }
 
 export default function ContactSection() {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [formData, setFormData] = useState<FormInputData>({
     name: "",
     email: "",
@@ -31,6 +32,7 @@ export default function ContactSection() {
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    setIsLoading(true);
     event.preventDefault();
 
     const body = new FormData();
@@ -42,6 +44,7 @@ export default function ContactSection() {
       method: "post",
       body,
     });
+    setIsLoading(false);
   };
 
   return (
@@ -80,7 +83,7 @@ export default function ContactSection() {
         <div className={styles.submit}>
           <button className={styles.button} type="submit">
             <div className={styles.icon}>
-              <SendEmailIcon />
+              {!isLoading ? <Loader /> : <Loader />}
             </div>
             <div className={styles.name}>Send</div>
           </button>
