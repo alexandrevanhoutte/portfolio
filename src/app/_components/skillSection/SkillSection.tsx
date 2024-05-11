@@ -28,24 +28,24 @@ export default function SkillSection() {
       ],
     },
     {
-      name: "BackEnd Library And Framework",
+      name: "Backend Tools",
       skills: [
         {
           name: "NestJs",
-          image: "/skill-logo/typescript-logo.webp",
+          image: "/skill-logo/nestjs-logo.png",
         },
         {
           name: "Flask",
-          image: "/skill-logo/python-logo.webp",
+          image: "/skill-logo/flask-logo.webp",
         },
         {
           name: "FastAPI",
-          image: "/skill-logo/java-logo.webp",
+          image: "/skill-logo/fastapi-logo.png",
         },
       ],
     },
     {
-      name: "FrontEnd Library And Framework",
+      name: "Frontend Tools",
       skills: [
         {
           name: "React",

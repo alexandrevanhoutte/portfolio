@@ -5,7 +5,6 @@ import styles from "./skillFlipCard.module.css";
 type SkillProps = {
   name: string;
   image: string;
-  backgroundColor: string;
 };
 
 export default function SkillFlipCard(props: SkillProps) {
@@ -27,7 +26,7 @@ export default function SkillFlipCard(props: SkillProps) {
       }}
       back={{
         content: <div>{props.name}</div>,
-        backgroundColor: props.backgroundColor,
+        backgroundColor: "#ececec",
       }}
     />
   );
