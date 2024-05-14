@@ -1,0 +1,16 @@
+.skillCategory {
+  color: var(--text-color);
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+.skills {
+  display: flex;
+  align-items: center;
+  color: #000;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+}

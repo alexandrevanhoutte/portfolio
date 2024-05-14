@@ -1,0 +1,33 @@
+.header {
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .heading {
+    font-weight: 700;
+    font-size: 10rem;
+    color: #2eb2d3;
+  }
+
+  .headingSub {
+    font-size: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+    font-weight: 600;
+    color: #eff0f2;
+    column-gap: 3rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    .heading {
+      font-size: 5rem;
+    }
+  }
+}

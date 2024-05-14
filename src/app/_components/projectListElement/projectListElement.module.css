@@ -1,0 +1,17 @@
+.project {
+  border-top: solid;
+  padding: 0.5rem;
+
+  &:hover {
+    font-weight: 700;
+  }
+
+  .link {
+    color: var(--text-color);
+    text-decoration: none;
+  }
+
+  &:last-child {
+    border-bottom: solid;
+  }
+}

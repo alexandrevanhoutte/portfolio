@@ -1,0 +1,33 @@
+.aboutMe {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 0rem;
+
+  .content {
+    font-size: 3rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    align-items: center;
+    color: var(--text-color);
+  }
+
+  .image {
+    margin-right: 45px;
+  }
+
+  .description {
+    max-width: 25rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .aboutMe {
+    .content {
+      flex-direction: column;
+    }
+  }
+}
