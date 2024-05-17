@@ -16,8 +16,6 @@ export async function POST(request: Request) {
   const password = process.env.NODEMAIL_EMAIL_PASSWORD;
   const myEmail = process.env.NODEMAIL_PERSONAL_EMAIL;
 
-  console.log(username);
-
   const getTransporter = () =>
     nodemailer.createTransport({
       service: "gmail",
@@ -46,7 +44,6 @@ export async function POST(request: Request) {
         <p>Message: ${message} </p>
         `,
     });
-    console.log(mail);
     return NextResponse.json(
       { message: "The message has been sent." },
       { headers: corsHeaders }
