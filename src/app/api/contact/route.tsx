@@ -2,9 +2,9 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 export async function POST(request: Request) {
-  const username = process.env.NEXT_PUBLIC_EMAIL_USERNAME;
-  const password = process.env.NEXT_PUBLIC_EMAIL_PASSWORD;
-  const myEmail = process.env.NEXT_PUBLIC_PERSONAL_EMAIL;
+  const username = process.env.NODEMAIL_EMAIL_USERNAME;
+  const password = process.env.NODEMAIL_EMAIL_PASSWORD;
+  const myEmail = process.env.NODEMAIL_PERSONAL_EMAIL;
 
   const getTransporter = () =>
     nodemailer.createTransport({
