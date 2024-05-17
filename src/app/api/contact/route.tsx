@@ -36,7 +36,7 @@ export async function POST(request: Request) {
   const transporter = getTransporter();
 
   try {
-    const mail = transporter.sendMail({
+    const mail = await transporter.sendMail({
       from: username,
       to: myEmail,
       subject: `Portfolio: New message from ${email}`,
