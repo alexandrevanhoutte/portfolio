@@ -46,6 +46,7 @@ export async function POST(request: Request) {
         <p>Message: ${message} </p>
         `,
     });
+    console.log(mail);
     return NextResponse.json(
       { message: "The message has been sent." },
       { headers: corsHeaders }
