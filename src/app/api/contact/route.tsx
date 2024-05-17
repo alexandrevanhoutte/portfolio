@@ -1,6 +1,16 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization",
+};
+
+export async function OPTIONS() {
+  return NextResponse.json(null, { headers: corsHeaders });
+}
+
 export async function POST(request: Request) {
   const username = process.env.NODEMAIL_EMAIL_USERNAME;
   const password = process.env.NODEMAIL_EMAIL_PASSWORD;
@@ -24,7 +34,7 @@ export async function POST(request: Request) {
   const transporter = getTransporter();
 
   try {
-    const mail = transporter.sendMail({
+    const mail = await transporter.sendMail({
       from: username,
       to: myEmail,
       subject: `Portfolio: New message from ${email}`,
@@ -34,11 +44,14 @@ export async function POST(request: Request) {
         <p>Message: ${message} </p>
         `,
     });
-    return NextResponse.json({ message: "The message has been sent." });
+    return NextResponse.json(
+      { message: "The message has been sent." },
+      { headers: corsHeaders }
+    );
   } catch (error: unknown) {
     return NextResponse.json(
       { message: "The message couldn't be sent" },
-      { status: 400 }
+      { headers: corsHeaders, status: 400 }
     );
   }
 }
