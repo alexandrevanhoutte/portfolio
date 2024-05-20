@@ -6,6 +6,7 @@ import HeaderSection from "@/app/_components/headerSection/HeaderSection";
 import Navbar from "@/app/_components/navbar/Navbar";
 import ProjectSection from "@/app/_components/projectSection/ProjectSection";
 import SkillSection from "@/app/_components/skillSection/SkillSection";
+import { dataUrl } from "@/app/_svg/background";
 import { Titillium_Web } from "next/font/google";
 import "../app/globals.css";
 
@@ -18,12 +19,8 @@ const titilliumWeb = Titillium_Web({
 export default function Home() {
   return (
     <main className={titilliumWeb.className}>
-      {/* <Seo
-        pageTitle="Alexandre Vanhoutte's Portfolio"
-        pageDescription="Portfolio Description"
-      /> */}
       <Navbar />
-      <div>
+      <div style={{ backgroundImage: `url("${dataUrl}")` }}>
         <HeaderSection />
         <AboutMeSection />
         <SkillSection />
