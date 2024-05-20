@@ -1,3 +1,7 @@
+.content {
+  background-size: 100% auto;
+}
+
 .main {
   display: flex;
   flex-direction: column;
