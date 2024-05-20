@@ -9,6 +9,7 @@ import SkillSection from "@/app/_components/skillSection/SkillSection";
 import { dataUrl } from "@/app/_svg/background";
 import { Titillium_Web } from "next/font/google";
 import "../app/globals.css";
+import styles from "./page.module.css";
 
 const titilliumWeb = Titillium_Web({
   style: ["normal", "italic"],
@@ -20,7 +21,10 @@ export default function Home() {
   return (
     <main className={titilliumWeb.className}>
       <Navbar />
-      <div style={{ backgroundImage: `url("${dataUrl}")` }}>
+      <div
+        className={styles.content}
+        style={{ backgroundImage: `url("${dataUrl}")` }}
+      >
         <HeaderSection />
         <AboutMeSection />
         <SkillSection />
