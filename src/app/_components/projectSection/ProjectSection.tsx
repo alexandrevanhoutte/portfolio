@@ -43,6 +43,7 @@ export default function ProjectSection() {
     },
     {
       name: "MOS NLP (Python Library)",
+      url: "http://takeview.co.kr/",
       description: "todo",
       pictureUrl: "/project-picture/mos-nlp.webp",
     },
