@@ -32,7 +32,7 @@ export default function SkillSection() {
       skills: [
         {
           name: "NestJs",
-          image: "/skill-logo/nestjs-logo.png",
+          image: "/skill-logo/nestjs-logo.webp",
         },
         {
           name: "Flask",
@@ -40,7 +40,7 @@ export default function SkillSection() {
         },
         {
           name: "FastAPI",
-          image: "/skill-logo/fastapi-logo.png",
+          image: "/skill-logo/fastapi-logo.webp",
         },
       ],
     },
