@@ -19,7 +19,7 @@ export default function ExperienceElement(props: ExperienceElementProps) {
         <div className={styles.header}>
           <div className={styles.job}>{props.name}</div>
           <div className={styles.jobDetail}>
-            {props.startDate} - {props.endDate} / {props.company}
+            {props.startDate} - {props.endDate} · {props.company}
           </div>
         </div>
         <div className={styles.description}>

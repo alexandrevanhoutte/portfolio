@@ -2,4 +2,8 @@
   font-weight: 600;
   font-size: 5rem;
   color: var(--title-color);
+
+  @media (max-width: 800px) {
+    font-size: 4rem;
+  }
 }

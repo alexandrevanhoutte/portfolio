@@ -64,6 +64,7 @@ export default function ContactSection() {
           <label htmlFor="form-email"> Email:</label>
           <input
             id="form-email"
+            type="email"
             className={styles.input}
             name="email"
             value={formData.email}
