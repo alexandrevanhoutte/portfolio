@@ -16,7 +16,9 @@
   }
 
   .image {
-    margin-right: 45px;
+    /* margin-right: 45px; */
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .description {
