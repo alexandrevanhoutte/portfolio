@@ -13,7 +13,7 @@ type FlipCardProps = {
 
 export default function SectionFlipCard(props: FlipCardProps) {
   return (
-    <FadeIn duration="300ms" threshold={0} y={20}>
+    <FadeIn threshold={0}>
       <div className={styles.flipCard}>
         <div className={styles.content}>
           <div

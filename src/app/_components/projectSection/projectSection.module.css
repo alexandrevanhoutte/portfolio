@@ -9,12 +9,12 @@
   .content {
     display: flex;
 
-    @media (max-width: 700px) {
+    @media (max-width: 1030px) {
       flex-direction: column;
     }
 
     .picture {
-      @media (max-width: 700px) {
+      @media (max-width: 1030px) {
         height: 10rem;
         width: 20rem;
       }

@@ -1,4 +1,4 @@
-@keyframes fadeIn {
+/* @keyframes fadeIn {
   from {
     opacity: 0;
   }
@@ -10,4 +10,14 @@
 .fadeIn {
   opacity: 0;
   animation: fadeIn 2s ease forwards;
+} */
+
+.fadeInElement {
+  opacity: 0;
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.fadeIn {
+  opacity: 1;
+  transform: translateX(0) translateY(0); /* Final position */
 }
