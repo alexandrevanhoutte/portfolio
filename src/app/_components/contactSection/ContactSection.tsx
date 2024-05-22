@@ -1,7 +1,8 @@
 "use client";
 
-import ContactButton from "@/app/_components/contactButton/ContactButton";
+import Button from "@/app/_components/Button/Button";
 import SectionTitle from "@/app/_components/sectionTitle/SectionTitle";
+import { SendEmailIcon } from "@/app/_svg/SendEmailIcon";
 import { useState } from "react";
 import styles from "./contactSection.module.css";
 
@@ -82,7 +83,7 @@ export default function ContactSection() {
           />
         </div>
         <div className={styles.submit}>
-          <ContactButton isLoading={isLoading} />
+          <Button icon={<SendEmailIcon />} isLoading={isLoading} text="Send" />
         </div>
       </form>
     </div>

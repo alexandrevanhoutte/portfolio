@@ -73,7 +73,7 @@ export default function ProjectSection() {
               sizes="100vw"
               style={{ width: "100%", height: "auto" }}
               objectFit="contain"
-              alt="Project logo"
+              alt="Project screenshot"
             />
           ) : (
             <></>
