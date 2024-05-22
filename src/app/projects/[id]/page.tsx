@@ -20,6 +20,19 @@ type ProjectPageProps = {
   searchParams: {};
 };
 
+function Tag(props: { name: string }) {
+  return <div className={styles.tag}>{props.name}</div>;
+}
+
+function Detail(props: { name: string; value: JSX.Element }) {
+  return (
+    <div className={styles.element}>
+      <div className={styles.name}>{props.name}:</div>{" "}
+      <div className={styles.value}>{props?.value}</div>
+    </div>
+  );
+}
+
 export default function ProjectPage(props: ProjectPageProps) {
   const { id } = props.params;
   if (!id) {
@@ -52,18 +65,20 @@ export default function ProjectPage(props: ProjectPageProps) {
             />
           </div>
           <div className={styles.detail}>
-            <div className={styles.element}>
-              Description: {project?.description}
-            </div>
-            <div className={styles.element}>Main Role: {project.mainRole}</div>
-            <div className={styles.element}>
-              Main Stacks:
-              <ul>
-                {project.mainStacks.map((stack, index) => (
-                  <li key={index}>{stack}</li>
-                ))}
-              </ul>
-            </div>
+            <Detail name="Description" value={<>{project.description}</>} />
+            <Detail name="Main Role" value={<>{project.mainRole}</>} />
+            <Detail
+              name="Main Stacks"
+              value={
+                <ul>
+                  {project.mainStacks.map((stack, index) => (
+                    <li key={index}>
+                      <Tag name={stack} />
+                    </li>
+                  ))}
+                </ul>
+              }
+            />
             <div className={styles.link}>
               <ExternalButton
                 icon={<SendEmailIcon />}

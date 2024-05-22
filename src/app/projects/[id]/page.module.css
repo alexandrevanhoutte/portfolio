@@ -11,10 +11,23 @@
 
     .detail {
       color: var(--text-color);
-
-      .element {
-        padding: 0.5rem;
-      }
     }
   }
+}
+
+.element {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: flex-start;
+
+  .name {
+    font-weight: 600;
+    color: var(--title-color);
+    min-width: 7rem;
+  }
+}
+
+.tag {
+  background-color: var(--text-color);
+  margin-right: 1rem;
 }
