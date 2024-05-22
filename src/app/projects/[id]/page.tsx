@@ -70,9 +70,9 @@ export default function ProjectPage(props: ProjectPageProps) {
             <Detail
               name="Main Stacks"
               value={
-                <ul>
+                <ul className={styles.list}>
                   {project.mainStacks.map((stack, index) => (
-                    <li key={index}>
+                    <li key={index} className={styles.listElement}>
                       <Tag name={stack} />
                     </li>
                   ))}

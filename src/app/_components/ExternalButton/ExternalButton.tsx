@@ -1,4 +1,5 @@
 import Button from "@/app/_components/Button/Button";
+import styles from "./externalButton.module.css";
 
 interface ExternalButtonProps {
   isLoading?: boolean;
@@ -9,7 +10,7 @@ interface ExternalButtonProps {
 
 export default function ExternalButton(props: ExternalButtonProps) {
   return (
-    <a href={props.href}>
+    <a className={styles.link} href={props.href}>
       <Button isLoading={props.isLoading} icon={props.icon} text={props.text} />
     </a>
   );
