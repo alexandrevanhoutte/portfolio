@@ -30,18 +30,20 @@ export default function ProjectSection() {
       <SectionTitle title="Projects" />
       <div className={styles.content}>
         <div className={styles.picture}>
-          (
-          <Image
-            className={styles.image}
-            src={activeProject?.pictureUrl ?? ""}
-            width={0}
-            height={0}
-            sizes="100vw"
-            style={{ width: "100%", height: "auto" }}
-            objectFit="contain"
-            alt={`${activeProject?.name} project screenshot`}
-          />
-          )
+          {activeProject?.pictureUrl ? (
+            <Image
+              priority={false}
+              className={styles.image}
+              src={activeProject?.pictureUrl ?? ""}
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{ width: "100%", height: "auto" }}
+              alt={`${activeProject?.name} project screenshot`}
+            />
+          ) : (
+            <></>
+          )}
         </div>
         <div className={styles.projectsView}>
           {projects?.map((project, index) => (
