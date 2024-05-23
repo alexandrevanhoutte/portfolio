@@ -3,8 +3,6 @@
 import fs from "fs";
 import path from "path";
 
-const projectsFilePath = path.join(process.cwd(), "src/data", "projects.json");
-
 export interface Project {
   id: number;
   name: string;
@@ -16,7 +14,11 @@ export interface Project {
 }
 
 export async function getAllProjects() {
-  const fileContents = fs.readFileSync(projectsFilePath, "utf8");
+  const dataDirectory = path.join(process.cwd(), "data");
+  const fileContents = fs.readFileSync(
+    dataDirectory + "/projects.json",
+    "utf8"
+  );
   const projects: Project[] = JSON.parse(fileContents);
   return projects;
 }
