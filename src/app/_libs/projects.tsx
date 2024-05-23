@@ -14,7 +14,7 @@ export interface Project {
 }
 
 export async function getAllProjects() {
-  const dataDirectory = path.join(process.cwd(), "/public/data");
+  const dataDirectory = path.resolve("./public/data");
   const fileContents = fs.readFileSync(
     dataDirectory + "/projects.json",
     "utf8"
