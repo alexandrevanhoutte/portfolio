@@ -3,7 +3,7 @@
 import fs from "fs";
 import path from "path";
 
-const projectsFilePath = path.join(process.cwd(), "data", "projects.json");
+const projectsFilePath = path.join(process.cwd(), "src/data", "projects.json");
 
 export interface Project {
   id: number;
