@@ -7,10 +7,10 @@
 
   .form {
     width: 75%;
-    background-color: #2d457d;
-    box-shadow: 0.8rem 0.5rem 0.5rem black;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px);
     padding: 2rem;
-    border-radius: 10px;
+    border-radius: 5px;
 
     .formInput {
       display: flex;

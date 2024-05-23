@@ -22,6 +22,7 @@
     "name": "Deepform",
     "url": "https://deepform.net",
     "description": "todo",
+    "pictureUrl": "/project-picture/deepform.png",
     "mainRole": "Backend Systems Engineer (Backend Development, Backend Deployment, Database Management)",
     "mainStacks": [
       "NestJs",

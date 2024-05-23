@@ -33,12 +33,12 @@ function Detail(props: { name: string; value: JSX.Element }) {
   );
 }
 
-export default function ProjectPage(props: ProjectPageProps) {
+export default async function ProjectPage(props: ProjectPageProps) {
   const { id } = props.params;
   if (!id) {
     return <NotFound />;
   }
-  const project = getProjectById(Number(id));
+  const project = await getProjectById(Number(id));
   if (!project) {
     return <NotFound />;
   }

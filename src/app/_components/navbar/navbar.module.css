@@ -28,18 +28,15 @@
     cursor: pointer;
     text-decoration: none;
 
-    .link {
+    .element {
       text-decoration: none;
+      list-style-type: none;
+      padding: 1rem 1.5rem;
+      color: var(--background-color);
 
-      .element {
-        list-style-type: none;
-        padding: 1rem 1.5rem;
-        color: var(--background-color);
-
-        &:hover {
-          background-color: var(--title-color);
-          color: var(--text-color);
-        }
+      &:hover {
+        background-color: var(--title-color);
+        color: var(--text-color);
       }
     }
 
