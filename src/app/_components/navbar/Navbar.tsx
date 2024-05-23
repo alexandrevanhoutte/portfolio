@@ -1,5 +1,6 @@
 "use client";
 
+import NavbarElement from "@/app/_components/navbarElement/NavbarElement";
 import { CrossIcon } from "@/app/_svg/CrossIcon";
 import { MenuIcon } from "@/app/_svg/MenuIcon";
 import { useRouter } from "next/navigation";
@@ -76,15 +77,13 @@ export default function Navbar() {
         style={{ display: isMenuOpen ? "block" : "none" }}
       >
         {elements.map((element, index) => (
-          <li
+          <NavbarElement
             key={index}
-            className={`${styles.element} ${
-              activeLink === element.section ? styles.activeElement : ""
-            }`}
-            onClick={() => handleClick(element.section)}
-          >
-            {element.name}
-          </li>
+            name={element.name}
+            section={element.section}
+            isActive={activeLink === element.section}
+            onClick={handleClick}
+          />
         ))}
       </ul>
     </div>
