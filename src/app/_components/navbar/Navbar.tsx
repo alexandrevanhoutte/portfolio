@@ -1,7 +1,9 @@
 "use client";
 
+import NavbarElement from "@/app/_components/navbarElement/NavbarElement";
 import { CrossIcon } from "@/app/_svg/CrossIcon";
 import { MenuIcon } from "@/app/_svg/MenuIcon";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import styles from "./navbar.module.css";
 
@@ -12,6 +14,7 @@ interface NavbarElement {
 }
 
 export default function Navbar() {
+  const router = useRouter();
   const [activeLink, setActiveLink] = useState<string | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
@@ -45,6 +48,7 @@ export default function Navbar() {
 
   const handleClick = (link: string) => {
     setActiveLink(link);
+    router.push(`/#${link}`);
   };
 
   const handleIsVisible = (e: any) => {
@@ -73,16 +77,13 @@ export default function Navbar() {
         style={{ display: isMenuOpen ? "block" : "none" }}
       >
         {elements.map((element, index) => (
-          <a key={index} href={element.path} className={styles.link}>
-            <li
-              className={`${styles.element} ${
-                activeLink === element.section ? styles.activeElement : ""
-              }`}
-              onClick={() => handleClick(element.section)}
-            >
-              {element.name}
-            </li>
-          </a>
+          <NavbarElement
+            key={index}
+            name={element.name}
+            section={element.section}
+            isActive={activeLink === element.section}
+            onClick={handleClick}
+          />
         ))}
       </ul>
     </div>

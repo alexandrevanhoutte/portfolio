@@ -1,7 +1,8 @@
 "use client";
 
-import ContactButton from "@/app/_components/contactButton/ContactButton";
+import Button from "@/app/_components/Button/Button";
 import SectionTitle from "@/app/_components/sectionTitle/SectionTitle";
+import { SendEmailIcon } from "@/app/_svg/SendEmailIcon";
 import { useState } from "react";
 import styles from "./contactSection.module.css";
 
@@ -52,7 +53,7 @@ export default function ContactSection() {
       <SectionTitle title="Contact" />
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.formInput}>
-          <label htmlFor="form-name">Name </label>
+          <label htmlFor="form-name">What is your name?</label>
           <input
             id="form-name"
             className={styles.input}
@@ -61,7 +62,7 @@ export default function ContactSection() {
             onChange={handleInputChange}
             required
           />
-          <label htmlFor="form-email"> Email:</label>
+          <label htmlFor="form-email">What is your email?</label>
           <input
             id="form-email"
             type="email"
@@ -71,7 +72,9 @@ export default function ContactSection() {
             onChange={handleInputChange}
             required
           />
-          <label htmlFor="form-message"> Message: </label>
+          <label htmlFor="form-message">
+            What is your question or request?
+          </label>
           <textarea
             id="form-message"
             className={`${styles.input} ${styles.inputArea}`}
@@ -82,7 +85,7 @@ export default function ContactSection() {
           />
         </div>
         <div className={styles.submit}>
-          <ContactButton isLoading={isLoading} />
+          <Button icon={<SendEmailIcon />} isLoading={isLoading} text="Send" />
         </div>
       </form>
     </div>

@@ -3,7 +3,7 @@
   padding: 0.5rem;
 
   &:hover {
-    font-weight: 700;
+    cursor: pointer;
   }
 
   .link {
@@ -14,4 +14,8 @@
   &:last-child {
     border-bottom: solid;
   }
+}
+
+.active {
+  font-weight: 700;
 }

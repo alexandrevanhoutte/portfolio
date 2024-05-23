@@ -21,7 +21,8 @@
 
       height: 20rem;
       width: 40rem;
-      margin: 1rem;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
       overflow: hidden;
       position: relative;
     }

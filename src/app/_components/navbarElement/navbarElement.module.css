@@ -1,0 +1,22 @@
+.element {
+  text-decoration: none;
+  list-style-type: none;
+  padding: 1rem 1.5rem;
+  color: var(--background-color);
+
+  &:hover {
+    background-color: #5cc1db;
+    color: var(--background-color);
+  }
+}
+
+.activeElement {
+  background-color: var(--title-color);
+  color: var(--background-color);
+  font-weight: 600;
+
+  &:hover {
+    background-color: var(--title-color);
+    color: var(--background-color);
+  }
+}
