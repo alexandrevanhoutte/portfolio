@@ -3,7 +3,6 @@
 import ProjectListElement from "@/app/_components/projectListElement/ProjectListElement";
 import SectionTitle from "@/app/_components/sectionTitle/SectionTitle";
 import { Project, getAllProjects } from "@/app/_libs/projects";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import styles from "./projectSection.module.css";
 
@@ -30,20 +29,17 @@ export default function ProjectSection() {
       <SectionTitle title="Projects" />
       <div className={styles.content}>
         <div className={styles.picture}>
-          {activeProject?.pictureUrl ? (
+          {/* {activeProject?.pictureUrl && (
             <Image
-              priority={false}
               className={styles.image}
-              src={activeProject?.pictureUrl ?? ""}
+              src={activeProject?.pictureUrl}
               width={0}
               height={0}
               sizes="100vw"
               style={{ width: "100%", height: "auto" }}
               alt={`${activeProject?.name} project screenshot`}
             />
-          ) : (
-            <></>
-          )}
+          )} */}
         </div>
         <div className={styles.projectsView}>
           {projects?.map((project, index) => (

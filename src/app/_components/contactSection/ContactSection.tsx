@@ -55,6 +55,7 @@ export default function ContactSection() {
         <div className={styles.formInput}>
           <label htmlFor="form-name">What is your name?</label>
           <input
+            autoComplete="off"
             id="form-name"
             className={styles.input}
             name="name"
@@ -64,6 +65,7 @@ export default function ContactSection() {
           />
           <label htmlFor="form-email">What is your email?</label>
           <input
+            autoComplete="off"
             id="form-email"
             type="email"
             className={styles.input}
