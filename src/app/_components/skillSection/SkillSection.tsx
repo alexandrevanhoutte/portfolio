@@ -92,7 +92,6 @@ export default function SkillSection() {
         },
       ],
     },
-
     {
       name: "OS",
       skills: [
@@ -107,6 +106,32 @@ export default function SkillSection() {
         {
           name: "Windows",
           image: "/skill-logo/windows-logo.webp",
+        },
+      ],
+    },
+    {
+      name: "CI/CD",
+      skills: [
+        {
+          name: "Github Actions",
+          image: "/skill-logo/ghaction-logo.webp",
+        },
+        {
+          name: "Jenkins",
+          image: "/skill-logo/jenkins-logo.webp",
+        },
+      ],
+    },
+    {
+      name: "Testing",
+      skills: [
+        {
+          name: "Jest",
+          image: "/skill-logo/jest-logo.webp",
+        },
+        {
+          name: "Cucumber",
+          image: "/skill-logo/cucumber-logo.webp",
         },
       ],
     },

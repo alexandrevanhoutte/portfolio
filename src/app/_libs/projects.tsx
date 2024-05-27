@@ -28,7 +28,13 @@ export async function getAllProjects() {
       pictureUrl: "/project-picture/saveeat.png",
       mainRole:
         "Backend Systems Engineer (Backend Development, Backend Deployment, Database Management)",
-      mainStacks: ["NestJs", "PostgreSQL", "Azure App Service", "Azure Blob"],
+      mainStacks: [
+        "NestJs",
+        "PostgreSQL",
+        "Azure App Service",
+        "Azure Blob",
+        "Github Actions",
+      ],
     },
     {
       id: 5,
@@ -39,7 +45,13 @@ export async function getAllProjects() {
       pictureUrl: "/project-picture/markurz.png",
       mainRole:
         "Lead Backend Systems Engineer (Backend Development, Backend Deployment, Database Management)",
-      mainStacks: ["NestJs", "PostgreSQL", "Azure App Service", "Azure Blob"],
+      mainStacks: [
+        "NestJs",
+        "PostgreSQL",
+        "Azure App Service",
+        "Azure Blob",
+        "Github Actions",
+      ],
     },
     {
       id: 4,
@@ -57,6 +69,7 @@ export async function getAllProjects() {
         "AWS CloudFront",
         "AWS S3",
         "AWS ECS/ECR",
+        "Github Actions",
       ],
     },
     {
@@ -74,6 +87,7 @@ export async function getAllProjects() {
         "AWS CloudFront",
         "AWS S3",
         "AWS ECS/ECR",
+        "Github Actions",
       ],
     },
     {
@@ -85,7 +99,7 @@ export async function getAllProjects() {
       pictureUrl: "/project-picture/mos-nlp.webp",
       mainRole:
         "Backend Systems Engineer (Backend Development, Backend Deployment, Database Management)",
-      mainStacks: ["Python", "Flask, then FastAPI", "Pypi Server"],
+      mainStacks: ["Python", "Flask, then FastAPI", "Pypi Server", "Jenkins"],
     },
     {
       id: 1,
