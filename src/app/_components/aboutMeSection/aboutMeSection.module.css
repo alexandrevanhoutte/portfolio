@@ -13,17 +13,16 @@
     font-size: 1rem;
     align-items: center;
     color: var(--text-color);
-  }
 
-  .image {
-    /* margin-right: 45px; */
-    margin-left: auto;
-    margin-right: auto;
-  }
+    .image {
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-  .description {
-    max-width: 25rem;
-    padding: 1rem;
+    .description {
+      max-width: 25rem;
+      padding: 1rem;
+    }
   }
 }
 

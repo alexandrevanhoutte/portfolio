@@ -1,19 +1,11 @@
 import ExternalButton from "@/app/_components/ExternalButton/ExternalButton";
-import Navbar from "@/app/_components/navbar/Navbar";
 import SectionTitle from "@/app/_components/sectionTitle/SectionTitle";
 import { getProjectById } from "@/app/_libs/projects";
 import { SendEmailIcon } from "@/app/_svg/SendEmailIcon";
 import { dataUrl } from "@/app/_svg/background";
 import NotFound from "@/app/not-found/page";
-import { Titillium_Web } from "next/font/google";
 import Image from "next/image";
 import styles from "./page.module.css";
-
-const titilliumWeb = Titillium_Web({
-  style: ["normal", "italic"],
-  weight: ["200", "300", "400", "600", "700", "900"],
-  subsets: ["latin"],
-});
 
 type ProjectPageProps = {
   params: { id: string };
@@ -44,8 +36,7 @@ export default async function ProjectPage(props: ProjectPageProps) {
   }
 
   return (
-    <main className={titilliumWeb.className}>
-      <Navbar />
+    <main>
       <div
         className={styles.content}
         style={{ backgroundImage: `url("${dataUrl}")` }}

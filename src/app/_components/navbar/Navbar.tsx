@@ -37,9 +37,7 @@ export default function Navbar() {
         setActiveLink(visibleSection.id);
       }
     });
-
     const sections = document.querySelectorAll("[data-section]");
-
     sections.forEach((section) => observer.current?.observe(section));
     return () => {
       sections.forEach((section) => observer.current?.unobserve(section));

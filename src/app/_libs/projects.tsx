@@ -11,7 +11,6 @@ export interface Project {
 }
 
 export async function getAllProjects() {
-  // Temporary fix
   // const dataDirectory = path.resolve("./public/data");
   // const fileContents = fs.readFileSync(
   //   dataDirectory + "/projects.json",
