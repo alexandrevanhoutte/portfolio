@@ -1,5 +1,4 @@
 import Navbar from "@/app/_components/navbar/Navbar";
-import { WebVitals } from "@/app/_components/web-vitals";
 import type { Metadata } from "next";
 import { Titillium_Web } from "next/font/google";
 
@@ -22,7 +21,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={titilliumWeb.className}>
-        <WebVitals />
         <Navbar />
         {children}
       </body>

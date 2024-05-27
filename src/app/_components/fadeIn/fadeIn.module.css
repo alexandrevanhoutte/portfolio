@@ -1,19 +1,5 @@
-/* @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.fadeIn {
-  opacity: 0;
-  animation: fadeIn 2s ease forwards;
-} */
-
 .fadeInElement {
-  opacity: 0;
+  opacity: 0.1;
   transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
