@@ -58,7 +58,7 @@ export default function Navbar() {
     <div className={styles.navbar}>
       <div
         onClick={handleIsVisible}
-        className={styles.filter}
+        className={`${styles.filter} ${isMenuOpen ? styles.openMenu : ""}`}
         style={{ display: isMenuOpen ? "block" : "none" }}
       />
 
