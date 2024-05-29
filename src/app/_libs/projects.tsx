@@ -20,7 +20,7 @@ export async function getAllProjects() {
   // return projects;
   return [
     {
-      id: 6,
+      id: 8,
       name: "SaveEat",
       url: "https://www.saveeatapp.com/",
       description:
@@ -37,7 +37,24 @@ export async function getAllProjects() {
       ],
     },
     {
-      id: 5,
+      id: 7,
+      name: "Construckit",
+      url: "https://www.construckit.com/",
+      description:
+        "Solution for construction project teams by improving the communication and approval workflow",
+      pictureUrl: "/project-picture/construckit.png",
+      mainRole:
+        "Backend Systems Engineer (Backend Development, Backend Deployment, Database Management)",
+      mainStacks: [
+        "NestJs",
+        "PostgreSQL",
+        "Azure App Service",
+        "Azure Blob",
+        "Github Actions",
+      ],
+    },
+    {
+      id: 6,
       name: "Markurz",
       url: "https://chromewebstore.google.com/detail/markurz/lnbfijiimlnnpjmfgmfdmdmlobadcloo?pli=1",
       description:
@@ -54,7 +71,7 @@ export async function getAllProjects() {
       ],
     },
     {
-      id: 4,
+      id: 5,
       name: "Deepform",
       url: "https://deepform.net",
       description:
@@ -73,7 +90,7 @@ export async function getAllProjects() {
       ],
     },
     {
-      id: 3,
+      id: 4,
       name: "BuilderFul",
       url: "https://www.builderful.co.kr",
       description:
@@ -91,7 +108,7 @@ export async function getAllProjects() {
       ],
     },
     {
-      id: 2,
+      id: 3,
       name: "MOS NLP (Python Library)",
       url: "http://takeview.co.kr/",
       description:
@@ -102,7 +119,7 @@ export async function getAllProjects() {
       mainStacks: ["Python", "Flask, then FastAPI", "Pypi Server", "Jenkins"],
     },
     {
-      id: 1,
+      id: 2,
       name: "Spirit Hunter",
       url: "https://eip.epitech.eu/2018/spirithunter/",
       description:
@@ -110,6 +127,25 @@ export async function getAllProjects() {
       pictureUrl: "/project-picture/spirit-hunter.png",
       mainRole: "Team's Leader, Android developer, C++ developer",
       mainStacks: ["Android", "C++"],
+    },
+    {
+      id: 1,
+      name: "Cells Runner",
+      url: "https://v3.globalgamejam.org/2018/games/cells-runner",
+      description:
+        "Cells Runner is a 2D multiplayer game (from 2 players and up to 4) that takes place inside human veins. Made during the Global Game Jam 2018. The theme was 'Transmission'",
+      pictureUrl: "/project-picture/cells-runner.png",
+      mainRole: "Developer",
+      mainStacks: ["Unity", "C#"],
+    },
+    {
+      id: 0,
+      name: "Portfolio",
+      url: "https://www.alexandrevanhoutte.com",
+      description: "My personal website with my resume, my projects, ...",
+      pictureUrl: "/project-picture/portfolio.png",
+      mainRole: "Developer",
+      mainStacks: ["Typescript", "NextJs", "HTML/CSS"],
     },
   ];
 }
