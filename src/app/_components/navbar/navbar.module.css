@@ -1,7 +1,7 @@
 .navbar {
   .menuOpener {
     position: fixed;
-    right: 0;
+    left: 0;
     z-index: 3;
     margin: 1rem;
   }
@@ -20,7 +20,7 @@
     margin: 0px;
     height: 100vh;
     width: 15rem;
-    right: 0;
+    left: 0;
     top: 0;
     z-index: 2;
     padding-left: 0;
