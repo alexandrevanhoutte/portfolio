@@ -10,6 +10,7 @@ body {
   padding: 0;
 
   background-color: var(--background-color);
+  overflow: overlay;
 }
 
 *,
@@ -21,4 +22,22 @@ body {
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
+
+  /* firefox   */
+  scrollbar-width: thin;
+  scrollbar-color: var(--title-color) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 1rem;
+  height: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--title-color);
+  border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
 }
