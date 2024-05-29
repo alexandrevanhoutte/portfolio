@@ -14,19 +14,24 @@
     }
 
     .picture {
-      @media (max-width: 1030px) {
-        height: 10rem;
-        width: 20rem;
-      }
-
-      height: 20rem;
-      width: 40rem;
-      margin-right: 1rem;
-      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
       position: relative;
       object-fit: contain;
       border-radius: 0.2rem;
+
+      .image {
+        height: 23rem;
+        width: 40rem;
+        object-fit: contain;
+
+        @media (max-width: 1030px) {
+          height: 15rem;
+          width: 20rem;
+        }
+      }
     }
 
     .projectsView {
