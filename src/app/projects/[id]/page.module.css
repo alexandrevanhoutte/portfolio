@@ -1,4 +1,8 @@
 .content {
+  background-size: 100% auto;
+  height: 100vh;
+  width: auto;
+
   display: flex;
   flex-direction: column;
 
