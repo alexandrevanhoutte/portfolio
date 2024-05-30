@@ -46,7 +46,7 @@ export default function ExperienceSection() {
       `,
     },
     {
-      name: "DevOps on 2 Capgemini's SNCF projects",
+      name: "DevOps on 2 SNCF projects",
       company: "Capgemini",
       startDate: "2019/02",
       endDate: "2019/10",

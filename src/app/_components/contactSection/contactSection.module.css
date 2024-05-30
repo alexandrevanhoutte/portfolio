@@ -23,7 +23,13 @@
         outline: none;
         border-radius: 0.2rem;
         padding: 0.6rem;
+        margin-top: 0.3rem;
         margin-bottom: 1.5rem;
+        border: 0.2rem solid transparent;
+
+        &:focus {
+          border-color: var(--title-color);
+        }
       }
 
       .inputArea {
