@@ -14,6 +14,7 @@ export default function NavbarElement(props: NavbarElementProps) {
         props.isActive ? styles.activeElement : ""
       }`}
       onClick={() => props.onClick(props.section)}
+      style={{ cursor: "pointer" }}
     >
       {props.name}
     </li>

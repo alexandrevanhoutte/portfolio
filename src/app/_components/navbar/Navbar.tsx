@@ -59,20 +59,20 @@ export default function Navbar() {
       <div
         onClick={handleIsVisible}
         className={`${styles.filter} ${isMenuOpen ? styles.openMenu : ""}`}
-        style={{ display: isMenuOpen ? "block" : "none" }}
+        style={{ display: isMenuOpen ? "block" : "none", cursor: "default" }}
       />
 
       <div
         className={styles.menuOpener}
         onClick={handleIsVisible}
-        style={{ fill: "#2eb2d3" }}
+        style={{ fill: "#2eb2d3", cursor: "pointer" }}
       >
         {isMenuOpen ? <CrossIcon /> : <MenuIcon />}
       </div>
 
       <ul
         className={styles.list}
-        style={{ display: isMenuOpen ? "block" : "none" }}
+        style={{ display: isMenuOpen ? "block" : "none", cursor: "default" }}
       >
         {elements.map((element, index) => (
           <NavbarElement
