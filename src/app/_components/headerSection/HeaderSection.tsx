@@ -12,7 +12,7 @@ export default function HeaderSection() {
           <div className={styles.headingSub1}>Alexandre Vanhoutte</div>
         </FadeIn>
         <FadeIn threshold={0.2} duration={"2s"} x={-20}>
-          <div className={styles.headingSub2}>BackEnd Developer</div>
+          <div className={styles.headingSub2}>Software Engineer</div>
         </FadeIn>
       </div>
     </div>
