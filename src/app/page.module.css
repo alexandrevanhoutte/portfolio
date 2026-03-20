@@ -1,3 +1,110 @@
 .content {
-  background-size: 100% auto;
+  position: relative;
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      65rem 36rem at 50% -4%,
+      rgba(255, 157, 77, 0.2),
+      transparent 70%
+    ),
+    radial-gradient(
+      46rem 32rem at 88% 10%,
+      rgba(255, 122, 26, 0.22),
+      transparent 68%
+    ),
+    radial-gradient(
+      44rem 30rem at 14% 38%,
+      rgba(219, 92, 21, 0.17),
+      transparent 72%
+    ),
+    radial-gradient(
+      48rem 34rem at 78% 84%,
+      rgba(255, 133, 43, 0.16),
+      transparent 75%
+    ),
+    radial-gradient(
+      40rem 26rem at 30% 78%,
+      rgba(157, 62, 14, 0.12),
+      transparent 73%
+    ),
+    linear-gradient(160deg, #0f0f13 0%, #08080b 45%, #050507 100%);
+  isolation: isolate;
+}
+
+.content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      55rem 28rem at 50% 0%,
+      rgba(255, 161, 79, 0.15),
+      transparent 70%
+    ),
+    radial-gradient(
+      70rem 50rem at 50% 120%,
+      rgba(0, 0, 0, 0.58),
+      transparent 78%
+    ),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.42) 100%);
+  z-index: 0;
+}
+
+.content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      120deg,
+      rgba(255, 137, 50, 0.04) 0 1px,
+      transparent 1px 26px
+    ),
+    repeating-linear-gradient(
+      30deg,
+      rgba(255, 118, 26, 0.028) 0 1px,
+      transparent 1px 34px
+    ),
+    radial-gradient(rgba(255, 171, 105, 0.08) 0.6px, transparent 0.6px);
+  background-size: auto, auto, 4px 4px;
+  opacity: 0.45;
+  z-index: 0;
+}
+
+.content > * {
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    background:
+      radial-gradient(
+        38rem 26rem at 50% -6%,
+        rgba(255, 157, 77, 0.16),
+        transparent 70%
+      ),
+      radial-gradient(
+        28rem 22rem at 86% 9%,
+        rgba(255, 122, 26, 0.18),
+        transparent 68%
+      ),
+      radial-gradient(
+        26rem 20rem at 12% 33%,
+        rgba(219, 92, 21, 0.15),
+        transparent 72%
+      ),
+      radial-gradient(
+        32rem 24rem at 75% 86%,
+        rgba(255, 133, 43, 0.13),
+        transparent 75%
+      ),
+      linear-gradient(160deg, #0f0f13 0%, #08080b 45%, #050507 100%);
+  }
+
+  .content::after {
+    opacity: 0.28;
+  }
 }
