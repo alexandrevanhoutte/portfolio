@@ -1,48 +1,112 @@
 .navbar {
-  .menuOpener {
+  position: relative;
+  z-index: 40;
+}
+
+.desktopNav {
+  display: none;
+}
+
+.menuOpener {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 42;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.9rem;
+  height: 2.9rem;
+  border: 1px solid rgba(255, 138, 42, 0.45);
+  border-radius: 0.9rem;
+  background: rgba(8, 8, 10, 0.88);
+  backdrop-filter: blur(12px);
+  color: var(--title-color);
+  fill: var(--title-color);
+  cursor: pointer;
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.menuOpener:hover {
+  background: rgba(255, 138, 42, 0.14);
+  border-color: rgba(255, 138, 42, 0.8);
+}
+
+.menuOpener:focus-visible {
+  outline: 2px solid rgba(255, 166, 92, 0.95);
+  outline-offset: 3px;
+}
+
+.filter {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(0, 0, 0, 0.52);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.filterVisible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobileNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 41;
+  height: 100vh;
+  width: min(17rem, 82vw);
+  padding: 4.5rem 0.65rem 1rem;
+  transform: translateX(-100%);
+  transition: transform 220ms ease;
+  border-right: 1px solid rgba(255, 138, 42, 0.3);
+  background: rgba(8, 8, 10, 0.95);
+  backdrop-filter: blur(14px);
+}
+
+.mobileNavOpen {
+  transform: translateX(0);
+}
+
+.mobileList {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .desktopNav {
     position: fixed;
-    left: 0;
-    z-index: 3;
-    margin: 1rem;
+    top: 1.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    z-index: 42;
   }
 
+  .desktopList {
+    margin: 0;
+    padding: 0.35rem;
+    list-style: none;
+    display: flex;
+    gap: 0.35rem;
+    border: 1px solid rgba(255, 138, 42, 0.35);
+    border-radius: 999px;
+    background: rgba(8, 8, 10, 0.78);
+    backdrop-filter: blur(12px);
+    box-shadow:
+      0 14px 34px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  }
+
+  .menuOpener,
+  .mobileNav,
   .filter {
-    position: fixed;
-    z-index: 1;
-    height: 100vh;
-    width: 100vw;
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-
-  .list {
-    position: fixed;
-    padding-top: 3rem;
-    margin: 0px;
-    height: 100vh;
-    width: 15rem;
-    left: 0;
-    top: 0;
-    z-index: 2;
-    padding-left: 0;
-    background-color: var(--text-color);
-    cursor: pointer;
-    text-decoration: none;
-
-    .element {
-      text-decoration: none;
-      list-style-type: none;
-      padding: 1rem 1.5rem;
-      color: var(--background-color);
-
-      &:hover {
-        background-color: var(--title-color);
-        color: var(--text-color);
-      }
-    }
-
-    .activeElement {
-      background-color: var(--title-color);
-      color: var(--text-color);
-    }
+    display: none;
   }
 }

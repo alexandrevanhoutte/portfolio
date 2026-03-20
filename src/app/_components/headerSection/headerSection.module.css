@@ -1,4 +1,5 @@
 .header {
+  position: relative;
   background-size: cover;
   height: 100vh;
   display: flex;
@@ -7,6 +8,65 @@
   justify-content: center;
   text-align: center;
   padding: 0 1.5rem;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.header::before,
+.header::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.header::before {
+  width: min(66vw, 54rem);
+  height: min(52vw, 34rem);
+  top: 17%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 122, 26, 0.33) 0%,
+    rgba(255, 122, 26, 0.12) 36%,
+    rgba(255, 122, 26, 0) 75%
+  );
+  filter: blur(22px);
+  animation: haloDrift 14s ease-in-out infinite;
+}
+
+.header::after {
+  width: min(40vw, 30rem);
+  height: min(40vw, 30rem);
+  top: 12%;
+  right: 9%;
+  border-radius: 999px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 178, 120, 0.15) 0%,
+    rgba(255, 178, 120, 0) 72%
+  );
+  filter: blur(18px);
+  animation: haloPulse 9s ease-in-out infinite;
+}
+
+.heroStack {
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 62rem);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.heroStack > div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .name {
@@ -14,15 +74,19 @@
   font-weight: 700;
   font-size: clamp(2.8rem, 9vw, 7rem);
   line-height: 1.05;
+  letter-spacing: 0.012em;
   color: #ff9a42;
-  text-shadow: 0 0 26px rgba(255, 122, 26, 0.28);
+  text-shadow: 0 0 16px rgba(255, 122, 26, 0.2);
+  animation: nameGlow 7s ease-in-out 2.2s infinite;
 }
 
 .role {
   margin: 0.9rem 0 0;
-  font-weight: 600;
+  font-weight: 700;
   font-size: clamp(1.3rem, 3.4vw, 2.4rem);
+  letter-spacing: 0.04em;
   color: var(--text-color);
+  animation: roleFloat 9s ease-in-out 2.6s infinite;
 }
 
 .tagline {
@@ -30,15 +94,99 @@
   max-width: 44rem;
   font-size: clamp(1rem, 2.1vw, 1.35rem);
   line-height: 1.5;
-  color: var(--text-color);
+  color: rgba(243, 237, 232, 0.94);
+  animation: taglineDrift 8.5s ease-in-out 2.6s infinite;
+}
+
+@keyframes haloDrift {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 0.82;
+  }
+  50% {
+    transform: translateX(-50%) translateY(16px);
+    opacity: 0.58;
+  }
+}
+
+@keyframes haloPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.17;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes nameGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 10px rgba(255, 122, 26, 0.14);
+    transform: translateY(0);
+  }
+  50% {
+    text-shadow: 0 0 18px rgba(255, 122, 26, 0.22);
+    transform: translateY(-1px);
+  }
+}
+
+@keyframes roleFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.98;
+  }
+  50% {
+    transform: translateY(1px);
+    opacity: 0.95;
+  }
+}
+
+@keyframes taglineDrift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(1.5px);
+  }
 }
 
 @media screen and (max-width: 768px) {
+  .header::before {
+    width: 95vw;
+    height: 62vw;
+    top: 20%;
+  }
+
+  .header::after {
+    width: 62vw;
+    height: 62vw;
+    right: -7%;
+  }
+
   .role {
+    font-size: clamp(1.08rem, 4vw, 1.55rem);
+    letter-spacing: 0.06em;
     margin-top: 0.6rem;
   }
 
   .tagline {
     max-width: 31rem;
+    line-height: 1.45;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header::before,
+  .header::after,
+  .name,
+  .role,
+  .tagline {
+    animation: none;
   }
 }

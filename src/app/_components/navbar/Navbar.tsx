@@ -7,83 +7,143 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import styles from "./navbar.module.css";
 
-interface NavbarElement {
+interface NavigationItem {
   name: string;
-  path: string;
   section: string;
 }
 
 export default function Navbar() {
   const router = useRouter();
-  const [activeLink, setActiveLink] = useState<string | null>(null);
+  const [activeLink, setActiveLink] = useState<string | null>(() => {
+    if (typeof window === "undefined") {
+      return "about-me";
+    }
+
+    return window.location.hash.replace("#", "") || "about-me";
+  });
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
-  const elements: NavbarElement[] = [
-    { name: "About me", path: "#about-me", section: "about-me" },
-    { name: "Skills", path: "#skills", section: "skills" },
-    { name: "Experiences", path: "#experiences", section: "experiences" },
-    { name: "Projects", path: "#projects", section: "projects" },
-    { name: "Contact", path: "#contact", section: "contact" },
+  const elements: NavigationItem[] = [
+    { name: "About me", section: "about-me" },
+    { name: "Skills", section: "skills" },
+    { name: "Experiences", section: "experiences" },
+    { name: "Projects", section: "projects" },
+    { name: "Contact", section: "contact" },
   ];
 
-  const observer = useRef<IntersectionObserver | null>(null);
+  const sectionObserver = useRef<IntersectionObserver | null>(null);
+  const visibilityRatios = useRef<Record<string, number>>({});
 
   useEffect(() => {
-    observer.current = new IntersectionObserver((entries) => {
-      const visibleSection = entries.find(
-        (entry) => entry.isIntersecting
-      )?.target;
-      if (visibleSection) {
-        setActiveLink(visibleSection.id);
+    const sections = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-section]")
+    );
+
+    if (!sections.length) {
+      return;
+    }
+
+    sectionObserver.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          visibilityRatios.current[entry.target.id] = entry.isIntersecting
+            ? entry.intersectionRatio
+            : 0;
+        });
+
+        const highestVisibleSection = sections.reduce((bestSection, section) => {
+          const currentRatio = visibilityRatios.current[section.id] ?? 0;
+          const bestRatio = visibilityRatios.current[bestSection.id] ?? 0;
+
+          return currentRatio > bestRatio ? section : bestSection;
+        }, sections[0]);
+
+        if ((visibilityRatios.current[highestVisibleSection.id] ?? 0) > 0) {
+          setActiveLink(highestVisibleSection.id);
+        }
+      },
+      {
+        threshold: [0.2, 0.4, 0.6, 0.8],
+        rootMargin: "-25% 0px -45% 0px",
       }
-    });
-    const sections = document.querySelectorAll("[data-section]");
-    sections.forEach((section) => observer.current?.observe(section));
+    );
+
+    sections.forEach((section) => sectionObserver.current?.observe(section));
+
     return () => {
-      sections.forEach((section) => observer.current?.unobserve(section));
+      sections.forEach((section) => sectionObserver.current?.unobserve(section));
+      sectionObserver.current?.disconnect();
+      visibilityRatios.current = {};
     };
   }, []);
 
   const handleClick = (link: string) => {
     setActiveLink(link);
+    setIsMenuOpen(false);
     router.push(`/#${link}`);
   };
 
-  const handleIsVisible = (e: any) => {
-    e.preventDefault();
-    setIsMenuOpen(!isMenuOpen);
+  const handleMenuToggle = () => {
+    setIsMenuOpen((previousState) => !previousState);
+  };
+
+  const handleCloseMobileMenu = () => {
+    setIsMenuOpen(false);
   };
 
   return (
     <div className={styles.navbar}>
-      <div
-        onClick={handleIsVisible}
-        className={`${styles.filter} ${isMenuOpen ? styles.openMenu : ""}`}
-        style={{ display: isMenuOpen ? "block" : "none", cursor: "default" }}
-      />
+      <nav className={styles.desktopNav} aria-label="Primary">
+        <ul className={styles.desktopList}>
+          {elements.map((element) => (
+            <NavbarElement
+              key={element.section}
+              name={element.name}
+              section={element.section}
+              variant="desktop"
+              isActive={activeLink === element.section}
+              onClick={handleClick}
+            />
+          ))}
+        </ul>
+      </nav>
 
-      <div
+      <button
+        type="button"
         className={styles.menuOpener}
-        onClick={handleIsVisible}
-        style={{ fill: "#2eb2d3", cursor: "pointer" }}
+        aria-expanded={isMenuOpen}
+        aria-controls="mobile-navigation"
+        aria-label={
+          isMenuOpen ? "Close navigation menu" : "Open navigation menu"
+        }
+        onClick={handleMenuToggle}
       >
         {isMenuOpen ? <CrossIcon /> : <MenuIcon />}
-      </div>
+      </button>
 
-      <ul
-        className={styles.list}
-        style={{ display: isMenuOpen ? "block" : "none", cursor: "default" }}
+      <div
+        className={`${styles.filter} ${isMenuOpen ? styles.filterVisible : ""}`}
+        onClick={handleCloseMobileMenu}
+      />
+
+      <nav
+        id="mobile-navigation"
+        className={`${styles.mobileNav} ${isMenuOpen ? styles.mobileNavOpen : ""}`}
+        aria-label="Mobile primary"
       >
-        {elements.map((element, index) => (
-          <NavbarElement
-            key={index}
-            name={element.name}
-            section={element.section}
-            isActive={activeLink === element.section}
-            onClick={handleClick}
-          />
-        ))}
-      </ul>
+        <ul className={styles.mobileList}>
+          {elements.map((element) => (
+            <NavbarElement
+              key={element.section}
+              name={element.name}
+              section={element.section}
+              variant="mobile"
+              isActive={activeLink === element.section}
+              onClick={handleClick}
+            />
+          ))}
+        </ul>
+      </nav>
     </div>
   );
 }

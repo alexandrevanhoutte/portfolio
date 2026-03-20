@@ -1,22 +1,63 @@
-.element {
-  text-decoration: none;
-  list-style-type: none;
-  padding: 1rem 1.5rem;
-  color: var(--background-color);
+.itemWrapper {
+  list-style: none;
+}
 
-  &:hover {
-    background-color: #5cc1db;
-    color: var(--background-color);
-  }
+.element {
+  width: 100%;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-color);
+  font: inherit;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease;
+}
+
+.desktopElement {
+  padding: 0.52rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.desktopElement:hover {
+  background-color: rgba(255, 138, 42, 0.18);
+  color: #fff2e6;
+}
+
+.mobileElement {
+  padding: 0.9rem 1rem;
+  border-radius: 0.8rem;
+  text-align: left;
+  font-size: 1.03rem;
+}
+
+.mobileElement:hover {
+  background-color: rgba(255, 138, 42, 0.18);
 }
 
 .activeElement {
-  background-color: var(--title-color);
-  color: var(--background-color);
-  font-weight: 600;
+  border-color: rgba(255, 150, 68, 0.4);
+  background: linear-gradient(135deg, #ff9f4a, #ff7a1a);
+  color: #231104;
+  box-shadow: 0 6px 20px rgba(255, 122, 26, 0.3);
+}
 
-  &:hover {
-    background-color: var(--title-color);
-    color: var(--background-color);
+.activeElement:hover {
+  background: linear-gradient(135deg, #ff9f4a, #ff7a1a);
+  color: #231104;
+}
+
+.element:focus-visible {
+  outline: 2px solid rgba(255, 178, 120, 0.95);
+  outline-offset: 2px;
+}
+
+@media screen and (max-width: 420px) {
+  .desktopElement,
+  .mobileElement {
+    font-size: 0.95rem;
   }
 }
