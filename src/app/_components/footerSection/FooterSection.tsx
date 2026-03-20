@@ -1,10 +1,11 @@
 import FooterElement from "@/app/_components/footerElement/FooterElement";
 import { LogoGithub } from "@/app/_svg/LogoGithub";
 import { LogoLinkedin } from "@/app/_svg/LogoLinkedin";
+import { ReactNode } from "react";
 import styles from "./footerSection.module.css";
 
 interface FooterElement {
-  icon: JSX.Element;
+  icon: ReactNode;
   value: string;
   link: string;
 }

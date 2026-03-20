@@ -1,9 +1,10 @@
 import Loader from "@/app/_components/loader/Loader";
+import { ReactNode } from "react";
 import styles from "./button.module.css";
 
 interface ButtonProps {
   isLoading?: boolean;
-  icon: JSX.Element;
+  icon: ReactNode;
   text: string;
 }
 
