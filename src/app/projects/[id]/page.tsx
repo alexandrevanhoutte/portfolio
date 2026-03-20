@@ -5,6 +5,7 @@ import { SendEmailIcon } from "@/app/_svg/SendEmailIcon";
 import { dataUrl } from "@/app/_svg/background";
 import NotFound from "@/app/not-found/page";
 import Image from "next/image";
+import { ReactNode } from "react";
 import styles from "./page.module.css";
 
 type ProjectPageProps = {
@@ -16,7 +17,7 @@ function Tag(props: { name: string }) {
   return <div className={styles.tag}>{props.name}</div>;
 }
 
-function Detail(props: { name: string; value: JSX.Element }) {
+function Detail(props: { name: string; value: ReactNode }) {
   return (
     <div className={styles.element}>
       <div className={styles.name}>{props.name}:</div>{" "}
@@ -51,7 +52,6 @@ export default async function ProjectPage(props: ProjectPageProps) {
               height={0}
               sizes="100vw"
               style={{ width: "100%", height: "auto" }}
-              objectFit="contain"
               alt="Project screenshot"
             />
           </div>

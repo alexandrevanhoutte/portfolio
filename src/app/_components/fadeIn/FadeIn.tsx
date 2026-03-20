@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import styles from "./fadeIn.module.css";
 
 type RevealProps = {
-  children: JSX.Element;
+  children: ReactNode;
   threshold?: number;
   duration?: string;
   x?: number;

@@ -1,7 +1,8 @@
+import { ReactNode } from "react";
 import styles from "./footerElement.module.css";
 
 type FooterElementProps = {
-  icon: JSX.Element;
+  icon: ReactNode;
   value: string;
   link: string;
 };

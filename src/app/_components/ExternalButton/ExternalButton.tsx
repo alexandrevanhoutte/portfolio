@@ -1,9 +1,10 @@
 import Button from "@/app/_components/Button/Button";
+import { ReactNode } from "react";
 import styles from "./externalButton.module.css";
 
 interface ExternalButtonProps {
   isLoading?: boolean;
-  icon: JSX.Element;
+  icon: ReactNode;
   text: string;
   href: string;
 }

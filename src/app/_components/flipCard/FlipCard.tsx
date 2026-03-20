@@ -1,8 +1,9 @@
 import { FadeIn } from "@/app/_components/fadeIn/FadeIn";
+import { ReactNode } from "react";
 import styles from "./flipCard.module.css";
 
 type FlipCardSide = {
-  content: JSX.Element;
+  content: ReactNode;
   backgroundColor: string;
 };
 
