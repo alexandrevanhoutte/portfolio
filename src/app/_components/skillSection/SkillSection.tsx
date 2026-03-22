@@ -1,97 +1,85 @@
 import SectionTitle from "@/app/_components/sectionTitle/SectionTitle";
-import SkillCategory from "@/app/_components/skillCategory/SkillCategory";
-import { Skill } from "@/app/_interfaces/skill.interface";
-import styles from "./skillSection.module.css";
+import styles from "./skills.module.css";
 
-interface SkillCategory {
-  name: string;
-  skills: Skill[];
+interface SkillCard {
+  id: "core" | "backend" | "cloud" | "frontend";
+  title: string;
+  label: string;
+  description: string;
+  tags: string[];
 }
 
 export default function SkillSection() {
-  const skillCategories: SkillCategory[] = [
+  const skillCards: SkillCard[] = [
     {
-      name: "Language",
-      skills: [
-        { name: "Typescript", image: "/skill-logo/typescript-logo.webp" },
-        { name: "Python", image: "/skill-logo/python-logo.webp" },
-        { name: "Java", image: "/skill-logo/java-logo.webp" },
+      id: "core",
+      title: "Core Stack",
+      label: "Primary Focus",
+      description:
+        "Languages I rely on daily for scalable backend systems and long-term maintainability.",
+      tags: ["Go", "TypeScript", "Python"],
+    },
+    {
+      id: "backend",
+      title: "Backend Engineering",
+      label: "Architecture",
+      description:
+        "Designing APIs and service architecture with ownership from planning through delivery.",
+      tags: [
+        "API Design",
+        "Service Architecture",
+        "Backend Ownership",
+        "Product Delivery",
+        "NestJS",
+        "FastAPI",
       ],
     },
     {
-      name: "Backend Tools",
-      skills: [
-        { name: "NestJs", image: "/skill-logo/nestjs-logo.webp" },
-        { name: "Flask", image: "/skill-logo/flask-logo.webp" },
-        { name: "FastAPI", image: "/skill-logo/fastapi-logo.webp" },
-      ],
+      id: "cloud",
+      title: "Cloud & Infrastructure",
+      label: "Operations",
+      description:
+        "Deploying and running backend services with practical cloud, container, and release workflows.",
+      tags: ["AWS", "Docker", "Kubernetes", "CI/CD"],
     },
     {
-      name: "Frontend Tools",
-      skills: [
-        { name: "React", image: "/skill-logo/react-logo.webp" },
-        { name: "NextJS", image: "/skill-logo/nextjs-logo.webp" },
-      ],
-    },
-    {
-      name: "DevOps",
-      skills: [
-        { name: "Docker", image: "/skill-logo/docker-logo.png" },
-        { name: "Kubernetes", image: "/skill-logo/kubernetes-logo.png" },
-      ],
-    },
-    {
-      name: "Cloud Services",
-      skills: [
-        { name: "AWS", image: "/skill-logo/aws-logo.webp" },
-        { name: "Azure", image: "/skill-logo/azure-logo.webp" },
-      ],
-    },
-    {
-      name: "Version Control",
-      skills: [{ name: "Git", image: "/skill-logo/git-logo.webp" }],
-    },
-    {
-      name: "Development Tools",
-      skills: [
-        {
-          name: "Visual Studio Code",
-          image: "/skill-logo/visual-studio-code-logo.webp",
-        },
-        { name: "Jet Brains", image: "/skill-logo/jet-brain-logo.webp" },
-      ],
-    },
-    {
-      name: "OS",
-      skills: [
-        { name: "MacOs", image: "/skill-logo/mac-os-logo.webp" },
-        { name: "Linux", image: "/skill-logo/linux-logo.webp" },
-        { name: "Windows", image: "/skill-logo/windows-logo.webp" },
-      ],
-    },
-    {
-      name: "CI/CD",
-      skills: [
-        { name: "Github Actions", image: "/skill-logo/ghaction-logo.webp" },
-        { name: "Jenkins", image: "/skill-logo/jenkins-logo.webp" },
-      ],
-    },
-    {
-      name: "Testing",
-      skills: [
-        { name: "Jest", image: "/skill-logo/jest-logo.webp" },
-        { name: "Cucumber", image: "/skill-logo/cucumber-logo.webp" },
-      ],
+      id: "frontend",
+      title: "Frontend Support",
+      label: "Supporting Skills",
+      description:
+        "Contributing to product interfaces when needed to support end-to-end delivery.",
+      tags: ["React", "Next.js"],
     },
   ];
 
   return (
     <div data-section className={styles.skillSection} id="skills">
-      <SectionTitle title="Skills" />
-      <div className={styles.categories}>
-        {skillCategories.map((e, index) => (
-          <SkillCategory key={index} {...e} />
-        ))}
+      <SectionTitle className={styles.skillTitle} title="Skills" />
+      <div className={styles.content}>
+        <p className={styles.kicker}>Backend-focused engineering profile</p>
+        <p className={styles.intro}>
+          Technologies and areas I use most in backend-focused product
+          development.
+        </p>
+
+        <div className={styles.cardGrid}>
+          {skillCards.map((card) => (
+            <article className={`${styles.card} ${styles[card.id]}`} key={card.title}>
+              <div className={styles.cardHeader}>
+                <p className={styles.cardLabel}>{card.label}</p>
+                <h3 className={styles.cardTitle}>{card.title}</h3>
+              </div>
+              <p className={styles.cardDescription}>{card.description}</p>
+              <ul className={styles.tagList}>
+                {card.tags.map((tag) => (
+                  <li className={styles.tag} key={tag}>
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
       </div>
     </div>
   );
