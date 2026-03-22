@@ -89,8 +89,31 @@
   animation: roleFloat 9s ease-in-out 2.6s infinite;
 }
 
+.availability {
+  margin: 0.95rem 0 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.32rem 0.72rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 168, 97, 0.42);
+  background: rgba(255, 150, 68, 0.11);
+  color: rgba(255, 234, 213, 0.95);
+  font-size: clamp(0.78rem, 1.8vw, 0.91rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.availabilityDot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: rgba(255, 191, 139, 0.98);
+  box-shadow: 0 0 10px rgba(255, 170, 105, 0.55);
+}
+
 .tagline {
-  margin: 1.2rem 0 0;
+  margin: 1rem 0 0;
   max-width: 44rem;
   font-size: clamp(1rem, 2.1vw, 1.35rem);
   line-height: 1.5;
@@ -178,6 +201,10 @@
   .tagline {
     max-width: 31rem;
     line-height: 1.45;
+  }
+
+  .availability {
+    margin-top: 0.8rem;
   }
 }
 

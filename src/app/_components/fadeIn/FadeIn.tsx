@@ -7,6 +7,7 @@ type RevealProps = {
   children: ReactNode;
   threshold?: number;
   duration?: string;
+  delay?: string;
   x?: number;
   y?: number;
 };
@@ -15,6 +16,7 @@ export const FadeIn = ({
   children,
   threshold = 0.1,
   duration = "1s",
+  delay = "0s",
   x = 0,
   y = 0,
 }: RevealProps) => {
@@ -57,6 +59,7 @@ export const FadeIn = ({
           hasFadedIn ? 0 : y
         }px)`,
         transitionDuration: duration,
+        transitionDelay: delay,
       }}
     >
       {children}

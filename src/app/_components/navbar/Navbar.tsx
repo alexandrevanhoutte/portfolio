@@ -14,13 +14,7 @@ interface NavigationItem {
 
 export default function Navbar() {
   const router = useRouter();
-  const [activeLink, setActiveLink] = useState<string | null>(() => {
-    if (typeof window === "undefined") {
-      return "about-me";
-    }
-
-    return window.location.hash.replace("#", "") || "about-me";
-  });
+  const [activeLink, setActiveLink] = useState<string>("about-me");
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   const elements: NavigationItem[] = [
