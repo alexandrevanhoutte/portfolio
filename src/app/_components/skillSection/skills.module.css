@@ -1,0 +1,357 @@
+.skillSection {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5.2rem 1.2rem;
+  overflow: hidden;
+}
+
+.skillSection::before,
+.skillSection::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: 999px;
+  z-index: 0;
+}
+
+.skillSection::before {
+  width: 26rem;
+  height: 26rem;
+  top: 0;
+  left: -10rem;
+  background: radial-gradient(
+    circle,
+    rgba(255, 147, 58, 0.18) 0%,
+    rgba(255, 147, 58, 0) 72%
+  );
+}
+
+.skillSection::after {
+  width: 30rem;
+  height: 30rem;
+  bottom: -9rem;
+  right: -12rem;
+  background: radial-gradient(
+    circle,
+    rgba(255, 108, 39, 0.16) 0%,
+    rgba(255, 108, 39, 0) 74%
+  );
+}
+
+.skillTitle {
+  --section-title-size: clamp(2.6rem, 7vw, 4rem);
+  --section-title-size-mobile: clamp(2.2rem, 9vw, 3rem);
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  width: min(100%, 68rem);
+  margin-top: 1rem;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.kicker {
+  margin: 0;
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 164, 90, 0.94);
+  text-align: center;
+}
+
+.intro {
+  margin: 0 auto;
+  max-width: 53rem;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.68;
+  color: rgba(248, 241, 235, 0.94);
+}
+
+.expertiseLayout {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+  align-items: stretch;
+}
+
+.expertiseLayout > div {
+  height: 100%;
+}
+
+.featuredCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.2rem;
+  border: 1px solid rgba(255, 138, 42, 0.32);
+  background:
+    linear-gradient(170deg, rgba(32, 22, 16, 0.95) 0%, rgba(13, 12, 16, 0.95) 100%),
+    radial-gradient(
+      70rem 24rem at 10% -15%,
+      rgba(255, 154, 74, 0.18),
+      rgba(255, 154, 74, 0)
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 189, 128, 0.11),
+    0 14px 34px rgba(0, 0, 0, 0.3);
+  padding: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+}
+
+.featuredCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 163, 84, 0.2) 0%,
+    rgba(255, 163, 84, 0) 26%
+  );
+}
+
+.featuredCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 168, 97, 0.55);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 189, 128, 0.14),
+    0 18px 36px rgba(0, 0, 0, 0.31);
+}
+
+.featuredHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.featuredBadge {
+  margin: 0;
+  width: fit-content;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 176, 110, 0.5);
+  background: rgba(255, 150, 68, 0.13);
+  color: rgba(255, 225, 193, 0.98);
+  padding: 0.2rem 0.68rem;
+  font-size: 0.71rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.featuredTitle {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.4vw, 1.86rem);
+  line-height: 1.24;
+  color: #ffc58b;
+}
+
+.featuredDescription {
+  margin: 0;
+  color: rgba(247, 239, 232, 0.92);
+  line-height: 1.62;
+}
+
+.techGroup,
+.proofGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.groupLabel {
+  margin: 0;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  color: rgba(255, 193, 137, 0.86);
+  font-weight: 700;
+}
+
+.prominentTechList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.45rem;
+}
+
+.prominentTech {
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 168, 97, 0.44);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 153, 74, 0.18) 0%,
+    rgba(255, 153, 74, 0.08) 100%
+  );
+  color: rgba(255, 236, 216, 0.97);
+  padding: 0.55rem 0.62rem;
+  text-align: center;
+  font-size: 0.97rem;
+  font-weight: 700;
+}
+
+.proofList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+}
+
+.proofLink {
+  border-radius: 999px;
+  border: 1px solid rgba(255, 172, 103, 0.38);
+  background: rgba(255, 154, 74, 0.08);
+  color: rgba(255, 236, 216, 0.95);
+  text-decoration: none;
+  padding: 0.26rem 0.7rem;
+  font-size: 0.79rem;
+  font-weight: 600;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.proofLink:hover {
+  border-color: rgba(255, 194, 143, 0.76);
+  background: rgba(255, 154, 74, 0.15);
+}
+
+.proofLink:focus-visible {
+  outline: 2px solid rgba(255, 184, 124, 0.88);
+  outline-offset: 2px;
+}
+
+.supportingColumn {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.supportingColumn > div {
+  height: 100%;
+}
+
+.supportingCard {
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 138, 42, 0.26);
+  background: linear-gradient(
+    180deg,
+    rgba(20, 20, 24, 0.9) 0%,
+    rgba(11, 11, 15, 0.92) 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 182, 117, 0.09),
+    0 10px 26px rgba(0, 0, 0, 0.24);
+  padding: 0.9rem;
+  min-height: 10.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.58rem;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.supportingCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 163, 84, 0.5);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 182, 117, 0.12),
+    0 14px 30px rgba(0, 0, 0, 0.26);
+}
+
+.supportingTitle {
+  margin: 0;
+  font-size: 1.01rem;
+  color: #ffc58b;
+}
+
+.supportingDescription {
+  margin: 0;
+  line-height: 1.46;
+  font-size: 0.93rem;
+  color: rgba(245, 239, 233, 0.9);
+}
+
+.supportingTagList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.supportingTag {
+  border-radius: 999px;
+  border: 1px solid rgba(255, 154, 66, 0.42);
+  background: rgba(255, 150, 68, 0.09);
+  padding: 0.2rem 0.58rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: rgba(255, 239, 224, 0.95);
+}
+
+@media screen and (max-width: 1040px) {
+  .skillSection {
+    padding: 4.2rem 1rem;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .expertiseLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .featuredCard {
+    padding: 1.1rem;
+  }
+
+  .supportingColumn {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .prominentTechList {
+    grid-template-columns: 1fr;
+  }
+
+  .featuredTitle {
+    font-size: 1.4rem;
+  }
+
+  .supportingColumn {
+    grid-template-columns: 1fr;
+  }
+
+  .supportingCard {
+    min-height: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .featuredCard,
+  .supportingCard,
+  .proofLink {
+    transition: none;
+  }
+
+  .featuredCard:hover,
+  .supportingCard:hover {
+    transform: none;
+  }
+}
