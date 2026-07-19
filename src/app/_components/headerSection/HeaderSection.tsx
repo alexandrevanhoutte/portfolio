@@ -18,6 +18,16 @@ export default function HeaderSection() {
               </a>
             </li>
             <li>
+              <a className={styles.navLink} href="#skills">
+                Technical Expertise
+              </a>
+            </li>
+            <li>
+              <a className={styles.navLink} href="#projects">
+                Projects
+              </a>
+            </li>
+            <li>
               <a className={styles.navLink} href="#contact">
                 Contact
               </a>

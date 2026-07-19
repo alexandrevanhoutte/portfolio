@@ -147,8 +147,7 @@ export default function ProjectSection() {
             Projects
           </h2>
           <p className={styles.intro}>
-            A selection of backend systems, data-processing platforms, and
-            product features I have designed and built.
+            Selected projects illustrating the systems, products, and technical challenges I have contributed to throughout my career.
           </p>
         </header>
 
@@ -190,8 +189,8 @@ export default function ProjectSection() {
                         <p className={styles.technologies}>
                           {project.mainStacks.slice(0, 4).join(" / ")}
                         </p>
-                        <div className={styles.links}>
-                          {project.url ? (
+                        {project.url ? (
+                          <div className={styles.links}>
                             <a
                               href={project.url}
                               target="_blank"
@@ -203,17 +202,8 @@ export default function ProjectSection() {
                             >
                               View project ↗
                             </a>
-                          ) : null}
-                          <a
-                            href={`/projects/${project.id}`}
-                            aria-label={`View details for ${project.name}`}
-                            tabIndex={
-                              pageIndex === safeCurrentPage ? 0 : -1
-                            }
-                          >
-                            Details ↗
-                          </a>
-                        </div>
+                          </div>
+                        ) : null}
                       </div>
                     </article>
                   ))}

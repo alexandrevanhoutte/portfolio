@@ -14,8 +14,8 @@ interface NavigationItem {
 
 const navigationItems: NavigationItem[] = [
   { name: "About me", section: "about-me" },
-  { name: "Skills", section: "skills" },
   { name: "Experiences", section: "experiences" },
+  { name: "Technical Expertise", section: "skills" },
   { name: "Projects", section: "projects" },
   { name: "Contact", section: "contact" },
 ];

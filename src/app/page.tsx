@@ -16,8 +16,8 @@ export default function Home() {
       <div className={styles.content}>
         <HeaderSection />
         <AboutMeSection />
-        <SkillSection />
         <ExperienceSection />
+        <SkillSection />
         <ProjectSection />
         <ContactSection />
         <FooterSection />

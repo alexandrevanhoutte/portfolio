@@ -3,7 +3,7 @@
 export interface Project {
   id: number;
   name: string;
-  url: string;
+  url?: string;
   description: string;
   pictureUrl: string;
   mainRole: string;
@@ -22,7 +22,6 @@ export async function getAllProjects() {
     {
       id: 8,
       name: "SaveEat",
-      url: "https://www.saveeatapp.com/",
       description:
         "Every day, healthy food is thrown away. Good food that was not sold that day is unfortunately being thrown away. Through SaveEat, together, we can reduce wasted food!",
       pictureUrl: "/project-picture/saveeat.png",
@@ -39,7 +38,6 @@ export async function getAllProjects() {
     {
       id: 7,
       name: "Construckit",
-      url: "https://www.construckit.com/",
       description:
         "Solution for construction project teams by improving the communication and approval workflow",
       pictureUrl: "/project-picture/construckit.png",
@@ -56,7 +54,6 @@ export async function getAllProjects() {
     {
       id: 6,
       name: "Markurz",
-      url: "https://chromewebstore.google.com/detail/markurz/lnbfijiimlnnpjmfgmfdmdmlobadcloo?pli=1",
       description:
         "Easily create and send tasks, notes, and reminders to your favorite productivity apps.",
       pictureUrl: "/project-picture/markurz.png",
@@ -73,7 +70,6 @@ export async function getAllProjects() {
     {
       id: 5,
       name: "Deepform",
-      url: "https://deepform.net",
       description:
         "Deepform helps you automate building feasibility calculations straight from 3D models without script or code.",
       pictureUrl: "/project-picture/deepform.png",
@@ -92,7 +88,6 @@ export async function getAllProjects() {
     {
       id: 4,
       name: "BuilderFul",
-      url: "https://www.builderful.co.kr",
       description:
         "Builderful allows designers to discover and order materials. It will directly deal with multiple vendors in a few clicks, without the inconvenience of contacting them one by one.",
       pictureUrl: "/project-picture/builderful.png",
@@ -121,7 +116,6 @@ export async function getAllProjects() {
     {
       id: 2,
       name: "Spirit Hunter",
-      url: "https://eip.epitech.eu/2018/spirithunter/",
       description:
         "Spirit Hunter is an Epitech Innovative Project. It's a virtual reality mobile game using Google Cardboard and smartwatch.",
       pictureUrl: "/project-picture/spirit-hunter.png",

@@ -2,6 +2,8 @@ import { FadeIn } from "@/app/_components/fadeIn/FadeIn";
 import CapabilityNode from "@/app/_components/skillSection/CapabilityNode";
 import {
   ConnectorGroup,
+  GroupTransition,
+  SequenceConnector,
   VerticalTransition,
 } from "@/app/_components/skillSection/SkillConnector";
 import { capabilityGroups } from "@/app/_libs/skills";
@@ -23,13 +25,14 @@ export default function SkillSection() {
           </FadeIn>
           <FadeIn duration="0.9s" delay="0.12s" y={16}>
             <h2 className={styles.heading} id="skills-title">
-              Backend Systems
+              Technical Expertise
             </h2>
           </FadeIn>
           <FadeIn duration="0.85s" delay="0.08s" y={14}>
             <p className={styles.intro}>
-              A map of the technologies and engineering practices I use to
-              design, build, and operate reliable backend systems.
+              A practical overview of my experience across APIs, backend
+              services, data platforms, distributed workflows, and production
+              operations.
             </p>
           </FadeIn>
         </header>
@@ -41,37 +44,31 @@ export default function SkillSection() {
                 <CapabilityNode capability={capabilityGroups[0]} />
               </div>
               <ConnectorGroup label="API CALLS" />
+              <SequenceConnector />
               <div className={styles.coreNode}>
                 <CapabilityNode capability={capabilityGroups[1]} />
               </div>
               <ConnectorGroup label="STORAGE" />
+              <SequenceConnector />
               <div className={styles.coreNode}>
                 <CapabilityNode capability={capabilityGroups[2]} />
               </div>
             </div>
 
             <VerticalTransition label="Supporting systems" />
+            <GroupTransition label="Supporting systems" />
 
-            <div className={styles.supportingGrid}>
-              <div className={styles.capabilityPair}>
-                <CapabilityNode capability={capabilityGroups[3]} />
-                <span className={styles.mobileCapabilityArrow} aria-hidden="true" />
-              </div>
-              <div className={styles.capabilityPair}>
-                <CapabilityNode capability={capabilityGroups[4]} />
-              </div>
+            <div className={`${styles.supportingGrid} ${styles.mobileGroup}`}>
+              <CapabilityNode capability={capabilityGroups[3]} />
+              <CapabilityNode capability={capabilityGroups[4]} />
             </div>
 
             <VerticalTransition label="Production operation" />
+            <GroupTransition label="Production operation" />
 
-            <div className={styles.operationsGrid}>
-              <div className={styles.capabilityPair}>
-                <CapabilityNode capability={capabilityGroups[5]} />
-                <span className={styles.mobileCapabilityArrow} aria-hidden="true" />
-              </div>
-              <div className={styles.capabilityPair}>
-                <CapabilityNode capability={capabilityGroups[6]} />
-              </div>
+            <div className={`${styles.operationsGrid} ${styles.mobileGroup}`}>
+              <CapabilityNode capability={capabilityGroups[5]} />
+              <CapabilityNode capability={capabilityGroups[6]} />
             </div>
 
             <p className={styles.legend}>

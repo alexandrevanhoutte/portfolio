@@ -211,7 +211,7 @@ export default function ContactSection() {
                 <span className={styles.linkLabel}>Elsewhere</span>
                 <div className={styles.socialLinks}>
                   <a
-                    href="https://www.linkedin.com/in/alexandre-vanhoutte/"
+                    href="https://www.linkedin.com/in/alexvanhoutte/"
                     target="_blank"
                     rel="noreferrer"
                     aria-label="Visit Alexandre Vanhoutte on LinkedIn"
