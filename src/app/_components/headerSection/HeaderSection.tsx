@@ -1,29 +1,40 @@
-import { FadeIn } from "@/app/_components/fadeIn/FadeIn";
 import styles from "./headerSection.module.css";
 
 export default function HeaderSection() {
   return (
-    <div className={styles.header}>
-      <div className={styles.heroStack}>
-        <FadeIn threshold={0.2} duration={"1.2s"} y={18}>
-          <h1 className={styles.name}>Alexandre Vanhoutte</h1>
-        </FadeIn>
-        <FadeIn threshold={0.2} duration={"1s"} delay="0.08s" x={16}>
-          <p className={styles.role}>Software Engineer</p>
-        </FadeIn>
-        <FadeIn threshold={0.2} duration={"0.95s"} delay="0.16s" x={-14}>
-          <p className={styles.availability}>
-            <span className={styles.availabilityDot} aria-hidden />
-            Open to backend-focused opportunities
-          </p>
-        </FadeIn>
-        <FadeIn threshold={0.2} duration={"1s"} delay="0.24s" x={-18}>
-          <p className={styles.tagline}>
-            I build reliable backend products and enjoy turning complex technical
-            problems into simple, practical outcomes for teams and users.
-          </p>
-        </FadeIn>
+    <header className={styles.hero}>
+      <div className={styles.container}>
+        <nav className={styles.headerNav} aria-label="Primary">
+          <span className={styles.navBrand}>AV / 2026</span>
+          <ul className={styles.navLinks}>
+            <li>
+              <a className={styles.navLink} href="#about-me">
+                About
+              </a>
+            </li>
+            <li>
+              <a className={styles.navLink} href="#experiences">
+                Experience
+              </a>
+            </li>
+            <li>
+              <a className={styles.navLink} href="#contact">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <hr className={styles.divider} />
+        <div className={styles.heroBody}>
+          <div className={styles.heroContent}>
+            <p className={styles.eyebrow}>Senior Backend Engineer · Go</p>
+            <h1 className={styles.name}>Alexandre Vanhoutte</h1>
+            <p className={styles.title}>Senior Backend Engineer</p>
+            <p className={styles.specialization}>Go · Distributed Systems</p>
+          </div>
+        </div>
+        <hr className={styles.bottomDivider} />
       </div>
-    </div>
+    </header>
   );
 }

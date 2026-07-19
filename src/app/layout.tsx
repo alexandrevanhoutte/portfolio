@@ -1,20 +1,18 @@
-import Navbar from "@/app/_components/navbar/Navbar";
 import type { Metadata } from "next";
-import { Titillium_Web } from "next/font/google";
+import { Manrope } from "next/font/google";
 
 export const metadata: Metadata = {
-  title: "Alexandre Vanhoutte - Software Engineer - Portfolio",
+  title: "Alexandre Vanhoutte - Senior Backend Engineer - Portfolio",
   description:
-    "After graduating from {EPITECH.} and gaining several years of professional experience in Korea, I am currently leading backend development in Seoul. Quick to learn, adaptable, and responsible, I am proficient in several technologies and I acquired a strong understanding of development workflows and methodologies.",
+    "Senior Backend Engineer specializing in Go and distributed systems. Building reliable backend products and turning complex technical problems into simple, practical outcomes.",
   keywords:
-    "Alexandre Vanhoutte, Software Engineer, Backend Developer, EPITECH, Korea, Seoul, Technology Expert, Development Workflows",
+    "Alexandre Vanhoutte, Senior Backend Engineer, Go, Distributed Systems, Backend Developer, EPITECH, Korea, Seoul",
   authors: { name: "Alexandre Vanhoutte" },
   robots: "index, follow",
 };
 
-const titilliumWeb = Titillium_Web({
-  style: ["normal", "italic"],
-  weight: ["200", "300", "400", "600", "700", "900"],
+const manrope = Manrope({
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
 });
 
@@ -25,8 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={titilliumWeb.className}>
-        <Navbar />
+      <body className={manrope.className}>
         {children}
       </body>
     </html>

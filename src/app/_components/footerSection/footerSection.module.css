@@ -1,6 +1,162 @@
 .footer {
-  background-color: #000;
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: #1f2937;
+}
+
+.container {
+  width: min(1380px, calc(100% - 96px));
+  margin: 0 auto;
+  padding: 2.25rem 0 1.5rem;
+}
+
+.divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
+  margin: 0;
+}
+
+.primaryRow,
+.secondaryRow {
   display: flex;
-  justify-content: space-around;
-  padding: 2rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.primaryRow {
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.identity {
+  min-width: 0;
+}
+
+.name,
+.role,
+.focus {
+  margin: 0;
+}
+
+.name {
+  color: #f8fafc;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.role {
+  margin-top: 0.5rem;
+  color: #cbd5e1;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.focus {
+  margin-top: 0.5rem;
+  color: #8fb6ca;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.backToTop,
+.socialLinks a {
+  color: #9dcee5;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.backToTop {
+  flex-shrink: 0;
+  min-height: 2.75rem;
+  padding-top: 0.15rem;
+}
+
+.backToTop:hover,
+.socialLinks a:hover {
+  color: #d8eff9;
+}
+
+.secondaryRow {
+  gap: 2rem;
+}
+
+.meta,
+.socialLinks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.meta {
+  color: #94a3b8;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.socialLinks {
+  gap: 1.25rem;
+}
+
+.backToTop:focus-visible,
+.socialLinks a:focus-visible {
+  outline: 2px solid #b9e0ef;
+  outline-offset: 4px;
+}
+
+@media screen and (max-width: 1023px) {
+  .container {
+    width: calc(100% - 64px);
+  }
+
+  .primaryRow {
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: calc(100% - 40px);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2.25rem 0 1.75rem;
+  }
+
+  .primaryRow,
+  .secondaryRow {
+    display: contents;
+  }
+
+  .identity {
+    order: 1;
+  }
+
+  .socialLinks {
+    order: 2;
+  }
+
+  .backToTop {
+    order: 3;
+  }
+
+  .meta {
+    order: 4;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .backToTop,
+  .socialLinks a {
+    transition: none;
+  }
 }

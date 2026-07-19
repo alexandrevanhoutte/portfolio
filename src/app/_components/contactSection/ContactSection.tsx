@@ -1,10 +1,6 @@
 "use client";
 
-import Button from "@/app/_components/Button/Button";
-import { FadeIn } from "@/app/_components/fadeIn/FadeIn";
-import SectionTitle from "@/app/_components/sectionTitle/SectionTitle";
-import { SendEmailIcon } from "@/app/_svg/SendEmailIcon";
-import { useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import styles from "./contactSection.module.css";
 
 interface FormInputData {
@@ -13,10 +9,14 @@ interface FormInputData {
   message: string;
 }
 
+type FormField = keyof FormInputData;
+
 type FormFeedback = {
   tone: "success" | "error";
   message: string;
 };
+
+type FormErrors = Partial<Record<FormField, string>>;
 
 const initialFormData: FormInputData = {
   name: "",
@@ -24,36 +24,115 @@ const initialFormData: FormInputData = {
   message: "",
 };
 
+const fieldLabels: Record<FormField, string> = {
+  name: "Name",
+  email: "Email address",
+  message: "Message",
+};
+
+function validateField(field: FormField, value: string): string | undefined {
+  if (!value.trim()) {
+    return field === "name"
+      ? "Please enter your name."
+      : field === "email"
+        ? "Enter your email address."
+        : "Please enter a message.";
+  }
+
+  if (
+    field === "email" &&
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim())
+  ) {
+    return "Enter a valid email address.";
+  }
+
+  return undefined;
+}
+
+function validateForm(data: FormInputData): FormErrors {
+  return (Object.keys(data) as FormField[]).reduce<FormErrors>(
+    (errors, field) => {
+      const error = validateField(field, data[field]);
+      if (error) {
+        errors[field] = error;
+      }
+      return errors;
+    },
+    {},
+  );
+}
+
 export default function ContactSection() {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState<FormInputData>(initialFormData);
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [touched, setTouched] = useState<Partial<Record<FormField, boolean>>>({});
   const [feedback, setFeedback] = useState<FormFeedback | null>(null);
+  const fieldRefs = useRef<
+    Record<FormField, HTMLInputElement | HTMLTextAreaElement | null>
+  >({
+    name: null,
+    email: null,
+    message: null,
+  });
 
   const handleInputChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    event.preventDefault();
+    const { name, value } = event.target as {
+      name: FormField;
+      value: string;
+    };
 
-    const { name, value } = event.target;
-    if (feedback) {
-      setFeedback(null);
-    }
-
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setIsLoading(true);
+    setFormData((currentData) => ({ ...currentData, [name]: value }));
     setFeedback(null);
 
+    if (touched[name]) {
+      const error = validateField(name, value);
+      setErrors((currentErrors) => ({
+        ...currentErrors,
+        ...(error ? { [name]: error } : { [name]: undefined }),
+      }));
+    }
+  };
+
+  const handleBlur = (
+    event: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const field = event.target.name as FormField;
+    const value = event.target.value;
+
+    setTouched((currentTouched) => ({ ...currentTouched, [field]: true }));
+    const error = validateField(field, value);
+    setErrors((currentErrors) => ({
+      ...currentErrors,
+      ...(error ? { [field]: error } : { [field]: undefined }),
+    }));
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const nextErrors = validateForm(formData);
+    setErrors(nextErrors);
+    setTouched({ name: true, email: true, message: true });
+    setFeedback(null);
+
+    const firstInvalidField = (Object.keys(formData) as FormField[]).find(
+      (field) => nextErrors[field],
+    );
+
+    if (firstInvalidField) {
+      fieldRefs.current[firstInvalidField]?.focus();
+      return;
+    }
+
+    setIsLoading(true);
+
     const body = new FormData();
-    body.append("name", formData.name);
-    body.append("email", formData.email);
-    body.append("message", formData.message);
+    body.append("name", formData.name.trim());
+    body.append("email", formData.email.trim());
+    body.append("message", formData.message.trim());
 
     try {
       const response = await fetch("/api/contact", {
@@ -67,111 +146,174 @@ export default function ContactSection() {
         setFeedback({
           tone: "error",
           message:
-            data?.message ??
-            "Sorry, your message could not be sent this time. Please try again.",
+            data.message ??
+            "The message could not be sent. Please try again or contact me by email.",
         });
         return;
       }
 
       setFeedback({
         tone: "success",
-        message:
-          data?.message ??
-          "Thanks for your message. I will get back to you as soon as possible.",
+        message: "Thanks — your message has been sent.",
       });
       setFormData(initialFormData);
+      setErrors({});
+      setTouched({});
     } catch {
       setFeedback({
         tone: "error",
         message:
-          "Network issue detected. Please retry in a moment or email me directly.",
+          "The message could not be sent. Please try again or contact me by email.",
       });
     } finally {
       setIsLoading(false);
     }
   };
 
+  const getFieldError = (field: FormField) =>
+    touched[field] ? errors[field] : undefined;
+
   return (
-    <section data-section className={styles.contactSection} id="contact">
-      <SectionTitle title="Contact" />
-      <div className={styles.content}>
-        <FadeIn duration="0.8s" y={10}>
-          <p className={styles.kicker}>Let&apos;s connect</p>
-        </FadeIn>
-        <FadeIn duration="0.85s" delay="0.08s" y={14}>
-          <p className={styles.intro}>
-            If you would like to discuss an opportunity, a backend challenge,
-            or a collaboration, feel free to reach out.
-          </p>
-        </FadeIn>
-        <FadeIn duration="0.9s" delay="0.14s" y={10}>
-          <p className={styles.responseTime}>
-            <span className={styles.responseDot} aria-hidden />
-            Usually replying within 24 hours.
-          </p>
-        </FadeIn>
+    <section
+      data-section
+      className={styles.contactSection}
+      id="contact"
+      aria-labelledby="contact-title"
+    >
+      <div className={styles.container}>
+        <hr className={styles.divider} aria-hidden="true" />
+        <div className={styles.contactLayout}>
+          <div className={styles.contactCopy}>
+            <span className={styles.number}>05</span>
+            <h2 className={styles.heading} id="contact-title">
+              Contact
+            </h2>
+            <div className={styles.copyText}>
+              <p>
+                I&apos;m open to Senior Backend Engineer opportunities in South
+                Korea and conversations about backend platforms, data-processing
+                systems, and industrial software.
+              </p>
+              <p>
+                Have a role, project, or technical challenge in mind? Send me a
+                message and I&apos;ll get back to you.
+              </p>
+            </div>
 
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <div className={styles.formInput}>
-            <label htmlFor="form-name">Your name</label>
-            <input
-              autoComplete="name"
-              id="form-name"
-              className={styles.input}
-              name="name"
-              placeholder="Jane Doe"
-              value={formData.name}
-              onChange={handleInputChange}
-              required
-            />
-            <label htmlFor="form-email">Email address</label>
-            <input
-              autoComplete="email"
-              id="form-email"
-              type="email"
-              className={styles.input}
-              name="email"
-              placeholder="jane@company.com"
-              value={formData.email}
-              onChange={handleInputChange}
-              required
-            />
-            <label htmlFor="form-message">Opportunity details or question</label>
-            <textarea
-              id="form-message"
-              className={`${styles.input} ${styles.inputArea}`}
-              name="message"
-              placeholder="Tell me about the role or opportunity, timeline, and expected impact."
-              value={formData.message}
-              onChange={handleInputChange}
-              required
-            />
+            <div className={styles.contactLinks}>
+              <div className={styles.linkGroup}>
+                <span className={styles.linkLabel}>Email</span>
+                <span className={styles.emailNote}>
+                  Use the form to send me a direct message.
+                </span>
+              </div>
+              <div className={styles.linkGroup}>
+                <span className={styles.linkLabel}>Elsewhere</span>
+                <div className={styles.socialLinks}>
+                  <a
+                    href="https://www.linkedin.com/in/alexandre-vanhoutte/"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Visit Alexandre Vanhoutte on LinkedIn"
+                  >
+                    LinkedIn ↗
+                  </a>
+                  <a
+                    href="https://github.com/alexandrevanhoutte/"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Visit Alexandre Vanhoutte on GitHub"
+                  >
+                    GitHub ↗
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {feedback && (
-            <p
-              aria-live="polite"
-              className={`${styles.feedback} ${
-                feedback.tone === "success" ? styles.feedbackSuccess : styles.feedbackError
-              }`}
-              role="status"
-            >
-              {feedback.message}
-            </p>
-          )}
+          <form
+            className={styles.form}
+            onSubmit={handleSubmit}
+            noValidate
+            aria-busy={isLoading}
+          >
+            {(["name", "email", "message"] as FormField[]).map((field) => {
+              const error = getFieldError(field);
+              const inputId = `form-${field}`;
+              const errorId = `${inputId}-error`;
 
-          <div className={styles.submit}>
-            <Button
-              className={styles.contactButton}
-              iconClassName={styles.contactButtonIcon}
-              icon={<SendEmailIcon />}
-              isLoading={isLoading}
-              textClassName={styles.contactButtonText}
-              text={isLoading ? "Sending..." : "Send message"}
-              disabled={isLoading}
-            />
-          </div>
-        </form>
+              return (
+                <div className={styles.formGroup} key={field}>
+                  <label htmlFor={inputId}>{fieldLabels[field]}</label>
+                  {field === "message" ? (
+                    <textarea
+                      ref={(element) => {
+                        fieldRefs.current.message = element;
+                      }}
+                      id={inputId}
+                      name={field}
+                      className={`${styles.input} ${styles.inputArea}`}
+                      placeholder="Tell me briefly about the role, project, or question."
+                      value={formData[field]}
+                      onChange={handleInputChange}
+                      onBlur={handleBlur}
+                      aria-invalid={Boolean(error)}
+                      aria-describedby={error ? errorId : undefined}
+                    />
+                  ) : (
+                    <input
+                      ref={(element) => {
+                        fieldRefs.current[field] = element;
+                      }}
+                      id={inputId}
+                      name={field}
+                      type={field === "email" ? "email" : "text"}
+                      autoComplete={field === "name" ? "name" : "email"}
+                      className={styles.input}
+                      placeholder={
+                        field === "name" ? "Your name" : "you@company.com"
+                      }
+                      value={formData[field]}
+                      onChange={handleInputChange}
+                      onBlur={handleBlur}
+                      aria-invalid={Boolean(error)}
+                      aria-describedby={error ? errorId : undefined}
+                    />
+                  )}
+                  {error ? (
+                    <p className={styles.fieldError} id={errorId} role="alert">
+                      {error}
+                    </p>
+                  ) : null}
+                </div>
+              );
+            })}
+
+            <div className={styles.formFooter}>
+              {feedback ? (
+                <p
+                  aria-live="polite"
+                  className={`${styles.feedback} ${
+                    feedback.tone === "success"
+                      ? styles.feedbackSuccess
+                      : styles.feedbackError
+                  }`}
+                  role="status"
+                >
+                  {feedback.message}
+                </p>
+              ) : null}
+              <button
+                className={styles.submitButton}
+                type="submit"
+                disabled={isLoading}
+                aria-busy={isLoading}
+              >
+                {isLoading ? "Sending..." : "Send message →"}
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
   );

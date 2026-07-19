@@ -12,7 +12,7 @@ import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <main>
+    <main id="top">
       <div className={styles.content}>
         <HeaderSection />
         <AboutMeSection />

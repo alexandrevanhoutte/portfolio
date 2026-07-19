@@ -1,128 +1,187 @@
-.aboutMe {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 5.2rem 1.2rem;
-}
-
-.aboutTitle {
-  --section-title-size: clamp(2.6rem, 7vw, 3.9rem);
-  --section-title-size-mobile: clamp(2.15rem, 9vw, 3rem);
-}
-
-.content {
-  width: min(100%, 68rem);
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.1rem;
-  color: var(--text-color);
-}
-
-.kicker {
-  margin: 0;
-  font-size: 0.73rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(255, 164, 90, 0.94);
-  text-align: center;
-}
-
-.description {
-  margin: 0;
-  max-width: 53rem;
-  font-size: 1rem;
-  line-height: 1.68;
-  text-align: center;
-  color: rgba(248, 241, 235, 0.94);
-}
-
-.cardGrid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.75rem;
+.about {
   width: 100%;
+  background-color: #1f2937;
 }
 
-.cardGrid > div {
-  height: 100%;
+.container {
+  width: min(1380px, calc(100% - 96px));
+  margin: 0 auto;
 }
 
-.card {
-  min-height: 10.4rem;
-  padding: 0.9rem;
-  border-radius: 1rem;
-  border: 1px solid rgba(255, 138, 42, 0.26);
-  background: linear-gradient(
-    180deg,
-    rgba(20, 20, 24, 0.9) 0%,
-    rgba(11, 11, 15, 0.92) 100%
-  );
-  box-shadow:
-    inset 0 1px 0 rgba(255, 182, 117, 0.09),
-    0 10px 26px rgba(0, 0, 0, 0.24);
+.divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid rgba(148, 163, 184, 0.25);
+  margin: 0;
+}
+
+.layout {
+  display: grid;
+  width: 100%;
+  grid-template-columns: minmax(0, 680px) minmax(300px, 1fr);
+  grid-template-areas:
+    "number    heading"
+    "text      heading"
+    "expertise heading";
+  column-gap: clamp(64px, 8vw, 140px);
+  padding: clamp(6.25rem, 8vw, 7.5rem) 0 clamp(6.875rem, 8vw, 8.125rem);
+  align-items: start;
+}
+
+.numberCell {
+  grid-area: number;
+}
+
+.headingCell {
+  grid-area: heading;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  text-align: right;
+  margin-top: -2.25rem;
+}
+
+.textCell {
+  grid-area: text;
+  width: 100%;
+  min-width: 0;
+  margin-top: 2.5rem;
+}
+
+.textCell > * {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+.expertiseCell {
+  grid-area: expertise;
+  margin-top: 2.5rem;
+}
+
+.number {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #4e8fb5;
+  letter-spacing: 0.08em;
+}
+
+.text {
   display: flex;
   flex-direction: column;
-  gap: 0.58rem;
-  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+  gap: 1.5rem;
+  max-width: 680px;
 }
 
-.card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(255, 163, 84, 0.52);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 182, 117, 0.12),
-    0 14px 30px rgba(0, 0, 0, 0.26);
-}
-
-.cardTitle {
+.text p {
   margin: 0;
-  font-size: 1.01rem;
+  font-size: clamp(1.1rem, 1.35vw, 1.25rem);
+  line-height: 1.55;
+  color: #cbd5e1;
+}
+
+.expertise {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: #a8b5c8;
+  letter-spacing: 0.04em;
+}
+
+.heading {
+  font-size: clamp(3.25rem, 4.2vw, 4rem);
   font-weight: 700;
-  color: #ffc58b;
-}
-
-.cardDescription {
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #f8fafc;
   margin: 0;
-  font-size: 0.93rem;
-  line-height: 1.46;
-  color: rgba(245, 239, 233, 0.9);
+  text-align: right;
 }
 
-@media screen and (max-width: 900px) {
-  .aboutMe {
-    padding: 4.2rem 1rem;
+@media screen and (max-width: 1023px) {
+  .container {
+    width: calc(100% - 64px);
   }
 
-  .content {
-    gap: 1rem;
-    margin-top: 0.8rem;
+  .layout {
+    column-gap: 3rem;
+    grid-template-columns: minmax(0, 680px) minmax(260px, 1fr);
+    padding: clamp(5rem, 7vw, 6rem) 0 clamp(5.5rem, 8vw, 6.5rem);
   }
 
-  .description {
-    text-align: center;
-    max-width: 100%;
+  .headingCell {
+    margin-top: -1.75rem;
   }
 
-  .cardGrid {
+  .textCell,
+  .expertiseCell {
+    margin-top: 2rem;
+  }
+
+  .heading {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+  }
+
+  .text p {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: calc(100% - 40px);
+  }
+
+  .layout {
     grid-template-columns: 1fr;
-    width: 100%;
+    grid-template-areas:
+      "number"
+      "heading"
+      "text"
+      "expertise";
+    row-gap: 1.5rem;
+    padding: clamp(4.5rem, 7vw, 5.5rem) 0 clamp(5rem, 8vw, 6rem);
   }
 
-  .card {
-    min-height: auto;
+  .headingCell {
+    display: block;
+    margin-top: 0;
+  }
+
+  .textCell,
+  .expertiseCell {
+    margin-top: 0;
+  }
+
+  .heading {
+    text-align: left;
+    font-size: clamp(2.25rem, 8vw, 3rem);
+  }
+
+  .text p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .text {
+    gap: 1rem;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .card {
-    transition: none;
+@media screen and (max-width: 480px) {
+  .layout {
+    padding: 3.5rem 0 4rem;
   }
 
-  .card:hover {
-    transform: none;
+  .number {
+    font-size: 0.75rem;
+  }
+
+  .heading {
+    font-size: clamp(2rem, 7vw, 2.5rem);
+  }
+
+  .expertise {
+    font-size: 0.875rem;
   }
 }

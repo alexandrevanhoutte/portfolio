@@ -12,69 +12,111 @@ interface NavigationItem {
   section: string;
 }
 
+const navigationItems: NavigationItem[] = [
+  { name: "About me", section: "about-me" },
+  { name: "Skills", section: "skills" },
+  { name: "Experiences", section: "experiences" },
+  { name: "Projects", section: "projects" },
+  { name: "Contact", section: "contact" },
+];
+
 export default function Navbar() {
   const router = useRouter();
   const [activeLink, setActiveLink] = useState<string>("about-me");
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [isNavbarCompact, setIsNavbarCompact] = useState<boolean>(false);
 
-  const elements: NavigationItem[] = [
-    { name: "About me", section: "about-me" },
-    { name: "Skills", section: "skills" },
-    { name: "Experiences", section: "experiences" },
-    { name: "Projects", section: "projects" },
-    { name: "Contact", section: "contact" },
-  ];
-
-  const sectionObserver = useRef<IntersectionObserver | null>(null);
-  const visibilityRatios = useRef<Record<string, number>>({});
+  const animationFrame = useRef<number | null>(null);
 
   useEffect(() => {
-    const sections = Array.from(
-      document.querySelectorAll<HTMLElement>("[data-section]")
-    );
+    const getSections = () =>
+      navigationItems
+        .map(({ section }) => document.getElementById(section))
+        .filter((section): section is HTMLElement => Boolean(section));
 
-    if (!sections.length) {
-      return;
-    }
+    const updateNavigationState = () => {
+      const sections = getSections();
 
-    sectionObserver.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          visibilityRatios.current[entry.target.id] = entry.isIntersecting
-            ? entry.intersectionRatio
-            : 0;
-        });
-
-        const highestVisibleSection = sections.reduce((bestSection, section) => {
-          const currentRatio = visibilityRatios.current[section.id] ?? 0;
-          const bestRatio = visibilityRatios.current[bestSection.id] ?? 0;
-
-          return currentRatio > bestRatio ? section : bestSection;
-        }, sections[0]);
-
-        if ((visibilityRatios.current[highestVisibleSection.id] ?? 0) > 0) {
-          setActiveLink(highestVisibleSection.id);
-        }
-      },
-      {
-        threshold: [0.2, 0.4, 0.6, 0.8],
-        rootMargin: "-25% 0px -45% 0px",
+      if (!sections.length) {
+        return;
       }
-    );
 
-    sections.forEach((section) => sectionObserver.current?.observe(section));
+      const activationLine = window.innerHeight * 0.35;
+      const shouldCompactNavbar = window.scrollY > 24;
+
+      setIsNavbarCompact((previousState) =>
+        previousState !== shouldCompactNavbar ? shouldCompactNavbar : previousState
+      );
+
+      let nextActiveSection = sections[0].id;
+
+      for (const section of sections) {
+        const { top } = section.getBoundingClientRect();
+
+        if (top - activationLine <= 0) {
+          nextActiveSection = section.id;
+          continue;
+        }
+
+        break;
+      }
+
+      const hasReachedPageBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 2;
+
+      if (hasReachedPageBottom) {
+        nextActiveSection = sections[sections.length - 1].id;
+      }
+
+      setActiveLink((previousLink) =>
+        previousLink === nextActiveSection ? previousLink : nextActiveSection
+      );
+    };
+
+    const scheduleNavigationUpdate = () => {
+      if (animationFrame.current !== null) {
+        return;
+      }
+
+      animationFrame.current = window.requestAnimationFrame(() => {
+        updateNavigationState();
+        animationFrame.current = null;
+      });
+    };
+
+    scheduleNavigationUpdate();
+    const initialTimeout = window.setTimeout(scheduleNavigationUpdate, 160);
+
+    window.addEventListener("scroll", scheduleNavigationUpdate, { passive: true });
+    window.addEventListener("resize", scheduleNavigationUpdate);
+    window.addEventListener("hashchange", scheduleNavigationUpdate);
 
     return () => {
-      sections.forEach((section) => sectionObserver.current?.unobserve(section));
-      sectionObserver.current?.disconnect();
-      visibilityRatios.current = {};
+      window.clearTimeout(initialTimeout);
+      window.removeEventListener("scroll", scheduleNavigationUpdate);
+      window.removeEventListener("resize", scheduleNavigationUpdate);
+      window.removeEventListener("hashchange", scheduleNavigationUpdate);
+
+      if (animationFrame.current !== null) {
+        window.cancelAnimationFrame(animationFrame.current);
+      }
     };
   }, []);
 
   const handleClick = (link: string) => {
     setActiveLink(link);
     setIsMenuOpen(false);
-    router.push(`/#${link}`);
+
+    const sectionElement = document.getElementById(link);
+
+    if (!sectionElement) {
+      router.push(`/#${link}`);
+      return;
+    }
+
+    sectionElement.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.history.replaceState(null, "", `/#${link}`);
   };
 
   const handleMenuToggle = () => {
@@ -86,10 +128,17 @@ export default function Navbar() {
   };
 
   return (
-    <div className={styles.navbar}>
-      <nav className={styles.desktopNav} aria-label="Primary">
+    <div
+      className={`${styles.navbar} ${isNavbarCompact ? styles.navbarScrolled : ""}`}
+    >
+      <nav
+        className={`${styles.desktopNav} ${
+          isNavbarCompact ? styles.desktopNavScrolled : ""
+        }`}
+        aria-label="Primary"
+      >
         <ul className={styles.desktopList}>
-          {elements.map((element) => (
+          {navigationItems.map((element) => (
             <NavbarElement
               key={element.section}
               name={element.name}
@@ -104,7 +153,9 @@ export default function Navbar() {
 
       <button
         type="button"
-        className={styles.menuOpener}
+        className={`${styles.menuOpener} ${
+          isNavbarCompact ? styles.menuOpenerScrolled : ""
+        }`}
         aria-expanded={isMenuOpen}
         aria-controls="mobile-navigation"
         aria-label={
@@ -126,7 +177,7 @@ export default function Navbar() {
         aria-label="Mobile primary"
       >
         <ul className={styles.mobileList}>
-          {elements.map((element) => (
+          {navigationItems.map((element) => (
             <NavbarElement
               key={element.section}
               name={element.name}

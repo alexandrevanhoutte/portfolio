@@ -1,8 +1,10 @@
 import { FadeIn } from "@/app/_components/fadeIn/FadeIn";
-import FeaturedExpertiseCard from "@/app/_components/skillSection/FeaturedExpertiseCard";
-import SectionTitle from "@/app/_components/sectionTitle/SectionTitle";
-import SupportingExpertiseCard from "@/app/_components/skillSection/SupportingExpertiseCard";
-import { featuredExpertise, supportingExpertise } from "@/app/_libs/skills";
+import CapabilityNode from "@/app/_components/skillSection/CapabilityNode";
+import {
+  ConnectorGroup,
+  VerticalTransition,
+} from "@/app/_components/skillSection/SkillConnector";
+import { capabilityGroups } from "@/app/_libs/skills";
 import styles from "./skills.module.css";
 
 export default function SkillSection() {
@@ -13,39 +15,72 @@ export default function SkillSection() {
       id="skills"
       aria-labelledby="skills-title"
     >
-      <div id="skills-title">
-        <SectionTitle className={styles.skillTitle} title="Skills" />
-      </div>
-
-      <div className={styles.content}>
-        <FadeIn duration="0.8s" y={10}>
-          <p className={styles.kicker}>Curated engineering expertise</p>
-        </FadeIn>
-        <FadeIn duration="0.85s" delay="0.08s" y={14}>
-          <p className={styles.intro}>
-            A focused view of my core expertise and the supporting capabilities
-            I use to deliver backend-driven products end to end.
-          </p>
-        </FadeIn>
-
-        <div className={styles.expertiseLayout}>
-          <FadeIn duration="0.78s" delay="0.16s" y={14}>
-            <FeaturedExpertiseCard expertise={featuredExpertise} />
+      <div className={styles.container}>
+        <hr className={styles.divider} aria-hidden="true" />
+        <header className={styles.sectionHeader}>
+          <FadeIn duration="0.8s" y={10}>
+            <span className={styles.number}>03</span>
           </FadeIn>
+          <FadeIn duration="0.9s" delay="0.12s" y={16}>
+            <h2 className={styles.heading} id="skills-title">
+              Backend Systems
+            </h2>
+          </FadeIn>
+          <FadeIn duration="0.85s" delay="0.08s" y={14}>
+            <p className={styles.intro}>
+              A map of the technologies and engineering practices I use to
+              design, build, and operate reliable backend systems.
+            </p>
+          </FadeIn>
+        </header>
 
-          <div className={styles.supportingColumn}>
-            {supportingExpertise.map((expertise, index) => (
-              <FadeIn
-                duration="0.72s"
-                delay={`${0.2 + index * 0.07}s`}
-                key={expertise.id}
-                y={10}
-              >
-                <SupportingExpertiseCard expertise={expertise} />
-              </FadeIn>
-            ))}
+        <FadeIn duration="0.9s" delay="0.16s" y={16}>
+          <div className={styles.systemMap}>
+            <div className={styles.coreFlow}>
+              <div className={styles.coreNode}>
+                <CapabilityNode capability={capabilityGroups[0]} />
+              </div>
+              <ConnectorGroup label="API CALLS" />
+              <div className={styles.coreNode}>
+                <CapabilityNode capability={capabilityGroups[1]} />
+              </div>
+              <ConnectorGroup label="STORAGE" />
+              <div className={styles.coreNode}>
+                <CapabilityNode capability={capabilityGroups[2]} />
+              </div>
+            </div>
+
+            <VerticalTransition label="Supporting systems" />
+
+            <div className={styles.supportingGrid}>
+              <div className={styles.capabilityPair}>
+                <CapabilityNode capability={capabilityGroups[3]} />
+                <span className={styles.mobileCapabilityArrow} aria-hidden="true" />
+              </div>
+              <div className={styles.capabilityPair}>
+                <CapabilityNode capability={capabilityGroups[4]} />
+              </div>
+            </div>
+
+            <VerticalTransition label="Production operation" />
+
+            <div className={styles.operationsGrid}>
+              <div className={styles.capabilityPair}>
+                <CapabilityNode capability={capabilityGroups[5]} />
+                <span className={styles.mobileCapabilityArrow} aria-hidden="true" />
+              </div>
+              <div className={styles.capabilityPair}>
+                <CapabilityNode capability={capabilityGroups[6]} />
+              </div>
+            </div>
+
+            <p className={styles.legend}>
+              interfaces → services → data · workflows · delivery · observability
+            </p>
           </div>
-        </div>
+        </FadeIn>
+
+        <hr className={styles.divider} aria-hidden="true" />
       </div>
     </section>
   );

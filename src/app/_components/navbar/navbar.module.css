@@ -3,8 +3,16 @@
   z-index: 40;
 }
 
+.navbarScrolled {
+  z-index: 43;
+}
+
 .desktopNav {
   display: none;
+}
+
+.desktopNavScrolled {
+  top: 0.74rem;
 }
 
 .menuOpener {
@@ -24,7 +32,13 @@
   color: var(--title-color);
   fill: var(--title-color);
   cursor: pointer;
-  transition: background-color 180ms ease, border-color 180ms ease;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  transition:
+    top 220ms ease,
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease;
 }
 
 .menuOpener:hover {
@@ -35,6 +49,12 @@
 .menuOpener:focus-visible {
   outline: 2px solid rgba(255, 166, 92, 0.95);
   outline-offset: 3px;
+}
+
+.menuOpenerScrolled {
+  top: 0.72rem;
+  transform: scale(0.95);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
 }
 
 .filter {
@@ -87,6 +107,7 @@
     transform: translateX(-50%);
     display: block;
     z-index: 42;
+    transition: top 220ms ease;
   }
 
   .desktopList {
@@ -102,11 +123,36 @@
     box-shadow:
       0 14px 34px rgba(0, 0, 0, 0.4),
       inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    transform-origin: top center;
+    transition:
+      transform 220ms ease,
+      padding 220ms ease,
+      border-color 220ms ease,
+      background-color 220ms ease,
+      box-shadow 220ms ease;
+  }
+
+  .desktopNavScrolled .desktopList {
+    padding: 0.3rem;
+    transform: scale(0.965);
+    border-color: rgba(255, 150, 68, 0.44);
+    background: rgba(8, 8, 10, 0.88);
+    box-shadow:
+      0 12px 26px rgba(0, 0, 0, 0.36),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
   }
 
   .menuOpener,
   .mobileNav,
   .filter {
     display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .desktopNav,
+  .desktopList,
+  .menuOpener {
+    transition: none;
   }
 }
