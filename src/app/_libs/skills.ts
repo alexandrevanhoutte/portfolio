@@ -1,51 +1,49 @@
-export interface CapabilityGroup {
-  id: string;
+export interface SkillGroup {
   category: string;
   title: string;
-  technologies: string[];
+  skills: string[];
 }
 
-export const capabilityGroups: CapabilityGroup[] = [
+export const skillGroups: SkillGroup[] = [
   {
-    id: "interfaces",
+    category: "Languages",
+    title: "Programming Languages",
+    skills: ["Go", "TypeScript", "Python"],
+  },
+  {
+    category: "Backend",
+    title: "Backend Engineering",
+    skills: [
+      "API Design",
+      "Business Logic",
+      "Authentication",
+      "Calculation Engines",
+    ],
+  },
+  {
     category: "Interfaces",
-    title: "API Interfaces",
-    technologies: ["REST", "GraphQL", "gRPC"],
+    title: "APIs and Contracts",
+    skills: ["REST", "GraphQL", "gRPC", "Protobuf"],
   },
   {
-    id: "services",
-    category: "Services",
-    title: "Go Services",
-    technologies: ["Go", "Domain Modeling", "Authentication"],
-  },
-  {
-    id: "data",
     category: "Data",
-    title: "Data Stores",
-    technologies: ["PostgreSQL", "TimescaleDB", "ClickHouse"],
+    title: "Data and Search",
+    skills: [
+      "PostgreSQL",
+      "TimescaleDB",
+      "ClickHouse",
+      "Elasticsearch",
+      "Neo4j",
+    ],
   },
   {
-    id: "search",
-    category: "Search",
-    title: "Search Systems",
-    technologies: ["Elasticsearch", "Neo4j"],
+    category: "Distributed Systems",
+    title: "Events and Workflows",
+    skills: ["Temporal", "Redpanda", "Event-Driven Processing"],
   },
   {
-    id: "workflows",
-    category: "Workflows",
-    title: "Event Workflows",
-    technologies: ["Redpanda", "Temporal"],
-  },
-  {
-    id: "platform",
     category: "Platform",
-    title: "Delivery Platform",
-    technologies: ["Docker", "Kubernetes", "GitHub Actions"],
-  },
-  {
-    id: "observability",
-    category: "Observability",
-    title: "Operational Signals",
-    technologies: ["Grafana", "Logs", "Metrics"],
+    title: "Platform and Reliability",
+    skills: ["Docker", "Kubernetes", "GitHub Actions", "Grafana"],
   },
 ];

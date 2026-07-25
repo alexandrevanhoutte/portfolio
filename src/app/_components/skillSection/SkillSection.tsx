@@ -1,12 +1,6 @@
 import { FadeIn } from "@/app/_components/fadeIn/FadeIn";
-import CapabilityNode from "@/app/_components/skillSection/CapabilityNode";
-import {
-  ConnectorGroup,
-  GroupTransition,
-  SequenceConnector,
-  VerticalTransition,
-} from "@/app/_components/skillSection/SkillConnector";
-import { capabilityGroups } from "@/app/_libs/skills";
+import SkillCard from "@/app/_components/skillSection/SkillCard";
+import { skillGroups } from "@/app/_libs/skills";
 import styles from "./skills.module.css";
 
 export default function SkillSection() {
@@ -30,50 +24,18 @@ export default function SkillSection() {
           </FadeIn>
           <FadeIn duration="0.85s" delay="0.08s" y={14}>
             <p className={styles.intro}>
-              A practical overview of my experience across APIs, backend
-              services, data platforms, distributed workflows, and production
-              operations.
+              Backend engineer focused on Go, API design, data-intensive
+              systems, and distributed workflows, with additional experience in
+              TypeScript and Python.
             </p>
           </FadeIn>
         </header>
 
         <FadeIn duration="0.9s" delay="0.16s" y={16}>
-          <div className={styles.systemMap}>
-            <div className={styles.coreFlow}>
-              <div className={styles.coreNode}>
-                <CapabilityNode capability={capabilityGroups[0]} />
-              </div>
-              <ConnectorGroup label="API CALLS" />
-              <SequenceConnector />
-              <div className={styles.coreNode}>
-                <CapabilityNode capability={capabilityGroups[1]} />
-              </div>
-              <ConnectorGroup label="STORAGE" />
-              <SequenceConnector />
-              <div className={styles.coreNode}>
-                <CapabilityNode capability={capabilityGroups[2]} />
-              </div>
-            </div>
-
-            <VerticalTransition label="Supporting systems" />
-            <GroupTransition label="Supporting systems" />
-
-            <div className={`${styles.supportingGrid} ${styles.mobileGroup}`}>
-              <CapabilityNode capability={capabilityGroups[3]} />
-              <CapabilityNode capability={capabilityGroups[4]} />
-            </div>
-
-            <VerticalTransition label="Production operation" />
-            <GroupTransition label="Production operation" />
-
-            <div className={`${styles.operationsGrid} ${styles.mobileGroup}`}>
-              <CapabilityNode capability={capabilityGroups[5]} />
-              <CapabilityNode capability={capabilityGroups[6]} />
-            </div>
-
-            <p className={styles.legend}>
-              interfaces → services → data · workflows · delivery · observability
-            </p>
+          <div className={styles.skillsGrid}>
+            {skillGroups.map((group) => (
+              <SkillCard key={group.category} group={group} />
+            ))}
           </div>
         </FadeIn>
 

@@ -23,8 +23,8 @@
 }
 
 .desktopElement:hover {
-  background-color: rgba(255, 138, 42, 0.18);
-  color: #fff2e6;
+  background-color: rgba(78, 143, 181, 0.18);
+  color: #f8fafc;
 }
 
 .mobileElement {
@@ -35,23 +35,23 @@
 }
 
 .mobileElement:hover {
-  background-color: rgba(255, 138, 42, 0.18);
+  background-color: rgba(78, 143, 181, 0.18);
 }
 
 .activeElement {
-  border-color: rgba(255, 150, 68, 0.4);
-  background: linear-gradient(135deg, #ff9f4a, #ff7a1a);
-  color: #231104;
-  box-shadow: 0 6px 20px rgba(255, 122, 26, 0.3);
+  border-color: rgba(78, 143, 181, 0.4);
+  background: #4e8fb5;
+  color: #f8fafc;
+  box-shadow: 0 6px 20px rgba(78, 143, 181, 0.3);
 }
 
 .activeElement:hover {
-  background: linear-gradient(135deg, #ff9f4a, #ff7a1a);
-  color: #231104;
+  background: #4e8fb5;
+  color: #f8fafc;
 }
 
 .element:focus-visible {
-  outline: 2px solid rgba(255, 178, 120, 0.95);
+  outline: 2px solid #9dcee5;
   outline-offset: 2px;
 }
 
