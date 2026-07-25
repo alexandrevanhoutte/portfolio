@@ -41,8 +41,12 @@ export default function HeaderSection() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const previousOverflowRef = useRef<string>("");
+  const wasMenuOpenRef = useRef(false);
+  const restoreFocusRef = useRef(true);
+  const pendingNavigationRef = useRef<string | null>(null);
 
-  const closeMenu = useCallback(() => {
+  const closeMenu = useCallback(({ restoreFocus = true } = {}) => {
+    restoreFocusRef.current = restoreFocus;
     setMenuOpen(false);
   }, []);
 
@@ -81,22 +85,82 @@ export default function HeaderSection() {
 
   useEffect(() => {
     if (menuOpen) {
+      wasMenuOpenRef.current = true;
+
       requestAnimationFrame(() => {
         const menu = document.getElementById("mobile-navigation");
         const firstLink = menu?.querySelector<HTMLAnchorElement>("a");
-        firstLink?.focus();
+        firstLink?.focus({ preventScroll: true });
       });
-    } else if (menuButtonRef.current) {
-      menuButtonRef.current.focus();
+
+      return;
     }
+
+    if (!wasMenuOpenRef.current) {
+      return;
+    }
+
+    wasMenuOpenRef.current = false;
+
+    if (restoreFocusRef.current) {
+      requestAnimationFrame(() => {
+        menuButtonRef.current?.focus({ preventScroll: true });
+      });
+    }
+  }, [menuOpen]);
+
+  useEffect(() => {
+    if (menuOpen) {
+      return;
+    }
+
+    const pendingHref = pendingNavigationRef.current;
+    if (!pendingHref) {
+      return;
+    }
+
+    pendingNavigationRef.current = null;
+
+    const targetId = pendingHref.slice(1);
+    const target = document.getElementById(targetId);
+    if (!target) {
+      return;
+    }
+
+    requestAnimationFrame(() => {
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+
+      target.scrollIntoView({
+        behavior: reduceMotion ? "auto" : "smooth",
+        block: "start",
+      });
+
+      window.history.replaceState(
+        null,
+        "",
+        `${window.location.pathname}${window.location.search}${pendingHref}`,
+      );
+
+      const heading = target.querySelector<HTMLElement>(
+        "h1, h2, h3, h4, h5, h6",
+      );
+      (heading ?? target).focus({ preventScroll: true });
+    });
   }, [menuOpen]);
 
   const handleMenuToggle = () => {
     setMenuOpen((prev) => !prev);
   };
 
-  const handleLinkClick = () => {
-    closeMenu();
+  const handleMobileNavigation = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    event.preventDefault();
+    pendingNavigationRef.current = href;
+    closeMenu({ restoreFocus: false });
   };
 
   const handleMenuKeyDown = (event: React.KeyboardEvent) => {
@@ -154,7 +218,9 @@ export default function HeaderSection() {
                 key={item.href}
                 href={item.href}
                 className={styles.mobileMenuLink}
-                onClick={handleLinkClick}
+                onClick={(event) =>
+                  handleMobileNavigation(event, item.href)
+                }
                 style={{ "--menu-index": index } as CSSProperties}
               >
                 <span className={styles.mobileMenuNumber}>{item.number}</span>
