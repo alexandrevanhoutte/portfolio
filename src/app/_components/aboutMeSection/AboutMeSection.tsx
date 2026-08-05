@@ -22,13 +22,14 @@ export default function AboutMeSection() {
               <div className={styles.text}>
                 <p>
                   I&apos;m a backend engineer with 6+ years of experience
-                  building APIs and data-processing systems. My main stack is
-                  Go, PostgreSQL, and Kubernetes, and I have also built NestJS
-                  services in TypeScript and GraphQL APIs in production.
+                  building APIs and data-processing systems. I work primarily
+                  with Go, PostgreSQL, and Kubernetes, with production
+                  experience in TypeScript and GraphQL.
                 </p>
                 <p>
-                  At Glassdome, I work on calculation workflows, time-series
-                  data, multi-tenant systems, and backend performance.
+                  At Glassdome, I build calculation and time-series workflows
+                  for carbon accounting and industrial software, while also
+                  working on multi-tenant systems and backend performance.
                   Previously, I worked on search, authentication, payments, and
                   Korean NLP.
                 </p>

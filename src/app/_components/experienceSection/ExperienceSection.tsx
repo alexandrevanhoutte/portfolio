@@ -35,7 +35,7 @@ const experiences: Experience[] = [
       "Optimized TimescaleDB queries, reducing one-year industrial data retrieval time from over 30 seconds to around 5 seconds.",
       "Redesigned alarm-management workflows.",
       "Contribute to multi-tenant authentication and authorization using OIDC and SAML.",
-      "Use Kubernetes, GitHub Actions, and ArgoCD to deploy backend services and troubleshoot issues in production.",
+      "Use Kubernetes, GitHub Actions, and Argo CD to deploy backend services and troubleshoot issues in production.",
       "Contributed to an MCP feature that helps users create carbon models.",
     ],
     technologies: [
@@ -48,7 +48,7 @@ const experiences: Experience[] = [
       "Temporal",
       "Zitadel",
       "GitHub Actions",
-      "ArgoCD",
+      "Argo CD",
     ],
   },
   {
@@ -65,7 +65,7 @@ const experiences: Experience[] = [
       "Built and maintained NestJS backend services in TypeScript, including GraphQL APIs for web and mobile applications.",
       "Contributed to backend architecture and API design, reviewed code, and helped make technical decisions.",
       "Built search features with Elasticsearch, including indexing and search queries.",
-      "Developed backend features for authentication, sensitive user data, and payments.",
+      "Developed backend features for authentication, secure handling of sensitive user data, and payments.",
       "Managed production deployments on AWS and introduced regression tests and deployment checks, reducing deployment-related incidents by 40%.",
     ],
     technologies: [

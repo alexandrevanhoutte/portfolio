@@ -15,10 +15,10 @@ export const skillGroups: SkillGroup[] = [
     title: "Backend Engineering",
     skills: [
       "API Design",
-      "System Design",
       "Authentication",
       "Multi-tenancy",
       "Calculation Workflows",
+      "Performance Optimization",
     ],
   },
   {
@@ -44,7 +44,7 @@ export const skillGroups: SkillGroup[] = [
       "Docker",
       "Kubernetes",
       "GitHub Actions",
-      "ArgoCD",
+      "Argo CD",
       "Grafana",
     ],
   },
