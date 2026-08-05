@@ -140,11 +140,40 @@
 
 .mobileMenuFooter {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   gap: 1rem;
   margin-top: auto;
   padding-top: 1.25rem;
   border-top: 1px solid rgba(126, 171, 196, 0.18);
+}
+
+.mobileCvAction {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.45rem;
+  color: #f8fafc;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.mobileCvAction span {
+  color: #7eabc4;
+  transition: transform 180ms ease;
+}
+
+.mobileCvAction:focus-visible {
+  outline: 2px solid #7eabc4;
+  outline-offset: 5px;
+  border-radius: 2px;
+}
+
+.mobileMenuFooterMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
   color: #7f91a5;
   font-size: 0.7rem;
 }
@@ -170,10 +199,14 @@
   .mobileMenuLink:hover .mobileMenuContent {
     transform: translateX(0.35rem);
   }
+
+  .mobileCvAction:hover span {
+    transform: translateY(3px);
+  }
 }
 
 @media screen and (max-width: 480px) {
-  .mobileMenuFooter {
+  .mobileMenuFooterMeta {
     flex-direction: column;
     gap: 0.25rem;
   }
@@ -197,6 +230,10 @@
 
   .mobileMenuContent,
   .mobileMenuLink::before {
+    transition: none;
+  }
+
+  .mobileCvAction span {
     transition: none;
   }
 }

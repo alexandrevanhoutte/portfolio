@@ -60,6 +60,17 @@ export default function DesktopNavigation() {
               </a>
             </li>
           ))}
+          <li>
+            <a
+              href="/files/alexandre-vanhoutte-cv.pdf"
+              className={styles.navigationLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open CV (PDF) in a new tab"
+            >
+              CV
+            </a>
+          </li>
         </ul>
       </nav>
     </header>

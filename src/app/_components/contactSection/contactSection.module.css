@@ -19,7 +19,7 @@
   display: grid;
   grid-template-columns: minmax(0, 0.85fr) minmax(480px, 1.15fr);
   gap: clamp(72px, 9vw, 150px);
-  align-items: start;
+  align-items: stretch;
   padding: clamp(6.875rem, 9vw, 8.75rem) 0 6rem;
 }
 
@@ -106,6 +106,19 @@
   color: #d8eff9;
 }
 
+.downloadLink {
+  align-self: flex-start;
+  color: #9dcee5;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.downloadLink:hover {
+  color: #d8eff9;
+}
+
 .form {
   display: flex;
   width: 100%;
@@ -113,6 +126,7 @@
   min-width: 0;
   flex-direction: column;
   gap: 1.25rem;
+  height: 100%;
   justify-self: end;
 }
 
@@ -169,6 +183,15 @@
   resize: vertical;
 }
 
+.messageField {
+  flex: 1;
+}
+
+.messageField textarea {
+  flex: 1;
+  min-height: 12rem;
+}
+
 .fieldError {
   margin: 0;
   color: #f0b0b0;
@@ -222,7 +245,8 @@
 }
 
 .submitButton:focus-visible,
-.socialLinks a:focus-visible {
+.socialLinks a:focus-visible,
+.downloadLink:focus-visible {
   outline: 2px solid #b9e0ef;
   outline-offset: 4px;
 }
@@ -247,6 +271,12 @@
     max-width: 680px;
     justify-self: stretch;
     margin-inline: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .messageField textarea {
+    min-height: 9rem;
   }
 }
 
@@ -291,7 +321,8 @@
 @media (prefers-reduced-motion: reduce) {
   .input,
   .socialLinks a,
-  .submitButton {
+  .submitButton,
+  .downloadLink {
     transition: none;
   }
 }

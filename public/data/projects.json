@@ -3,10 +3,10 @@
     "id": 6,
     "name": "SaveEat",
     "url": "https://www.saveeatapp.com/",
-    "description": "Every day, healthy food is thrown away. Good food that was not sold that day is unfortunately being thrown away. Through SaveEat, together, we can reduce wasted food!",
+    "description": "A platform that helps stores sell unsold food instead of throwing it away.",
     "pictureUrl": "/project-picture/saveeat.png",
     "mainRole": "Backend Systems Engineer (Backend Development, Backend Deployment, Database Management)",
-    "mainStacks": ["NestJs", "PostgreSQL", "Azure App Service", "Azure Blob"]
+    "mainStacks": ["NestJS", "PostgreSQL", "Azure App Service", "Azure Blob Storage"]
   },
   {
     "id": 5,
@@ -15,17 +15,17 @@
     "description": "Easily create and send tasks, notes, and reminders to your favorite productivity apps.",
     "pictureUrl": "/project-picture/markurz.png",
     "mainRole": "Lead Backend Engineer",
-    "mainStacks": ["NestJs", "PostgreSQL", "Azure App Service", "Azure Blob"]
+    "mainStacks": ["NestJS", "PostgreSQL", "Azure App Service", "Azure Blob Storage"]
   },
   {
     "id": 4,
     "name": "Deepform",
     "url": "https://deepform.net",
-    "description": "Deepform helps you automate building feasibility calculations straight from 3D models without script or code.",
+    "description": "A tool for running building-feasibility calculations from 3D models without writing code.",
     "pictureUrl": "/project-picture/deepform.png",
     "mainRole": "Lead Backend Engineer",
     "mainStacks": [
-      "NestJs",
+      "NestJS",
       "PostgreSQL",
       "AWS Lambda",
       "AWS CloudFront",
@@ -37,11 +37,11 @@
     "id": 3,
     "name": "BuilderFul",
     "url": "https://www.builderful.co.kr",
-    "description": "Builderful allows designers to discover and order materials. It will directly deal with multiple vendors in a few clicks, without the inconvenience of contacting them one by one.",
+    "description": "A platform for designers to discover materials and request orders from multiple vendors in one place.",
     "pictureUrl": "/project-picture/builderful.png",
     "mainRole": "Lead Backend Engineer",
     "mainStacks": [
-      "NestJs",
+      "NestJS",
       "PostgreSQL",
       "AWS CloudFront",
       "AWS S3",
@@ -52,16 +52,16 @@
     "id": 2,
     "name": "MOS NLP (Python Library)",
     "url": "http://takeview.co.kr/",
-    "description": "Library to preprocess of korea content. It also helps managing the content and see daily statistics about crawled content on the web.",
+    "description": "A Python library for preprocessing Korean content, managing crawled data, and viewing daily collection statistics.",
     "pictureUrl": "/project-picture/mos-nlp.webp",
     "mainRole": "Backend Systems Engineer (Backend Development, Backend Deployment, Database Management)",
-    "mainStacks": ["Python", "Flask, then FastAPI", "Pypi Server"]
+    "mainStacks": ["Python", "Flask, then FastAPI", "PyPI Server"]
   },
   {
     "id": 1,
     "name": "Spirit Hunter",
     "url": "https://eip.epitech.eu/2018/spirithunter/",
-    "description": "Spirit Hunter is an Epitech Innovative Project. It's a virtual reality mobile game using Google Cardboard and smartwatch.",
+    "description": "A mobile virtual-reality game using Google Cardboard and a smartwatch as input devices.",
     "pictureUrl": "/project-picture/spirit-hunter.png",
     "mainRole": "Team's Leader, Android developer, C++ developer",
     "mainStacks": ["Android", "C++"]

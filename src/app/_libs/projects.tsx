@@ -13,32 +13,32 @@ export const projects: Project[] = [
       id: 8,
       name: "SaveEat",
       description:
-        "Every day, healthy food is thrown away. Good food that was not sold that day is unfortunately being thrown away. Through SaveEat, together, we can reduce wasted food!",
+        "A platform that helps stores sell unsold food instead of throwing it away.",
       pictureUrl: "/project-picture/saveeat.png",
       mainRole:
         "Backend Systems Engineer (Backend Development, Backend Deployment, Database Management)",
       mainStacks: [
-        "NestJs",
+        "NestJS",
         "PostgreSQL",
         "Azure App Service",
-        "Azure Blob",
-        "Github Actions",
+        "Azure Blob Storage",
+        "GitHub Actions",
       ],
     },
     {
       id: 7,
       name: "Construckit",
       description:
-        "Solution for construction project teams by improving the communication and approval workflow",
+        "A collaboration platform for construction teams, focused on communication and approval workflows.",
       pictureUrl: "/project-picture/construckit.png",
       mainRole:
         "Backend Systems Engineer (Backend Development, Backend Deployment, Database Management)",
       mainStacks: [
-        "NestJs",
+        "NestJS",
         "PostgreSQL",
         "Azure App Service",
-        "Azure Blob",
-        "Github Actions",
+        "Azure Blob Storage",
+        "GitHub Actions",
       ],
     },
     {
@@ -50,46 +50,46 @@ export const projects: Project[] = [
       mainRole:
         "Lead Backend Engineer",
       mainStacks: [
-        "NestJs",
+        "NestJS",
         "PostgreSQL",
         "Azure App Service",
-        "Azure Blob",
-        "Github Actions",
+        "Azure Blob Storage",
+        "GitHub Actions",
       ],
     },
     {
       id: 5,
       name: "Deepform",
       description:
-        "Deepform helps you automate building feasibility calculations straight from 3D models without script or code.",
+        "A tool for running building-feasibility calculations from 3D models without writing code.",
       pictureUrl: "/project-picture/deepform.png",
       mainRole:
         "Lead Backend Engineer",
       mainStacks: [
-        "NestJs",
+        "NestJS",
         "PostgreSQL",
         "AWS Lambda",
         "AWS CloudFront",
         "AWS S3",
         "AWS ECS/ECR",
-        "Github Actions",
+        "GitHub Actions",
       ],
     },
     {
       id: 4,
       name: "BuilderFul",
       description:
-        "Builderful allows designers to discover and order materials. It will directly deal with multiple vendors in a few clicks, without the inconvenience of contacting them one by one.",
+        "A platform for designers to discover materials and request orders from multiple vendors in one place.",
       pictureUrl: "/project-picture/builderful.png",
       mainRole:
         "Lead Backend Engineer",
       mainStacks: [
-        "NestJs",
+        "NestJS",
         "PostgreSQL",
         "AWS CloudFront",
         "AWS S3",
         "AWS ECS/ECR",
-        "Github Actions",
+        "GitHub Actions",
       ],
     },
     {
@@ -97,17 +97,17 @@ export const projects: Project[] = [
       name: "MOS NLP (Python Library)",
       url: "http://takeview.co.kr/",
       description:
-        "Library to preprocess of korea content. It also helps managing the content and see daily statistics about crawled content on the web.",
+        "A Python library for preprocessing Korean content, managing crawled data, and viewing daily collection statistics.",
       pictureUrl: "/project-picture/mos-nlp.webp",
       mainRole:
         "Backend Systems Engineer (Backend Development, Backend Deployment, Database Management)",
-      mainStacks: ["Python", "Flask, then FastAPI", "Pypi Server", "Jenkins"],
+      mainStacks: ["Python", "Flask, then FastAPI", "PyPI Server", "Jenkins"],
     },
     {
       id: 2,
       name: "Spirit Hunter",
       description:
-        "Spirit Hunter is an Epitech Innovative Project. It's a virtual reality mobile game using Google Cardboard and smartwatch.",
+        "A mobile virtual-reality game using Google Cardboard and a smartwatch as input devices.",
       pictureUrl: "/project-picture/spirit-hunter.png",
       mainRole: "Team's Leader, Android developer, C++ developer",
       mainStacks: ["Android", "C++"],
@@ -117,7 +117,7 @@ export const projects: Project[] = [
       name: "Cells Runner",
       url: "https://v3.globalgamejam.org/2018/games/cells-runner",
       description:
-        "Cells Runner is a 2D multiplayer game (from 2 players and up to 4) that takes place inside human veins. Made during the Global Game Jam 2018. The theme was 'Transmission'",
+        "A 2–4 player game set inside the human bloodstream, created during Global Game Jam 2018 for the theme “Transmission.”",
       pictureUrl: "/project-picture/cells-runner.png",
       mainRole: "Developer",
       mainStacks: ["Unity", "C#"],
@@ -126,10 +126,11 @@ export const projects: Project[] = [
       id: 0,
       name: "Portfolio",
       url: "https://www.alexandrevanhoutte.com",
-      description: "My personal website with my resume, my projects, ...",
+      description:
+        "The portfolio you are currently viewing, built with Next.js and TypeScript.",
       pictureUrl: "/project-picture/portfolio.png",
       mainRole: "Developer",
-      mainStacks: ["TypeScript", "NextJs", "HTML/CSS"],
+      mainStacks: ["TypeScript", "Next.js", "HTML", "CSS"],
     },
   ];
 

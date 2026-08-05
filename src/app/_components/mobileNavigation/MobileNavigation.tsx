@@ -199,8 +199,21 @@ export default function MobileNavigation() {
             ))}
           </div>
           <footer className={styles.mobileMenuFooter}>
-            <span>Senior Backend Engineer</span>
-            <span>Seoul, South Korea</span>
+            <a
+              href="/files/alexandre-vanhoutte-cv.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open CV (PDF) in a new tab"
+              className={styles.mobileCvAction}
+              onClick={() => closeMenu()}
+            >
+              Open CV
+              <span aria-hidden="true">↗</span>
+            </a>
+            <div className={styles.mobileMenuFooterMeta}>
+              <span>Senior Backend Engineer</span>
+              <span>Seoul, South Korea</span>
+            </div>
           </footer>
         </nav>
       )}

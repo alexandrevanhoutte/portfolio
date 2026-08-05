@@ -228,6 +228,16 @@ export default function ContactSection() {
                   </a>
                 </div>
               </div>
+              <div className={styles.linkGroup}>
+                <span className={styles.linkLabel}>Resume</span>
+                <a
+                  href="/files/alexandre-vanhoutte-cv.pdf"
+                  className={styles.downloadLink}
+                  download="Alexandre-Vanhoutte-CV.pdf"
+                >
+                  Download my CV ↓
+                </a>
+              </div>
             </div>
           </div>
 
@@ -243,7 +253,12 @@ export default function ContactSection() {
               const errorId = `${inputId}-error`;
 
               return (
-                <div className={styles.formGroup} key={field}>
+                <div
+                  className={`${styles.formGroup} ${
+                    field === "message" ? styles.messageField : ""
+                  }`}
+                  key={field}
+                >
                   <label htmlFor={inputId}>{fieldLabels[field]}</label>
                   {field === "message" ? (
                     <textarea
