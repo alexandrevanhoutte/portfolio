@@ -1,5 +1,3 @@
-"use server";
-
 export interface Project {
   id: number;
   name: string;
@@ -10,15 +8,7 @@ export interface Project {
   mainStacks: string[];
 }
 
-export async function getAllProjects() {
-  // const dataDirectory = path.resolve("./public/data");
-  // const fileContents = fs.readFileSync(
-  //   dataDirectory + "/projects.json",
-  //   "utf8"
-  // );
-  // const projects: Project[] = JSON.parse(fileContents);
-  // return projects;
-  return [
+export const projects: Project[] = [
     {
       id: 8,
       name: "SaveEat",
@@ -58,7 +48,7 @@ export async function getAllProjects() {
         "Easily create and send tasks, notes, and reminders to your favorite productivity apps.",
       pictureUrl: "/project-picture/markurz.png",
       mainRole:
-        "Lead Backend Systems Engineer (Backend Development, Backend Deployment, Database Management)",
+        "Lead Backend Engineer",
       mainStacks: [
         "NestJs",
         "PostgreSQL",
@@ -74,7 +64,7 @@ export async function getAllProjects() {
         "Deepform helps you automate building feasibility calculations straight from 3D models without script or code.",
       pictureUrl: "/project-picture/deepform.png",
       mainRole:
-        "Lead Backend Systems Engineer (Backend Development, Backend Deployment, Database Management)",
+        "Lead Backend Engineer",
       mainStacks: [
         "NestJs",
         "PostgreSQL",
@@ -92,7 +82,7 @@ export async function getAllProjects() {
         "Builderful allows designers to discover and order materials. It will directly deal with multiple vendors in a few clicks, without the inconvenience of contacting them one by one.",
       pictureUrl: "/project-picture/builderful.png",
       mainRole:
-        "Lead Backend Systems Engineer (Backend Development, Backend Deployment, Database Management)",
+        "Lead Backend Engineer",
       mainStacks: [
         "NestJs",
         "PostgreSQL",
@@ -139,12 +129,14 @@ export async function getAllProjects() {
       description: "My personal website with my resume, my projects, ...",
       pictureUrl: "/project-picture/portfolio.png",
       mainRole: "Developer",
-      mainStacks: ["Typescript", "NextJs", "HTML/CSS"],
+      mainStacks: ["TypeScript", "NextJs", "HTML/CSS"],
     },
   ];
+
+export function getAllProjects() {
+  return projects;
 }
 
-export async function getProjectById(id: number) {
-  const projects = await getAllProjects();
+export function getProjectById(id: number) {
   return projects.find((project) => project.id === id);
 }

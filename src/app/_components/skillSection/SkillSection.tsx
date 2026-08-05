@@ -24,9 +24,9 @@ export default function SkillSection() {
           </FadeIn>
           <FadeIn duration="0.85s" delay="0.08s" y={14}>
             <p className={styles.intro}>
-              Backend engineer focused on Go, API design, data-intensive
-              systems, and distributed workflows, with additional experience in
-              TypeScript and Python.
+              Backend engineer working mainly with Go, PostgreSQL, and
+              Kubernetes. I also have production experience with TypeScript,
+              NestJS, GraphQL, and AWS.
             </p>
           </FadeIn>
         </header>

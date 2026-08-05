@@ -15,25 +15,11 @@ const DESKTOP_ITEMS_PER_PAGE = 4;
 const MOBILE_ITEMS_PER_PAGE = 2;
 
 export default function ProjectSection() {
-  const [projects, setProjects] = useState<Project[]>([]);
+  const [projects, setProjects] = useState<Project[]>(() => getAllProjects());
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(DESKTOP_ITEMS_PER_PAGE);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const touchStartX = useRef<number | null>(null);
-
-  useEffect(() => {
-    let isMounted = true;
-
-    getAllProjects().then((loadedProjects) => {
-      if (isMounted) {
-        setProjects(loadedProjects);
-      }
-    });
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 767px)");
@@ -147,7 +133,7 @@ export default function ProjectSection() {
             Projects
           </h2>
           <p className={styles.intro}>
-            Selected projects illustrating the systems, products, and technical challenges I have contributed to throughout my career.
+            A selection of backend systems, developer tools, and data-processing projects I have worked on.
           </p>
         </header>
 

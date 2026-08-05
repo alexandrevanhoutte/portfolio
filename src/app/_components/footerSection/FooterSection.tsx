@@ -12,7 +12,7 @@ export default function FooterSection() {
             <p className={styles.name}>Alexandre Vanhoutte</p>
             <p className={styles.role}>Senior Backend Engineer</p>
             <p className={styles.focus}>
-              Go · Backend Systems · Distributed Systems
+              Backend · Data Systems · Distributed Systems
             </p>
           </div>
 

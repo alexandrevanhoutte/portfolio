@@ -4,9 +4,9 @@ import { Manrope } from "next/font/google";
 export const metadata: Metadata = {
   title: "Alexandre Vanhoutte - Senior Backend Engineer - Portfolio",
   description:
-    "Senior Backend Engineer specializing in Go and distributed systems. Building reliable backend products and turning complex technical problems into simple, practical outcomes.",
+    "Senior Backend Engineer building APIs and data-processing systems. Main stack: Go, PostgreSQL, and Kubernetes, with NestJS and TypeScript services and GraphQL APIs in production.",
   keywords:
-    "Alexandre Vanhoutte, Senior Backend Engineer, Go, Distributed Systems, Backend Developer, EPITECH, Korea, Seoul",
+    "Alexandre Vanhoutte, Senior Backend Engineer, Go, TypeScript, NestJS, GraphQL, PostgreSQL, Kubernetes, Data Systems, Backend Developer, EPITECH, Korea, Seoul",
   authors: { name: "Alexandre Vanhoutte" },
   robots: "index, follow",
 };

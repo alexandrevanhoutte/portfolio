@@ -21,18 +21,16 @@ export default function AboutMeSection() {
             <FadeIn duration="0.85s" delay="0.08s" y={14}>
               <div className={styles.text}>
                 <p>
-                  I&apos;m a backend engineer specializing in Go and backend
-                  systems for complex software products.
+                  I&apos;m a backend engineer with 6+ years of experience
+                  building APIs and data-processing systems. My main stack is
+                  Go, PostgreSQL, and Kubernetes, and I have also built NestJS
+                  services in TypeScript and GraphQL APIs in production.
                 </p>
                 <p>
-                  Since 2019, I&apos;ve built services and domain models across
-                  industrial software, search, and natural language processing.
-                  My recent work focuses on carbon calculation workflows, API
-                  design, and time-series data processing.
-                </p>
-                <p>
-                  I design reliable systems around user needs while keeping
-                  long-term product evolution in mind.
+                  At Glassdome, I work on calculation workflows, time-series
+                  data, multi-tenant systems, and backend performance.
+                  Previously, I worked on search, authentication, payments, and
+                  Korean NLP.
                 </p>
               </div>
             </FadeIn>

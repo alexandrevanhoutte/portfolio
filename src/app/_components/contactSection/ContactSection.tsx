@@ -190,9 +190,9 @@ export default function ContactSection() {
             </h2>
             <div className={styles.copyText}>
               <p>
-                I&apos;m open to Senior Backend Engineer opportunities in South
-                Korea and conversations about backend platforms, data-processing
-                systems, and industrial software.
+                I&apos;m open to senior backend roles in South Korea, especially
+                with product teams building backend platforms, data systems, or
+                industrial software.
               </p>
               <p>
                 Have a role, project, or technical challenge in mind? Send me a

@@ -6,18 +6,19 @@ export interface SkillGroup {
 
 export const skillGroups: SkillGroup[] = [
   {
-    category: "Languages",
-    title: "Programming Languages",
-    skills: ["Go", "TypeScript", "Python"],
+    category: "Backend Stack",
+    title: "Backend Technologies",
+    skills: ["Go", "Node.js", "TypeScript", "NestJS"],
   },
   {
-    category: "Backend",
+    category: "Engineering",
     title: "Backend Engineering",
     skills: [
       "API Design",
-      "Business Logic",
+      "System Design",
       "Authentication",
-      "Calculation Engines",
+      "Multi-tenancy",
+      "Calculation Workflows",
     ],
   },
   {
@@ -28,22 +29,23 @@ export const skillGroups: SkillGroup[] = [
   {
     category: "Data",
     title: "Data and Search",
-    skills: [
-      "PostgreSQL",
-      "TimescaleDB",
-      "ClickHouse",
-      "Elasticsearch",
-      "Neo4j",
-    ],
+    skills: ["PostgreSQL", "TimescaleDB", "Elasticsearch", "Neo4j", "Redis"],
   },
   {
     category: "Distributed Systems",
     title: "Events and Workflows",
-    skills: ["Temporal", "Redpanda", "Event-Driven Processing"],
+    skills: ["Redpanda", "Temporal", "Event-Driven Processing"],
   },
   {
     category: "Platform",
-    title: "Platform and Reliability",
-    skills: ["Docker", "Kubernetes", "GitHub Actions", "Grafana"],
+    title: "Platform and Observability",
+    skills: [
+      "AWS",
+      "Docker",
+      "Kubernetes",
+      "GitHub Actions",
+      "ArgoCD",
+      "Grafana",
+    ],
   },
 ];
