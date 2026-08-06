@@ -22,16 +22,18 @@ export default function AboutMeSection() {
               <div className={styles.text}>
                 <p>
                   I&apos;m a backend engineer with 6+ years of experience
-                  building APIs and data-processing systems. I work primarily
-                  with Go, PostgreSQL, and Kubernetes, with production
-                  experience in TypeScript and GraphQL.
+                  building APIs, data-processing systems, and calculation
+                  workflows. I work primarily with Go, PostgreSQL, and
+                  Kubernetes, with production experience in TypeScript,
+                  GraphQL, and cloud-native infrastructure.
                 </p>
                 <p>
-                  At Glassdome, I build calculation and time-series workflows
-                  for carbon accounting and industrial software, while also
-                  working on multi-tenant systems and backend performance.
-                  Previously, I worked on search, authentication, payments, and
-                  Korean NLP.
+                  At Glassdome, I build backend services for carbon accounting
+                  and industrial software, including calculation, aggregation,
+                  and time-series workflows. I also work on multi-tenant
+                  authentication, authorization, and backend performance.
+                  Previously, I built systems for search, payments,
+                  authentication, and Korean NLP.
                 </p>
               </div>
             </FadeIn>
