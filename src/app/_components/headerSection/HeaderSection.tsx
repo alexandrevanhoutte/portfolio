@@ -21,20 +21,20 @@ export default function HeaderSection() {
                 business-critical workflows to distributed systems.
               </p>
               <p className={styles.meta}>
-                Seoul, South Korea · 6+ years of experience
+                Based in Seoul since 2019 · 6+ years of experience
               </p>
               <div className={styles.ctaRow}>
                 <ActionLink
-                  href="#projects"
+                  href="#about-me"
                   className={styles.ctaPrimary}
                   icon="internal"
                   onClick={(event) => {
                     event.preventDefault();
-                    navigateToSection("#projects");
+                    navigateToSection("#about-me");
                   }}
                 >
-                  View selected work
-                </ActionLink>
+                About me
+              </ActionLink>
                 <ActionLink
                   href="/files/alexandre-vanhoutte-cv.pdf"
                   download="Alexandre-Vanhoutte-CV.pdf"

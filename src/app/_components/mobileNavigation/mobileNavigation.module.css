@@ -46,8 +46,8 @@
   z-index: 990;
   display: flex;
   flex-direction: column;
-  min-height: 100dvh;
   min-height: 100vh;
+  min-height: 100dvh;
   padding: 6rem 24px 1.5rem;
   padding-top: calc(6rem + env(safe-area-inset-top, 0));
   padding-bottom: calc(1.5rem + env(safe-area-inset-bottom, 0));
@@ -83,7 +83,7 @@
   bottom: 1rem;
   left: -1rem;
   width: 2px;
-  background: #4e8fb5;
+  background: var(--accent-decorative);
   content: "";
   opacity: 0;
   transform: scaleY(0.4);
@@ -109,8 +109,8 @@
 
 .mobileMenuNumber {
   margin-top: 0.45rem;
-  color: #4e8fb5;
-  font-size: 0.7rem;
+  color: var(--accent-text);
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.12em;
 }
@@ -169,8 +169,8 @@
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  color: #7f91a5;
-  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
 }
 
 @keyframes mobile-menu-item-in {

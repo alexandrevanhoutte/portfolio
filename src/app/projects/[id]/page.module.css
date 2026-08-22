@@ -45,7 +45,7 @@
 
   .name {
     font-weight: 600;
-    color: var(--title-color);
+    color: var(--accent-text);
     min-width: 7rem;
   }
 }

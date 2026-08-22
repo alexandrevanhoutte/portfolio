@@ -30,7 +30,7 @@
   grid-area: number;
   font-size: 0.8125rem;
   font-weight: 600;
-  color: #4e8fb5;
+  color: var(--accent-text);
   letter-spacing: 0.08em;
 }
 
@@ -135,8 +135,8 @@
 }
 
 .technologies {
-  margin: 1rem 0 0;
-  color: #8fb6ca;
+  margin: 0;
+  color: var(--accent-text);
   font-size: 0.8125rem;
   line-height: 1.5;
   letter-spacing: 0.03em;

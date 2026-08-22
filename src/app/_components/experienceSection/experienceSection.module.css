@@ -20,7 +20,7 @@
 .number {
   font-size: 0.8125rem;
   font-weight: 600;
-  color: #4e8fb5;
+  color: var(--accent-text);
   letter-spacing: 0.08em;
 }
 

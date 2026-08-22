@@ -18,7 +18,7 @@
   width: var(--marker-size, 13px);
   height: var(--marker-size, 13px);
   box-sizing: border-box;
-  border: 2px solid var(--accent-color, #4e8fb5);
+  border: 2px solid var(--accent-decorative);
   border-radius: 50%;
   background-color: var(--section-background, #1f2937);
   transform: translateX(-50%);
@@ -46,7 +46,7 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #4e8fb5;
+  color: var(--accent-text);
 }
 
 .company {
@@ -110,13 +110,13 @@
   left: 0;
   width: 0.45rem;
   height: 1px;
-  background-color: #4e8fb5;
+  background-color: var(--accent-decorative);
 }
 
 .outcome {
   font-size: 0.9375em;
   font-weight: 600;
-  color: #4e8fb5;
+  color: var(--accent-text);
 }
 
 .additionalWrapper {
@@ -143,7 +143,8 @@
   align-items: center;
   gap: 0.35rem;
   margin-top: 0.875rem;
-  padding: 0;
+  padding: 0.5rem 0;
+  min-height: 2rem;
   border: 0;
   background: transparent;
   color: #a8b5c8;
@@ -163,11 +164,11 @@
 }
 
 .toggle:hover {
-  color: #4e8fb5;
+  color: var(--accent-text);
 }
 
 .toggle:focus-visible {
-  outline: 2px solid #4e8fb5;
+  outline: 2px solid var(--accent-decorative);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -189,7 +190,7 @@
 .technologies li:not(:last-child)::after {
   content: "·";
   margin-left: 0.5rem;
-  color: #4e8fb5;
+  color: var(--accent-decorative);
 }
 
 @media screen and (max-width: 768px) {

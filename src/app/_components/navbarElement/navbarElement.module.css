@@ -40,13 +40,13 @@
 
 .activeElement {
   border-color: rgba(78, 143, 181, 0.4);
-  background: #4e8fb5;
+  background: var(--accent-decorative);
   color: #f8fafc;
   box-shadow: 0 6px 20px rgba(78, 143, 181, 0.3);
 }
 
 .activeElement:hover {
-  background: #4e8fb5;
+  background: var(--accent-decorative);
   color: #f8fafc;
 }
 

@@ -29,8 +29,8 @@
   border-radius: 0.9rem;
   background: rgba(8, 8, 10, 0.88);
   backdrop-filter: blur(12px);
-  color: var(--title-color);
-  fill: var(--title-color);
+  color: var(--accent-decorative);
+  fill: var(--accent-decorative);
   cursor: pointer;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
   transition:

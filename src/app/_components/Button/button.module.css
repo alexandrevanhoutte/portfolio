@@ -41,7 +41,7 @@
 .icon {
   width: 3rem;
   min-width: 3rem;
-  background-color: var(--title-color);
+  background-color: var(--accent-decorative);
   border-top-left-radius: 0.55rem;
   border-bottom-left-radius: 0.55rem;
   fill: var(--text-color);
