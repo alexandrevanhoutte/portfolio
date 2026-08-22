@@ -16,15 +16,13 @@ export default function ExperienceElement({
   const [isExpanded, setIsExpanded] = useState(false);
   const contributions = experience.contributions ?? [];
   const technologies = experience.technologies ?? [];
-  const visibleLimit = 3;
+  const visibleLimit = contributions.some((contribution) => contribution.outcome)
+    ? 4
+    : 3;
   const visibleContributions = contributions.slice(0, visibleLimit);
   const additionalContributions = contributions.slice(visibleLimit);
   const remainingCount = contributions.length - visibleLimit;
   const hasContributions = contributions.length > 0;
-  const employmentDetails = [
-    experience.employmentType,
-    experience.workMode,
-  ].filter(Boolean);
   const contributionsId = `contributions-${experience.id}`;
 
   return (
@@ -40,11 +38,6 @@ export default function ExperienceElement({
       <div className={styles.metadata}>
         <p className={styles.period}>{experience.period}</p>
         <p className={styles.company}>{experience.company}</p>
-        {employmentDetails.length > 0 && (
-          <p className={styles.employmentDetails}>
-            {employmentDetails.join(" · ")}
-          </p>
-        )}
         {experience.location && (
           <p className={styles.location}>{experience.location}</p>
         )}
@@ -53,12 +46,19 @@ export default function ExperienceElement({
         <h3 className={styles.title}>{experience.title}</h3>
         <p className={styles.summary}>{experience.summary}</p>
         {hasContributions && (
-          <div className={styles.contributionGroup}>
-            <h4 className={styles.contributionLabel}>Key contributions</h4>
+          <>
             <ul className={styles.contributions}>
               {visibleContributions.map((contribution, index) => (
-                <li key={`${experience.id}-contribution-${index}`}>
-                  {contribution}
+                <li
+                  key={`${experience.id}-contribution-${index}`}
+                >
+                  <span>{contribution.text}</span>
+                  {contribution.outcome && (
+                    <span className={styles.outcome}>
+                      {" · "}
+                      {contribution.outcome}
+                    </span>
+                  )}
                 </li>
               ))}
             </ul>
@@ -66,33 +66,46 @@ export default function ExperienceElement({
               <>
                 <div
                   id={contributionsId}
-                  className={`${styles.additionalContributionsWrapper} ${
-                    isExpanded ? styles.additionalContributionsOpen : ""
+                  className={`${styles.additionalWrapper} ${
+                    isExpanded ? styles.additionalOpen : ""
                   }`}
                   aria-hidden={!isExpanded}
                 >
-                  <ul className={styles.additionalContributions}>
+                  <ul className={styles.additionalList}>
                     {additionalContributions.map((contribution, index) => (
                       <li key={`${experience.id}-additional-${index}`}>
-                        {contribution}
+                        <span>{contribution.text}</span>
+                        {contribution.outcome && (
+                          <span className={styles.outcome}>
+                            {" · "}
+                            {contribution.outcome}
+                          </span>
+                        )}
                       </li>
                     ))}
                   </ul>
                 </div>
                 <button
                   type="button"
-                  className={styles.contributionToggle}
+                  className={styles.toggle}
                   aria-controls={contributionsId}
                   aria-expanded={isExpanded}
                   onClick={() => setIsExpanded((expanded) => !expanded)}
                 >
-                  {isExpanded
-                    ? "Show less"
-                    : `View ${remainingCount} more contributions`}
+                  {isExpanded ? (
+                    <>
+                      Show less <span aria-hidden="true">↑</span>
+                    </>
+                  ) : (
+                    <>
+                      See {remainingCount} more contributions{" "}
+                      <span aria-hidden="true">↓</span>
+                    </>
+                  )}
                 </button>
               </>
             )}
-          </div>
+          </>
         )}
         {technologies.length > 0 && (
           <ul

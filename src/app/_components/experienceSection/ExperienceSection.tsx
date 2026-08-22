@@ -2,19 +2,19 @@ import ExperienceElement from "@/app/_components/experienceElement/ExperienceEle
 import { FadeIn } from "@/app/_components/fadeIn/FadeIn";
 import styles from "./experienceSection.module.css";
 
-type EmploymentType = "Full-time" | "Internship";
-type WorkMode = "On-site" | "Hybrid" | "Remote";
+interface Contribution {
+  text: string;
+  outcome?: string;
+}
 
 export interface Experience {
   id: string;
   company: string;
   title: string;
   period: string;
-  employmentType?: EmploymentType;
   location?: string;
-  workMode?: WorkMode;
   summary: string;
-  contributions?: string[];
+  contributions?: Contribution[];
   technologies?: string[];
 }
 
@@ -24,135 +24,101 @@ const experiences: Experience[] = [
     company: "Glassdome",
     title: "Backend Engineer",
     period: "Oct 2024 — Present",
-    employmentType: "Full-time",
-    location: "Seoul, South Korea",
-    workMode: "Hybrid",
+    location: "Seoul",
     summary:
-      "Building Go backend systems for product carbon footprint and industrial performance platforms, with a focus on APIs, calculation workflows, and industrial data processing.",
+      "Building backend services for carbon accounting and industrial performance products.",
     contributions: [
-      "Build Go backend services and REST and gRPC APIs, working with product and frontend teams to deliver carbon-accounting and industrial-performance features.",
-      "Design calculation, aggregation, and time-series processing workflows for carbon accounting and OEE.",
-      "Optimized TimescaleDB queries, reducing one-year industrial data retrieval time from over 30 seconds to around 5 seconds.",
-      "Redesigned alarm-management workflows.",
-      "Contribute to multi-tenant authentication and authorization using OIDC and SAML.",
-      "Use Kubernetes, GitHub Actions, and Argo CD to deploy backend services and troubleshoot issues in production.",
-      "Contributed to an MCP feature that helps users create carbon models.",
+      {
+        text: "Built Go backend services and REST and gRPC APIs, working with product and frontend teams to deliver carbon accounting and industrial performance features.",
+      },
+      {
+        text: "Designed calculation, aggregation, and time-series processing workflows for carbon accounting and OEE.",
+      },
+      {
+        text: "Optimized TimescaleDB queries for one-year industrial data retrieval.",
+        outcome: "30s+ → ~5s",
+      },
+      {
+        text: "Contributed to multi-tenant authentication and authorization, including OIDC and SAML integrations.",
+      },
+      {
+        text: "Contributed to an MCP feature for creating and exploring carbon models.",
+      },
+      {
+        text: "Used Kubernetes, GitHub Actions, Argo CD, and Grafana to deploy, monitor, and troubleshoot backend services in production.",
+      },
     ],
-    technologies: [
-      "Go",
-      "PostgreSQL",
-      "TimescaleDB",
-      "ClickHouse",
-      "Kubernetes",
-      "Redpanda",
-      "Temporal",
-      "Zitadel",
-      "GitHub Actions",
-      "Argo CD",
-    ],
+    technologies: ["Go", "TimescaleDB", "Kubernetes"],
   },
   {
     id: "qwerky",
     company: "Qwerky",
     title: "Lead Backend Engineer",
     period: "Nov 2021 — Oct 2024",
-    employmentType: "Full-time",
-    location: "Seoul, South Korea",
-    workMode: "Hybrid",
-    summary:
-      "Built and maintained NestJS backend services for web and mobile products, working on GraphQL APIs, search, authentication, payments, and AWS deployments.",
+    location: "Seoul",
+    summary: "Led backend architecture and API design for web and mobile applications.",
     contributions: [
-      "Built and maintained NestJS backend services in TypeScript, including GraphQL APIs for web and mobile applications.",
-      "Contributed to backend architecture and API design, reviewed code, and helped make technical decisions.",
-      "Built search features with Elasticsearch, including indexing and search queries.",
-      "Developed backend features for authentication, secure handling of sensitive user data, and payments.",
-      "Managed production deployments on AWS and introduced regression tests and deployment checks, reducing deployment-related incidents by 40%.",
+      {
+        text: "Built and maintained NestJS backend services in TypeScript, including GraphQL APIs for web and mobile applications.",
+      },
+      {
+        text: "Led backend architecture and API design, drove technical decisions, and reviewed code across the backend team.",
+      },
+      {
+        text: "Implemented search features with Elasticsearch, including indexing and search queries.",
+      },
+      {
+        text: "Introduced regression tests and deployment checks.",
+        outcome: "−40% deployment incidents",
+      },
+      {
+        text: "Developed backend features for authentication, secure handling of sensitive user data, and payments.",
+      },
     ],
-    technologies: [
-      "Node.js",
-      "TypeScript",
-      "NestJS",
-      "GraphQL",
-      "PostgreSQL",
-      "Elasticsearch",
-      "Neo4j",
-      "AWS",
-      "Docker",
-      "CI/CD",
-    ],
+    technologies: ["NestJS", "GraphQL", "Elasticsearch"],
   },
   {
     id: "mobile-os",
-    company: "(주)엠오에스에이 (Mobile OS)",
+    company: "Mobile OS",
     title: "Software Engineer",
     period: "Oct 2019 — Nov 2021",
-    employmentType: "Full-time",
-    location: "Seoul, South Korea",
-    workMode: "On-site",
+    location: "Seoul",
     summary:
-      "Worked on backend systems and NLP projects, with a focus on Korean text processing, search, REST APIs, internal libraries, and deployment workflows.",
+      "Worked on APIs, Korean NLP, and reusable backend systems for data-processing services.",
     contributions: [
-      "Built REST APIs for Korean news search and business-data analysis.",
-      "Developed an internal Korean NLP library for lemmatization and part-of-speech tagging.",
-      "Centralized reusable internal libraries and improved release workflows for production data-processing services.",
-    ],
-    technologies: [
-      "REST APIs",
-      "Search Systems",
-      "Korean NLP",
-      "Docker",
-      "Jenkins",
-      "CI/CD",
+      {
+        text: "Built REST APIs for Korean news search and business-data analysis and developed an internal Korean NLP library for lemmatization and part-of-speech tagging.",
+      },
+      {
+        text: "Centralized reusable internal libraries and improved release workflows for production data-processing services.",
+      },
     ],
   },
   {
     id: "capgemini",
     company: "Capgemini",
-    title: "DevOps Engineer Intern — SNCF Projects",
+    title: "DevOps Engineer Intern",
     period: "Mar 2018 — Sep 2018",
-    location: "Lille, France",
-    workMode: "On-site",
-    summary:
-      "Built internal tools for two SNCF projects, covering service health checks, centralized logging, and ticket reporting.",
+    location: "Lille",
+    summary: "Worked on internal service operations and tooling.",
     contributions: [
-      "Automated application module health checks, reducing manual work and improving the accuracy of operational status updates.",
-      "Implemented centralized logging across services, making troubleshooting and maintenance more efficient.",
-      "Consolidated tickets from three ticketing systems, improving reporting, task prioritization, and visibility for teams and clients.",
-    ],
-    technologies: [
-      "Java",
-      "Spring Boot",
-      "Centralized Logging",
-      "Internal Tooling",
+      {
+        text: "Automated health checks, centralized logging, and consolidated ticketing workflows across internal services.",
+      },
     ],
   },
   {
-    id: "vekia-fullstack",
+    id: "vekia",
     company: "Vekia",
     title: "Backend Developer Intern",
-    period: "Sep 2017 — Feb 2018",
-    employmentType: "Internship",
-    location: "Lille, France",
-    summary:
-      "Worked on a sales-planning product used to understand product performance across stores and support stock-allocation decisions.",
+    period: "Apr 2016 — Jul 2016 · Sep 2017 — Feb 2018",
+    location: "Lille",
+    summary: "Worked on inventory tooling and stock-allocation interfaces.",
     contributions: [
-      "Built an AngularJS interface to visualize sales and support stock-allocation decisions.",
-      "Integrated the interface with backend sales and inventory data.",
-    ],
-    technologies: ["AngularJS", "Java", "PL/SQL"],
-  },
-  {
-    id: "vekia-internship",
-    company: "Vekia",
-    title: "Backend Developer Intern",
-    period: "Apr 2016 — Jul 2016",
-    employmentType: "Internship",
-    location: "Lille, France",
-    summary:
-      "Developed Java inventory tools and shared testing utilities for development teams.",
-    contributions: [
-      "Contributed to Java inventory-management tools.",
-      "Built shared utilities that made it easier for teams to create and run tests.",
+      { text: "Developed Java inventory tools and shared test utilities." },
+      {
+        text: "Built an AngularJS interface to visualize sales and support stock-allocation decisions.",
+      },
     ],
   },
 ];
