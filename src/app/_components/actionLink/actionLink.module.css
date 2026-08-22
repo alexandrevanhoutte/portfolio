@@ -1,0 +1,32 @@
+.actionLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.icon {
+  flex-shrink: 0;
+  transition: transform 180ms ease;
+}
+
+.actionLink[data-action-icon="internal"]:is(:hover, :focus-visible) .icon {
+  transform: translateX(2px);
+}
+
+.actionLink[data-action-icon="external"]:is(:hover, :focus-visible) .icon {
+  transform: translate(2px, -2px);
+}
+
+.actionLink[data-action-icon="download"]:is(:hover, :focus-visible) .icon {
+  transform: translateY(2px);
+}
+
+.actionLink[data-action-icon="up"]:is(:hover, :focus-visible) .icon {
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icon {
+    transition: none;
+  }
+}
