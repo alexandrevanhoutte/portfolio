@@ -48,7 +48,18 @@ const experiences: Experience[] = [
         text: "Used Kubernetes, GitHub Actions, Argo CD, and Grafana to deploy, monitor, and troubleshoot backend services in production.",
       },
     ],
-    technologies: ["Go", "TimescaleDB", "Kubernetes"],
+    technologies: [
+      "Go",
+      "PostgreSQL",
+      "TimescaleDB",
+      "ClickHouse",
+      "Kubernetes",
+      "Redpanda",
+      "Temporal",
+      "Zitadel",
+      "GitHub Actions",
+      "Argo CD",
+    ],
   },
   {
     id: "qwerky",
@@ -75,7 +86,18 @@ const experiences: Experience[] = [
         text: "Developed backend features for authentication, secure handling of sensitive user data, and payments.",
       },
     ],
-    technologies: ["NestJS", "GraphQL", "Elasticsearch"],
+    technologies: [
+      "Node.js",
+      "TypeScript",
+      "NestJS",
+      "GraphQL",
+      "PostgreSQL",
+      "Elasticsearch",
+      "Neo4j",
+      "AWS",
+      "Docker",
+      "CI/CD",
+    ],
   },
   {
     id: "mobile-os",
@@ -93,6 +115,14 @@ const experiences: Experience[] = [
         text: "Centralized reusable internal libraries and improved release workflows for production data-processing services.",
       },
     ],
+    technologies: [
+      "REST APIs",
+      "Search Systems",
+      "Korean NLP",
+      "Docker",
+      "Jenkins",
+      "CI/CD",
+    ],
   },
   {
     id: "capgemini",
@@ -105,6 +135,12 @@ const experiences: Experience[] = [
       {
         text: "Automated health checks, centralized logging, and consolidated ticketing workflows across internal services.",
       },
+    ],
+    technologies: [
+      "Java",
+      "Spring Boot",
+      "Centralized Logging",
+      "Internal Tooling",
     ],
   },
   {
@@ -120,6 +156,7 @@ const experiences: Experience[] = [
         text: "Built an AngularJS interface to visualize sales and support stock-allocation decisions.",
       },
     ],
+    technologies: ["AngularJS", "Java", "PL/SQL"],
   },
 ];
 

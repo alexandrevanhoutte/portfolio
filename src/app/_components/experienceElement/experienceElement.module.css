@@ -139,6 +139,9 @@
 }
 
 .toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   margin-top: 0.875rem;
   padding: 0;
   border: 0;
@@ -148,6 +151,15 @@
   font-size: 0.8125rem;
   cursor: pointer;
   transition: color 160ms ease;
+}
+
+.toggleIcon {
+  flex-shrink: 0;
+  transition: transform 160ms ease;
+}
+
+.toggleIconExpanded {
+  transform: rotate(180deg);
 }
 
 .toggle:hover {
@@ -216,7 +228,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   .additionalWrapper,
-  .toggle {
+  .toggle,
+  .toggleIcon {
     transition: none;
   }
 }

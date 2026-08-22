@@ -1,6 +1,7 @@
 "use client";
 
 import type { Experience } from "@/app/_components/experienceSection/ExperienceSection";
+import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import styles from "./experienceElement.module.css";
 
@@ -92,16 +93,17 @@ export default function ExperienceElement({
                   aria-expanded={isExpanded}
                   onClick={() => setIsExpanded((expanded) => !expanded)}
                 >
-                  {isExpanded ? (
-                    <>
-                      Show less <span aria-hidden="true">↑</span>
-                    </>
-                  ) : (
-                    <>
-                      See {remainingCount} more contributions{" "}
-                      <span aria-hidden="true">↓</span>
-                    </>
-                  )}
+                  {isExpanded
+                    ? "Show less"
+                    : `See ${remainingCount} more contributions`}
+                  <ChevronDown
+                    aria-hidden="true"
+                    className={`${styles.toggleIcon} ${
+                      isExpanded ? styles.toggleIconExpanded : ""
+                    }`}
+                    size={14}
+                    strokeWidth={1.75}
+                  />
                 </button>
               </>
             )}

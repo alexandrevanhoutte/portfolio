@@ -1,5 +1,6 @@
 "use client";
 
+import ActionLink from "@/app/_components/actionLink/ActionLink";
 import { FadeIn } from "@/app/_components/fadeIn/FadeIn";
 import { navigateToSection } from "@/app/_libs/navigation";
 import styles from "./headerSection.module.css";
@@ -23,23 +24,24 @@ export default function HeaderSection() {
                 Seoul, South Korea · 6+ years of experience
               </p>
               <div className={styles.ctaRow}>
-                <a
+                <ActionLink
                   href="#projects"
                   className={styles.ctaPrimary}
+                  icon="internal"
                   onClick={(event) => {
                     event.preventDefault();
                     navigateToSection("#projects");
                   }}
                 >
-                  View selected work →
-                </a>
-                <a
+                  View selected work
+                </ActionLink>
+                <ActionLink
                   href="/files/alexandre-vanhoutte-cv.pdf"
                   download="Alexandre-Vanhoutte-CV.pdf"
                   className={styles.ctaSecondary}
                 >
-                  Download CV ↓
-                </a>
+                  Download CV
+                </ActionLink>
               </div>
             </div>
           </FadeIn>
