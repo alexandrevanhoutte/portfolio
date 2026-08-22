@@ -4,7 +4,6 @@
   grid-template-columns: 260px minmax(0, 1fr);
   column-gap: clamp(40px, 6vw, 88px);
   padding: 0 0 4.5rem 2.625rem;
-  margin: 0;
 }
 
 .lastExperience {
@@ -58,13 +57,6 @@
   color: #f8fafc;
 }
 
-.employmentDetails {
-  margin-top: 0.3rem;
-  color: #a8b5c8;
-  font-size: 0.875rem;
-  line-height: 1.4;
-}
-
 .location {
   margin-top: 0.3rem;
   font-size: 0.875rem;
@@ -73,7 +65,8 @@
 }
 
 .title {
-  margin: 0;
+  max-width: 56rem;
+  margin: 0.75rem 0 0;
   font-size: clamp(1.625rem, 2.5vw, 2rem);
   font-weight: 700;
   line-height: 1.15;
@@ -83,37 +76,25 @@
 
 .summary {
   max-width: 46rem;
-  margin-top: 0.875rem;
+  margin: 0.875rem 0 0;
   font-size: clamp(1.0625rem, 1.35vw, 1.1875rem);
   line-height: 1.55;
   color: #cbd5e1;
 }
 
-.contributionGroup {
-  margin-top: 1.5rem;
-}
-
-.contributionLabel {
-  margin: 0;
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #4e8fb5;
-}
-
 .contributions,
-.additionalContributions {
+.additionalList {
+  max-width: 46rem;
   display: flex;
   flex-direction: column;
   gap: 0.6875rem;
-  margin: 0.75rem 0 0;
+  margin: 1.125rem 0 0;
   padding: 0;
   list-style: none;
 }
 
 .contributions li,
-.additionalContributions li {
+.additionalList li {
   position: relative;
   padding-left: 1.125rem;
   font-size: 0.9375rem;
@@ -122,7 +103,7 @@
 }
 
 .contributions li::before,
-.additionalContributions li::before {
+.additionalList li::before {
   content: "";
   position: absolute;
   top: 0.7em;
@@ -132,30 +113,35 @@
   background-color: #4e8fb5;
 }
 
-.additionalContributionsWrapper {
+.outcome {
+  font-size: 0.9375em;
+  font-weight: 600;
+  color: #4e8fb5;
+}
+
+.additionalWrapper {
   display: grid;
   grid-template-rows: 0fr;
-  margin-top: 0;
   opacity: 0;
   transition:
     grid-template-rows 220ms ease,
-    margin-top 220ms ease,
     opacity 180ms ease;
 }
 
-.additionalContributionsOpen {
+.additionalOpen {
   grid-template-rows: 1fr;
-  margin-top: 0.6875rem;
   opacity: 1;
 }
 
-.additionalContributions {
+.additionalList {
   min-height: 0;
-  margin-top: 0;
   overflow: hidden;
 }
 
-.contributionToggle {
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   margin-top: 0.875rem;
   padding: 0;
   border: 0;
@@ -167,11 +153,20 @@
   transition: color 160ms ease;
 }
 
-.contributionToggle:hover {
+.toggleIcon {
+  flex-shrink: 0;
+  transition: transform 160ms ease;
+}
+
+.toggleIconExpanded {
+  transform: rotate(180deg);
+}
+
+.toggle:hover {
   color: #4e8fb5;
 }
 
-.contributionToggle:focus-visible {
+.toggle:focus-visible {
   outline: 2px solid #4e8fb5;
   outline-offset: 3px;
   border-radius: 2px;
@@ -202,7 +197,6 @@
     grid-template-columns: 1fr;
     row-gap: 1.5rem;
     padding: 0 0 3.5rem 2.25rem;
-    margin-bottom: 0;
   }
 
   .title {
@@ -214,24 +208,16 @@
     font-size: 1rem;
   }
 
-  .contributionGroup {
-    margin-top: 1.5rem;
-  }
-
-  .technologies {
-    margin-top: 1.5rem;
-  }
 }
 
 @media screen and (max-width: 480px) {
   .experience {
     padding-left: 2rem;
     padding-bottom: 3rem;
-    margin-bottom: 0;
   }
 
   .contributions li,
-  .additionalContributions li {
+  .additionalList li {
     font-size: 0.875rem;
   }
 
@@ -241,8 +227,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .additionalContributionsWrapper,
-  .contributionToggle {
+  .additionalWrapper,
+  .toggle,
+  .toggleIcon {
     transition: none;
   }
 }

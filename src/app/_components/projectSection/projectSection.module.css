@@ -179,6 +179,9 @@
 }
 
 .pagination button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 0;
   padding: 0.35rem;
   color: #9dcee5;
@@ -186,6 +189,19 @@
   cursor: pointer;
   font-size: 1.25rem;
   line-height: 1;
+}
+
+.pagination button svg {
+  flex-shrink: 0;
+  transition: transform 180ms ease;
+}
+
+.paginationPrevious:is(:hover, :focus-visible) svg {
+  transform: translateX(-2px);
+}
+
+.paginationNext:is(:hover, :focus-visible) svg {
+  transform: translateX(2px);
 }
 
 .pagination button:disabled {
@@ -249,7 +265,8 @@
 @media (prefers-reduced-motion: reduce) {
   .projectsTrack,
   .image,
-  .projectCard {
+  .projectCard,
+  .pagination button svg {
     transition: none;
   }
 }

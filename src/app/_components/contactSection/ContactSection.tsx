@@ -1,6 +1,9 @@
 "use client";
 
-import { FormEvent, useRef, useState } from "react";
+import ActionLink from "@/app/_components/actionLink/ActionLink";
+import { githubUrl, linkedinUrl } from "@/app/_libs/socialLinks";
+import { ArrowRight, Check, Copy } from "lucide-react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import styles from "./contactSection.module.css";
 
 interface FormInputData {
@@ -23,6 +26,8 @@ const initialFormData: FormInputData = {
   email: "",
   message: "",
 };
+
+const contactEmail = "alexandre.vanhoutte@gmail.com";
 
 const fieldLabels: Record<FormField, string> = {
   name: "Name",
@@ -68,6 +73,10 @@ export default function ContactSection() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [touched, setTouched] = useState<Partial<Record<FormField, boolean>>>({});
   const [feedback, setFeedback] = useState<FormFeedback | null>(null);
+  const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "error">(
+    "idle",
+  );
+  const copyTimeout = useRef<number | null>(null);
   const fieldRefs = useRef<
     Record<FormField, HTMLInputElement | HTMLTextAreaElement | null>
   >({
@@ -75,6 +84,14 @@ export default function ContactSection() {
     email: null,
     message: null,
   });
+
+  useEffect(() => {
+    return () => {
+      if (copyTimeout.current !== null) {
+        window.clearTimeout(copyTimeout.current);
+      }
+    };
+  }, []);
 
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -173,6 +190,26 @@ export default function ContactSection() {
   const getFieldError = (field: FormField) =>
     touched[field] ? errors[field] : undefined;
 
+  const handleCopyEmail = async () => {
+    if (copyTimeout.current !== null) {
+      window.clearTimeout(copyTimeout.current);
+    }
+
+    try {
+      if (!navigator.clipboard) {
+        throw new Error("Clipboard access is unavailable.");
+      }
+
+      await navigator.clipboard.writeText(contactEmail);
+      setCopyStatus("copied");
+      copyTimeout.current = window.setTimeout(() => {
+        setCopyStatus("idle");
+      }, 2000);
+    } catch {
+      setCopyStatus("error");
+    }
+  };
+
   return (
     <section
       data-section
@@ -190,53 +227,91 @@ export default function ContactSection() {
             </h2>
             <div className={styles.copyText}>
               <p>
-                I&apos;m open to senior backend roles in South Korea, especially
-                with product teams building backend platforms, data systems, or
-                industrial software.
-              </p>
-              <p>
                 Have a role, project, or technical challenge in mind? Send me a
                 message and I&apos;ll get back to you.
               </p>
             </div>
 
-            <div className={styles.contactLinks}>
-              <div className={styles.linkGroup}>
-                <span className={styles.linkLabel}>Email</span>
-                <span className={styles.emailNote}>
-                  Use the form to send me a direct message.
-                </span>
+            <div className={styles.contactInfo}>
+              <div className={styles.infoRow}>
+                <span className={styles.linkLabel}>Based in</span>
+                <p className={styles.infoValue}>Seoul, South Korea</p>
               </div>
+              <div className={styles.infoRow}>
+                <span className={styles.linkLabel}>Availability</span>
+                <p className={styles.infoValue}>Open to senior backend roles</p>
+              </div>
+              <div className={`${styles.infoRow} ${styles.infoRowWide}`}>
+                <span className={styles.linkLabel}>Work authorization</span>
+                <p className={styles.infoValue}>
+                  South Korea · No sponsorship required
+                </p>
+              </div>
+              <div className={`${styles.infoRow} ${styles.infoRowWide}`}>
+                <span className={styles.linkLabel}>Email</span>
+                <div className={styles.emailActions}>
+                  <a
+                    className={styles.emailLink}
+                    href={`mailto:${contactEmail}`}
+                    aria-label={`Email Alexandre Vanhoutte at ${contactEmail}`}
+                  >
+                    {contactEmail}
+                  </a>
+                  <button
+                    type="button"
+                    className={styles.copyEmailButton}
+                    onClick={handleCopyEmail}
+                    aria-label={
+                      copyStatus === "copied" ? "Email copied" : "Copy email"
+                    }
+                    title={copyStatus === "copied" ? "Email copied" : "Copy email"}
+                  >
+                    {copyStatus === "copied" ? (
+                      <Check aria-hidden="true" size={14} strokeWidth={1.75} />
+                    ) : (
+                      <Copy aria-hidden="true" size={14} strokeWidth={1.75} />
+                    )}
+                  </button>
+                </div>
+              </div>
+              <p className={styles.copyStatus} aria-live="polite" role="status">
+                {copyStatus === "copied"
+                  ? "Email copied to clipboard."
+                  : copyStatus === "error"
+                    ? "Email could not be copied. Please copy it manually."
+                    : ""}
+              </p>
+            </div>
+
+            <div className={styles.contactLinks}>
               <div className={styles.linkGroup}>
                 <span className={styles.linkLabel}>Elsewhere</span>
                 <div className={styles.socialLinks}>
-                  <a
-                    href="https://www.linkedin.com/in/alexvanhoutte/"
-                    target="_blank"
-                    rel="noreferrer"
+                  <ActionLink
+                    href={linkedinUrl}
+                    external
                     aria-label="Visit Alexandre Vanhoutte on LinkedIn"
                   >
-                    LinkedIn ↗
-                  </a>
-                  <a
-                    href="https://github.com/alexandrevanhoutte/"
-                    target="_blank"
-                    rel="noreferrer"
+                    LinkedIn
+                  </ActionLink>
+                  <ActionLink
+                    href={githubUrl}
+                    external
                     aria-label="Visit Alexandre Vanhoutte on GitHub"
                   >
-                    GitHub ↗
-                  </a>
+                    GitHub
+                  </ActionLink>
                 </div>
               </div>
               <div className={styles.linkGroup}>
                 <span className={styles.linkLabel}>Resume</span>
-                <a
+                <ActionLink
                   href="/files/alexandre-vanhoutte-cv.pdf"
                   className={styles.downloadLink}
                   download="Alexandre-Vanhoutte-CV.pdf"
                 >
-                  Download my CV ↓
-                </a>
+                  Download my CV
+                </ActionLink>
               </div>
             </div>
           </div>
@@ -324,7 +399,19 @@ export default function ContactSection() {
                 disabled={isLoading}
                 aria-busy={isLoading}
               >
-                {isLoading ? "Sending..." : "Send message →"}
+                {isLoading ? (
+                  "Sending..."
+                ) : (
+                  <>
+                    Send message
+                    <ArrowRight
+                      aria-hidden="true"
+                      className={styles.submitIcon}
+                      size={14}
+                      strokeWidth={1.75}
+                    />
+                  </>
+                )}
               </button>
             </div>
           </form>

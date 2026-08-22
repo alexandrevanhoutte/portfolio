@@ -1,3 +1,5 @@
+import ActionLink from "@/app/_components/actionLink/ActionLink";
+import { githubUrl, linkedinUrl } from "@/app/_libs/socialLinks";
 import styles from "./footerSection.module.css";
 
 export default function FooterSection() {
@@ -16,9 +18,9 @@ export default function FooterSection() {
             </p>
           </div>
 
-          <a className={styles.backToTop} href="#top">
-            Back to top ↑
-          </a>
+          <ActionLink className={styles.backToTop} href="#top" icon="up">
+            Back to top
+          </ActionLink>
         </div>
 
         <div className={styles.secondaryRow}>
@@ -28,22 +30,20 @@ export default function FooterSection() {
           </div>
 
           <nav aria-label="Social links" className={styles.socialLinks}>
-            <a
-              href="https://www.linkedin.com/in/alexandre-vanhoutte/"
-              target="_blank"
-              rel="noreferrer"
+            <ActionLink
+              href={linkedinUrl}
+              external
               aria-label="Alexandre Vanhoutte on LinkedIn"
             >
-              LinkedIn ↗
-            </a>
-            <a
-              href="https://github.com/alexandrevanhoutte/"
-              target="_blank"
-              rel="noreferrer"
+              LinkedIn
+            </ActionLink>
+            <ActionLink
+              href={githubUrl}
+              external
               aria-label="Alexandre Vanhoutte on GitHub"
             >
-              GitHub ↗
-            </a>
+              GitHub
+            </ActionLink>
           </nav>
         </div>
       </div>

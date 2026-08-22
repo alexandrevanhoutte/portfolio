@@ -20,7 +20,7 @@
   grid-template-columns: minmax(0, 0.85fr) minmax(480px, 1.15fr);
   gap: clamp(72px, 9vw, 150px);
   align-items: stretch;
-  padding: clamp(6.875rem, 9vw, 8.75rem) 0 6rem;
+  padding: clamp(5.25rem, 7vw, 6.5rem) 0 4.5rem;
 }
 
 .contactCopy {
@@ -48,8 +48,8 @@
   display: flex;
   max-width: 35rem;
   flex-direction: column;
-  gap: 1.35rem;
-  margin-top: 3rem;
+  gap: 1rem;
+  margin-top: 2.25rem;
 }
 
 .copyText p {
@@ -59,11 +59,83 @@
   line-height: 1.6;
 }
 
+.contactInfo {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 2rem;
+  row-gap: 1.25rem;
+  max-width: 35rem;
+  margin-top: 2rem;
+}
+
+.infoRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.infoRowWide {
+  grid-column: 1 / -1;
+}
+
+.infoValue {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.emailActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+  min-width: 0;
+}
+
+.emailLink,
+.copyEmailButton {
+  color: #9dcee5;
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.emailLink {
+  overflow-wrap: anywhere;
+}
+
+.copyEmailButton {
+  display: inline-flex;
+  align-items: center;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.emailLink:hover,
+.copyEmailButton:hover {
+  color: #d8eff9;
+}
+
+.copyStatus {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 .contactLinks {
   display: flex;
   flex-wrap: wrap;
-  gap: 2.5rem;
-  margin-top: 3.25rem;
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .linkGroup {
@@ -79,13 +151,6 @@
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-}
-
-.emailNote {
-  max-width: 16rem;
-  color: #a8b5c8;
-  font-size: 0.9375rem;
-  line-height: 1.5;
 }
 
 .socialLinks {
@@ -125,7 +190,7 @@
   max-width: 620px;
   min-width: 0;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1rem;
   height: 100%;
   justify-self: end;
 }
@@ -179,7 +244,6 @@
 }
 
 .inputArea {
-  min-height: 9.5rem;
   resize: vertical;
 }
 
@@ -189,7 +253,7 @@
 
 .messageField textarea {
   flex: 1;
-  min-height: 12rem;
+  min-height: 11rem;
 }
 
 .fieldError {
@@ -225,6 +289,10 @@
 }
 
 .submitButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
   min-width: 10.5rem;
   min-height: 3.25rem;
   border: 1px solid #7eabc4;
@@ -239,14 +307,25 @@
   transition: background-color 180ms ease, border-color 180ms ease;
 }
 
+.submitIcon {
+  flex-shrink: 0;
+  transition: transform 180ms ease;
+}
+
 .submitButton:hover {
   border-color: #d8eff9;
   background-color: #b9e0ef;
 }
 
+.submitButton:is(:hover, :focus-visible) .submitIcon {
+  transform: translateX(2px);
+}
+
 .submitButton:focus-visible,
 .socialLinks a:focus-visible,
-.downloadLink:focus-visible {
+.downloadLink:focus-visible,
+.emailLink:focus-visible,
+.copyEmailButton:focus-visible {
   outline: 2px solid #b9e0ef;
   outline-offset: 4px;
 }
@@ -303,9 +382,18 @@
     margin-top: 2rem;
   }
 
+  .contactInfo {
+    grid-template-columns: 1fr;
+    margin-top: 1.75rem;
+  }
+
+  .infoRowWide {
+    grid-column: auto;
+  }
+
   .contactLinks {
     gap: 1.75rem;
-    margin-top: 2.5rem;
+    margin-top: 1.75rem;
   }
 
   .formFooter {
@@ -322,7 +410,10 @@
   .input,
   .socialLinks a,
   .submitButton,
-  .downloadLink {
+  .downloadLink,
+  .emailLink,
+  .copyEmailButton,
+  .submitIcon {
     transition: none;
   }
 }

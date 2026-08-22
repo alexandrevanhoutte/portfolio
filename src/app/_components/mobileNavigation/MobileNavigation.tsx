@@ -1,8 +1,9 @@
 "use client";
 
+import ActionLink from "@/app/_components/actionLink/ActionLink";
+import { navigateToSection, navigationItems } from "@/app/_libs/navigation";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { CSSProperties } from "react";
-import { navigateToSection, navigationItems } from "@/app/_libs/navigation";
 import styles from "./mobileNavigation.module.css";
 
 const sectionHashes = new Set(navigationItems.map((item) => item.href));
@@ -199,17 +200,15 @@ export default function MobileNavigation() {
             ))}
           </div>
           <footer className={styles.mobileMenuFooter}>
-            <a
+            <ActionLink
               href="/files/alexandre-vanhoutte-cv.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Open CV (PDF) in a new tab"
+              download="Alexandre-Vanhoutte-CV.pdf"
+              aria-label="Download CV (PDF)"
               className={styles.mobileCvAction}
               onClick={() => closeMenu()}
             >
-              Open CV
-              <span aria-hidden="true">↗</span>
-            </a>
+              Download CV
+            </ActionLink>
             <div className={styles.mobileMenuFooterMeta}>
               <span>Senior Backend Engineer</span>
               <span>Seoul, South Korea</span>

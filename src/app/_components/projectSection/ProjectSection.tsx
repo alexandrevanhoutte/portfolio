@@ -1,6 +1,8 @@
 "use client";
 
+import ActionLink from "@/app/_components/actionLink/ActionLink";
 import { Project, getAllProjects } from "@/app/_libs/projects";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import {
   KeyboardEvent,
@@ -177,17 +179,16 @@ export default function ProjectSection() {
                         </p>
                         {project.url ? (
                           <div className={styles.links}>
-                            <a
+                            <ActionLink
                               href={project.url}
-                              target="_blank"
-                              rel="noreferrer"
+                              external
                               aria-label={`View ${project.name} project`}
                               tabIndex={
                                 pageIndex === safeCurrentPage ? 0 : -1
                               }
                             >
-                              View project ↗
-                            </a>
+                              View project
+                            </ActionLink>
                           </div>
                         ) : null}
                       </div>
@@ -203,11 +204,12 @@ export default function ProjectSection() {
           <nav className={styles.pagination} aria-label="Projects pagination">
             <button
               type="button"
+              className={styles.paginationPrevious}
               onClick={() => goToPage(safeCurrentPage - 1)}
               disabled={safeCurrentPage === 0}
               aria-label="Previous projects"
             >
-              ←
+              <ArrowLeft aria-hidden="true" size={14} strokeWidth={1.75} />
             </button>
             <span aria-live="polite">
               {String(safeCurrentPage + 1).padStart(2, "0")} / {" "}
@@ -215,11 +217,12 @@ export default function ProjectSection() {
             </span>
             <button
               type="button"
+              className={styles.paginationNext}
               onClick={() => goToPage(safeCurrentPage + 1)}
               disabled={safeCurrentPage === pageCount - 1}
               aria-label="Next projects"
             >
-              →
+              <ArrowRight aria-hidden="true" size={14} strokeWidth={1.75} />
             </button>
           </nav>
         ) : null}
