@@ -1,9 +1,0 @@
-.sectionTitle {
-  font-weight: 600;
-  font-size: var(--section-title-size, 5rem);
-  color: var(--accent-text);
-
-  @media (max-width: 800px) {
-    font-size: var(--section-title-size-mobile, 4rem);
-  }
-}

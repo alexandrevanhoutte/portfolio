@@ -212,10 +212,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .mobileMenuButton {
-    transition: none;
-  }
-
   .mobileMenuLink {
     animation: none;
   }

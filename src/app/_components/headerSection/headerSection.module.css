@@ -140,14 +140,6 @@
     width: calc(100% - 40px);
   }
 
-  .hero {
-    scroll-margin-top: 0;
-  }
-
-  :global([data-section]) {
-    scroll-margin-top: 5.5rem;
-  }
-
   .heroBody {
     padding-top: 4.5rem;
   }

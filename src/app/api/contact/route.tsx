@@ -16,34 +16,31 @@ export async function POST(request: Request) {
   const password = process.env.NODEMAIL_EMAIL_PASSWORD;
   const myEmail = process.env.NODEMAIL_PERSONAL_EMAIL;
 
-  const getTransporter = () =>
-    nodemailer.createTransport({
-      service: "gmail",
-      host: "smtp.gmail.com",
-      auth: {
-        user: username,
-        pass: password,
-      },
-    });
-
   const formData = await request.formData();
   const name = formData.get("name");
   const email = formData.get("email");
   const message = formData.get("message");
 
-  const transporter = getTransporter();
-
   try {
-    const mail = await transporter.sendMail({
-      from: username,
-      to: myEmail,
-      subject: `Portfolio: New message from ${email}`,
-      html: `
-        <p>Name: ${name} </p>
-        <p>Email: ${email} </p>
-        <p>Message: ${message} </p>
-        `,
-    });
+    await nodemailer
+      .createTransport({
+        service: "gmail",
+        host: "smtp.gmail.com",
+        auth: {
+          user: username,
+          pass: password,
+        },
+      })
+      .sendMail({
+        from: username,
+        to: myEmail,
+        subject: `Portfolio: New message from ${email}`,
+        html: `
+          <p>Name: ${name} </p>
+          <p>Email: ${email} </p>
+          <p>Message: ${message} </p>
+          `,
+      });
     return NextResponse.json(
       { message: "The message has been sent." },
       { headers: corsHeaders }

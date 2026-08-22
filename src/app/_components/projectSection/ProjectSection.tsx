@@ -1,7 +1,7 @@
 "use client";
 
 import ActionLink from "@/app/_components/actionLink/ActionLink";
-import { Project, getAllProjects } from "@/app/_libs/projects";
+import { projects } from "@/app/_libs/projects";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import {
@@ -17,7 +17,6 @@ const DESKTOP_ITEMS_PER_PAGE = 4;
 const MOBILE_ITEMS_PER_PAGE = 2;
 
 export default function ProjectSection() {
-  const [projects, setProjects] = useState<Project[]>(() => getAllProjects());
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(DESKTOP_ITEMS_PER_PAGE);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
@@ -159,15 +158,13 @@ export default function ProjectSection() {
                   {page.map((project) => (
                     <article className={styles.projectCard} key={project.id}>
                       <div className={styles.imageFrame}>
-                        {project.pictureUrl ? (
-                          <Image
-                            className={styles.image}
-                            src={project.pictureUrl}
-                            fill
-                            sizes="(max-width: 767px) 100vw, (max-width: 1380px) 50vw, 660px"
-                            alt={`${project.name} project screenshot`}
-                          />
-                        ) : null}
+                        <Image
+                          className={styles.image}
+                          src={project.pictureUrl}
+                          fill
+                          sizes="(max-width: 767px) 100vw, (max-width: 1380px) 50vw, 660px"
+                          alt={`${project.name} project screenshot`}
+                        />
                       </div>
                       <div className={styles.cardBody}>
                         <h3 className={styles.projectName}>{project.name}</h3>
