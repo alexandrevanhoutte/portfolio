@@ -78,6 +78,35 @@
   z-index: 1;
 }
 
+.skipLink {
+  position: absolute;
+  top: -2.5rem;
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #0f0f13;
+  color: #f8fafc;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  border: 1px solid #7eabc4;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  transition: top 150ms ease;
+}
+
+.skipLink:focus {
+  top: 1rem;
+  outline: 2px solid #7eabc4;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skipLink {
+    transition: none;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .content {
     background:

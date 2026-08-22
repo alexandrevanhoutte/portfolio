@@ -15,10 +15,14 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <>
+      <a href="#main-content" className={styles.skipLink}>
+        Skip to main content
+      </a>
       <DesktopNavigation />
       <MobileNavigation />
 
-      <main id="top">
+      <main id="main-content" tabIndex={-1}>
+        <div id="top" />
         <div className={styles.content}>
           <HeaderSection />
           <AboutMeSection />
@@ -26,9 +30,9 @@ export default function Home() {
           <SkillSection />
           <ProjectSection />
           <ContactSection />
-          <FooterSection />
         </div>
       </main>
+      <FooterSection />
     </>
   );
 }

@@ -260,6 +260,7 @@ export default function ContactSection() {
                   <button
                     type="button"
                     className={styles.copyEmailButton}
+                    data-copied={copyStatus === "copied" ? "true" : "false"}
                     onClick={handleCopyEmail}
                     aria-label={
                       copyStatus === "copied" ? "Email copied" : "Copy email"
@@ -336,39 +337,41 @@ export default function ContactSection() {
                 >
                   <label htmlFor={inputId}>{fieldLabels[field]}</label>
                   {field === "message" ? (
-                    <textarea
-                      ref={(element) => {
-                        fieldRefs.current.message = element;
-                      }}
-                      id={inputId}
-                      name={field}
-                      className={`${styles.input} ${styles.inputArea}`}
-                      placeholder="Tell me briefly about the role, project, or question."
-                      value={formData[field]}
-                      onChange={handleInputChange}
-                      onBlur={handleBlur}
-                      aria-invalid={Boolean(error)}
-                      aria-describedby={error ? errorId : undefined}
-                    />
+<textarea
+                        ref={(element) => {
+                          fieldRefs.current.message = element;
+                        }}
+                        id={inputId}
+                        name={field}
+                        className={`${styles.input} ${styles.inputArea}`}
+                        placeholder="Tell me briefly about the role, project, or question."
+                        value={formData[field]}
+                        onChange={handleInputChange}
+                        onBlur={handleBlur}
+                        aria-invalid={Boolean(error)}
+                        aria-describedby={error ? errorId : undefined}
+                        required
+                      />
                   ) : (
-                    <input
-                      ref={(element) => {
-                        fieldRefs.current[field] = element;
-                      }}
-                      id={inputId}
-                      name={field}
-                      type={field === "email" ? "email" : "text"}
-                      autoComplete={field === "name" ? "name" : "email"}
-                      className={styles.input}
-                      placeholder={
-                        field === "name" ? "Your name" : "you@company.com"
-                      }
-                      value={formData[field]}
-                      onChange={handleInputChange}
-                      onBlur={handleBlur}
-                      aria-invalid={Boolean(error)}
-                      aria-describedby={error ? errorId : undefined}
-                    />
+<input
+                        ref={(element) => {
+                          fieldRefs.current[field] = element;
+                        }}
+                        id={inputId}
+                        name={field}
+                        type={field === "email" ? "email" : "text"}
+                        autoComplete={field === "name" ? "name" : "email"}
+                        className={styles.input}
+                        placeholder={
+                          field === "name" ? "Your name" : "you@company.com"
+                        }
+                        value={formData[field]}
+                        onChange={handleInputChange}
+                        onBlur={handleBlur}
+                        aria-invalid={Boolean(error)}
+                        aria-describedby={error ? errorId : undefined}
+                        required
+                      />
                   )}
                   {error ? (
                     <p className={styles.fieldError} id={errorId} role="alert">

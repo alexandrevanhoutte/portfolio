@@ -135,11 +135,19 @@ export default function MobileNavigation() {
     const menu = document.getElementById("mobile-navigation");
     if (!menu) return;
 
-    const links = menu.querySelectorAll<HTMLAnchorElement>("a");
-    if (links.length === 0) return;
+    const focusableSelector =
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+    const navFocusables = menu.querySelectorAll<HTMLElement>(focusableSelector);
+    const closeButton = menuButtonRef.current;
 
-    const first = links[0];
-    const last = links[links.length - 1];
+    const allFocusables: HTMLElement[] = closeButton
+      ? [...navFocusables, closeButton]
+      : [...navFocusables];
+
+    if (allFocusables.length === 0) return;
+
+    const first = allFocusables[0];
+    const last = allFocusables[allFocusables.length - 1];
 
     if (event.shiftKey && document.activeElement === first) {
       event.preventDefault();

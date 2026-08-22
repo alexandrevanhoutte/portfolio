@@ -153,12 +153,6 @@
   }
 }
 
-@media screen and (max-width: 768px) {
-  .navigation {
-    width: calc(100% - 40px);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .desktopHeader {
     transition: none;

@@ -39,11 +39,11 @@
 }
 
 .eyebrow {
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: #4e8fb5;
+  color: var(--accent-text);
   margin: 0 0 1.625rem;
 }
 
@@ -140,14 +140,6 @@
     width: calc(100% - 40px);
   }
 
-  .hero {
-    scroll-margin-top: 0;
-  }
-
-  :global([data-section]) {
-    scroll-margin-top: 5.5rem;
-  }
-
   .heroBody {
     padding-top: 4.5rem;
   }
@@ -171,7 +163,7 @@
 
 @media screen and (max-width: 480px) {
   .eyebrow {
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
     letter-spacing: 0.15em;
     margin-bottom: 1rem;
   }

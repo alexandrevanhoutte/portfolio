@@ -31,7 +31,7 @@
   display: block;
   font-size: 0.8125rem;
   font-weight: 600;
-  color: #4e8fb5;
+  color: var(--accent-text);
   letter-spacing: 0.08em;
 }
 
@@ -88,8 +88,8 @@
 .emailActions {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.5rem 1rem;
+  align-items: center;
+  gap: 0.25rem;
   min-width: 0;
 }
 
@@ -110,10 +110,43 @@
 .copyEmailButton {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
   border: 0;
   padding: 0;
+  line-height: 0;
   background: transparent;
   cursor: pointer;
+}
+
+.copyEmailButton svg {
+  transition: transform 180ms ease;
+}
+
+.copyEmailButton:hover svg,
+.copyEmailButton:focus-visible svg {
+  transform: scale(1.08);
+}
+
+.copyEmailButton:active svg {
+  transform: scale(0.92);
+}
+
+.copyEmailButton[data-copied="true"] svg {
+  animation: copy-check-in 180ms ease;
+}
+
+@keyframes copy-check-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .emailLink:hover,
@@ -146,7 +179,7 @@
 }
 
 .linkLabel {
-  color: #8fb6ca;
+  color: var(--accent-text);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -239,7 +272,7 @@
 }
 
 .input::placeholder {
-  color: #8b9aad;
+  color: #94a3b8;
   opacity: 1;
 }
 
@@ -413,7 +446,12 @@
   .downloadLink,
   .emailLink,
   .copyEmailButton,
-  .submitIcon {
+  .submitIcon,
+  .copyEmailButton svg {
     transition: none;
+  }
+
+  .copyEmailButton[data-copied="true"] svg {
+    animation: none;
   }
 }

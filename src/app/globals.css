@@ -1,7 +1,12 @@
 :root {
   --background-color: #1f2937;
-  --title-color: #4e8fb5;
-  --text-color: #f3ede8;
+
+  --accent-text: #8fb6ca;
+  --accent-decorative: #4e8fb5;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
 }
 
 html {
