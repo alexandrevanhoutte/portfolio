@@ -95,7 +95,6 @@ export const projects: Project[] = [
     {
       id: 3,
       name: "MOS NLP (Python Library)",
-      url: "http://takeview.co.kr/",
       description:
         "A Python library for preprocessing Korean content, managing crawled data, and viewing daily collection statistics.",
       pictureUrl: "/project-picture/mos-nlp.webp",

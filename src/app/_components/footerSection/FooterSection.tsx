@@ -1,3 +1,4 @@
+import { githubUrl, linkedinUrl } from "@/app/_libs/socialLinks";
 import styles from "./footerSection.module.css";
 
 export default function FooterSection() {
@@ -29,7 +30,7 @@ export default function FooterSection() {
 
           <nav aria-label="Social links" className={styles.socialLinks}>
             <a
-              href="https://www.linkedin.com/in/alexandre-vanhoutte/"
+              href={linkedinUrl}
               target="_blank"
               rel="noreferrer"
               aria-label="Alexandre Vanhoutte on LinkedIn"
@@ -37,7 +38,7 @@ export default function FooterSection() {
               LinkedIn ↗
             </a>
             <a
-              href="https://github.com/alexandrevanhoutte/"
+              href={githubUrl}
               target="_blank"
               rel="noreferrer"
               aria-label="Alexandre Vanhoutte on GitHub"

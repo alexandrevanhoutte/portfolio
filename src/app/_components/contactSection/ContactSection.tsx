@@ -1,5 +1,6 @@
 "use client";
 
+import { githubUrl, linkedinUrl } from "@/app/_libs/socialLinks";
 import { FormEvent, useRef, useState } from "react";
 import styles from "./contactSection.module.css";
 
@@ -211,7 +212,7 @@ export default function ContactSection() {
                 <span className={styles.linkLabel}>Elsewhere</span>
                 <div className={styles.socialLinks}>
                   <a
-                    href="https://www.linkedin.com/in/alexvanhoutte/"
+                    href={linkedinUrl}
                     target="_blank"
                     rel="noreferrer"
                     aria-label="Visit Alexandre Vanhoutte on LinkedIn"
@@ -219,7 +220,7 @@ export default function ContactSection() {
                     LinkedIn ↗
                   </a>
                   <a
-                    href="https://github.com/alexandrevanhoutte/"
+                    href={githubUrl}
                     target="_blank"
                     rel="noreferrer"
                     aria-label="Visit Alexandre Vanhoutte on GitHub"
