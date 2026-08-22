@@ -47,6 +47,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent-text);
+  white-space: nowrap;
 }
 
 .company {

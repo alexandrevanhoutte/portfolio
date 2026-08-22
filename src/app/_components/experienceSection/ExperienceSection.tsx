@@ -11,7 +11,7 @@ export interface Experience {
   id: string;
   company: string;
   title: string;
-  period: string;
+  period: string | string[];
   location?: string;
   summary: string;
   contributions?: Contribution[];
@@ -147,7 +147,7 @@ const experiences: Experience[] = [
     id: "vekia",
     company: "Vekia",
     title: "Backend Developer Intern",
-    period: "Apr 2016 — Jul 2016 · Sep 2017 — Feb 2018",
+    period: "Apr–Jul 2016 · Sep 2017–Feb 2018",
     location: "Lille",
     summary: "Worked on inventory tooling and stock-allocation interfaces.",
     contributions: [

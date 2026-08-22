@@ -37,7 +37,15 @@ export default function ExperienceElement({
         aria-hidden="true"
       />
       <div className={styles.metadata}>
-        <p className={styles.period}>{experience.period}</p>
+        {Array.isArray(experience.period) ? (
+          experience.period.map((periodLine, index) => (
+            <p key={index} className={`${styles.period} ${styles.periodLine}`}>
+              {periodLine}
+            </p>
+          ))
+        ) : (
+          <p className={styles.period}>{experience.period}</p>
+        )}
         <p className={styles.company}>{experience.company}</p>
         {experience.location && (
           <p className={styles.location}>{experience.location}</p>
