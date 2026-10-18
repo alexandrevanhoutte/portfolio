@@ -21,19 +21,18 @@ export default function AboutMeSection() {
             <FadeIn duration="0.85s" delay="0.08s" y={14}>
               <div className={styles.text}>
                 <p>
-                  I&apos;m a backend engineer with 6+ years of experience
-                  building APIs, data-processing systems, and calculation
-                  workflows. I work primarily with Go, PostgreSQL, and
+                  I&apos;m a Senior Backend Engineer with 7 years of experience
+                  building APIs, data-processing systems, and scalable backend
+                  services. I work primarily with Go, PostgreSQL, and
                   Kubernetes, with production experience in TypeScript,
                   GraphQL, and cloud-native infrastructure.
                 </p>
                 <p>
-                  At Glassdome, I build backend services for carbon accounting
-                  and industrial software, including calculation, aggregation,
-                  and time-series workflows. I also work on multi-tenant
-                  authentication, authorization, and backend performance.
-                  Previously, I built systems for search, payments,
-                  authentication, and Korean NLP.
+                  My experience spans carbon accounting, industrial software,
+                  search, payments, authentication, and Korean NLP. I&apos;ve
+                  worked on complex calculation workflows, time-series data
+                  processing, multi-tenant authorization, and backend
+                  performance optimization.
                 </p>
               </div>
             </FadeIn>
