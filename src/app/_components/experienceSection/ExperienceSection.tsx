@@ -23,7 +23,7 @@ const experiences: Experience[] = [
     id: "glassdome",
     company: "Glassdome",
     title: "Backend Engineer",
-    period: "Oct 2024 — Present",
+    period: "Oct 2024 — Oct 2026",
     location: "Seoul",
     summary:
       "Building backend services for carbon accounting and industrial performance products.",
