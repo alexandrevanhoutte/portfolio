@@ -48,4 +48,9 @@ export const skillGroups: SkillGroup[] = [
       "Grafana",
     ],
   },
+  {
+    category: "AI & Developer Tools",
+    title: "AI & Developer Tools",
+    skills: ["MCP", "OpenAI Codex", "OpenCode"],
+  },
 ];
