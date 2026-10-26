@@ -21,7 +21,7 @@ export default function HeaderSection() {
                 business-critical workflows to distributed systems.
               </p>
               <p className={styles.meta}>
-                Based in Seoul since 2019 · 6+ years of experience
+                Based in Seoul since 2019 · 7 years of experience
               </p>
               <div className={styles.ctaRow}>
                 <ActionLink
